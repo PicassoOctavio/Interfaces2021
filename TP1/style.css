@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+html {
+  font-family: 'Roboto', sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  font-size: 1.1em;
+}
+
+body {
+  margin: 0;
+  display: grid;
+  background-color: #FBFBFB;
+}
+
+.app-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: fit-content;
+  align-self: center;
+}
+
+.tool-bar {
+  display: grid;
+  align-self: flex-start;
+  width: 70px;
+  height: 400px;
+  background-color: #EEF3FF;
+  box-shadow: -2px -2px 5px rgba(0, 0, 0, 0.25);
+  border-radius: 22px;
+}
+
+canvas {
+  border: 1px solid black;
+}
+
+.tools {
+  display: grid;
+  justify-items: center;
+  align-self: center;
+}
+
+.tools button {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  transition: transform .2s; /* Animation */
+
+}
+
+.tools button img {
+  width: 60%;
+}
+
+.pencil, .eraser, .filter, .upload {
+  margin-bottom: 70%;
+}
+
+.tools button:hover {
+  cursor: pointer;
+  transform: scale(1.2)
+}
+
+.list-filters {
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  justify-content: center;
+  margin-top: 180px;
+  align-self: flex-start;
+  border: 1px solid rgb(143, 142, 142);
+  width: 300px;
+  height: fit-content;
+}
+
+.list-filters input {
+  align-self: center;
+  margin-left: 40px;
+  margin-top: 0;
+  margin-right: 0;
+  padding: 0;
+}
