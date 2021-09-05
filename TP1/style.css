@@ -79,16 +79,12 @@ canvas {
   margin-left: .4%;
 }
 
-.list-filters input {
+.radio-button-filter {
   align-self: center;
   margin-top: 0;
   margin-right: 0;
   padding: 0;
   justify-self: right;
-}
-
-.list-filters input:checked {
-  background-color: black;
 }
 
 .filter label {
@@ -109,4 +105,12 @@ canvas {
   margin-bottom: 4%;
   padding-left: 10%;
   padding-right: 10%;
+}
+
+#brightness-slider {
+  margin-top: 6%;
+  justify-self: left;
+  grid-column-start: 1;
+  grid-column-end: -1;
+  width: 100%;
 }
