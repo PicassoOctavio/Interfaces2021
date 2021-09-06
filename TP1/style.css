@@ -52,7 +52,7 @@ body {
   width: 60%;
 }
 
-.pencil, .eraser, .filter-button, .upload {
+.eraser, .filter-button, .upload {
   margin-bottom: 50%;
 }
 
@@ -150,4 +150,17 @@ canvas {
 
 .display-none {
   display: none;
+}
+
+.color-picker {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  height: 15px;
+  width: 39px;
+  margin-bottom: 40%;
+}
+
+.pencil {
+  margin-bottom: 0;
 }
