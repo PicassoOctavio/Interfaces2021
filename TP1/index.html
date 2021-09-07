@@ -6,63 +6,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Entregable 1</title>
     <link rel="stylesheet" href="style.css" />
-    <body>
+  </head>
+
+  <body>
+
     <div class="app-container">
+
+     
+
       <div class="tool-bar">
         <div class="tools">
-          <button class="pencil tooltip">
+
+          <button class="pencil tooltip" id="lapiz">
             <span class="tooltiptext">Lápiz</span>
             <img src="icons/pencil.svg" alt="" />
           </button>
+
           <button class="eraser tooltip">
             <span class="tooltiptext">Goma</span>
             <img src="icons/eraser.svg" alt="" />
           </button>
+          
           <button class="js-filter-button filter-button tooltip">
             <span class="tooltiptext">Filtros</span>
             <img src="icons/filter.svg" alt="" />
           </button>
+
           <button class="upload tooltip" onclick="document.querySelector('.input1').click();">
             <span class="tooltiptext">Cargar imagen</span>
             <img src="icons/upload.svg" alt="" />
           </button>
+
           <button class="download tooltip">
             <span class="tooltiptext">Descargar canvas</span>
             <img src="icons/download.svg" alt="" />
           </button>
         </div>
       </div>
+
       <div class="js-filters-pop-up list-filters display-none">
+
         <div class="filter">
           <label for="border-det">Detección de bordes</label>
           <input class="radio-button-filter" type="radio" id="border-det" name="filter">
         </div>
+
         <div class="filter">
           <label for="blur">Blur</label>
           <input class="radio-button-filter" type="radio" id="blur" name="filter">
         </div>
+
         <div class="filter">
           <label for="negativo">Negativo</label>
           <input class="radio-button-filter" type="radio" id="negativo" name="filter">
         </div>
+
         <div class="filter">
           <label for="sepia">Sepia</label>
           <input class="radio-button-filter" type="radio" id="sepia" name="filter">
         </div>
+
         <div class="filter">
           <label for="binarizacion">Binarización</label>
           <input class="radio-button-filter" type="radio" id="binarizacion" name="filter">
         </div>
+
         <div class="filter">
           <label for="brillo">Brillo</label>
           <input class="radio-button-filter" type="radio" id="brillo" name="filter">
           <input type="range" min="1" max="100" value="0" class="slider" id="brightness-slider">
         </div>
       </div>
+
       <div>
         <input class="input1" type="file" accept="image/png, .jpeg, .jpg"/>
-        <canvas width="800" height="600" class="canvas1"></canvas>
+        <canvas width="800" height="500" class="canvas1"></canvas>
       </div>
+      
+      <div class="tool-bar-settings">
+        <div id="containerSlider">
+          <h4 style="color: white;">Tamaño: <span id="slider"> </span></h4>
+          <input type="range" id="tamanioPincel" min="5" max="50" step="5"/>
+        </div>
+      </div>
+
     </div>
 
     <script type="text/javascript" src="main.js"></script>
