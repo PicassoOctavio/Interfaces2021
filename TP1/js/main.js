@@ -7,6 +7,8 @@ function init() {
   btnFilter.addEventListener('focusout', () => showFilters(filterPopUp));
 
   const paint = new Paint();
+  const lapiz = new Lapiz(2);
+  paint.addTool(lapiz);
 }
 
 function showFilters(popUp) {

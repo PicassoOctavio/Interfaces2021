@@ -2,18 +2,18 @@ class Lapiz {
 
   dotSize;
   color;
-  lapiz;
+  boton;
   isclicked;
 
   constructor(dotSize) {
     this.dotSize = dotSize;
     this.color = document.querySelector('.js-color-picker');
-    this.lapiz = document.querySelector('.js-pencil');
+    this.boton = document.querySelector('.js-pencil');
     this.listenClick();
   }
 
   listenClick() {
-    this.lapiz.addEventListener('click', () => {
+    this.boton.addEventListener('click', () => {
       console.log('CLICKEASTE LAPIZ')
       this.isclicked = true;
     })
