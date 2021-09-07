@@ -1,12 +1,10 @@
 class Paint {
 
   canvas;
-  context;
   lapiz;
 
   constructor() {
     this.canvas = new Canvas();
-    this.context = this.canvas.canvas.getContext('2d');
     this.lapiz = new Lapiz(2);
   }
 
@@ -21,11 +19,11 @@ class Paint {
   }
 
   drawDot(x, y) {
-    this.context.fillStyle = this.lapiz.getColor();
     let dotSize = this.lapiz.getDotSize();
-    this.context.beginPath(); //Start path
-    this.context.arc(x, y, dotSize, 0, 2 * Math.PI); // Draw a point using the arc function of the canvas with a point structure.
-    this.context.fill(); // Close the path and fill.
+    this.canvas.context.fillStyle = this.lapiz.getColor();
+    this.canvas.context.beginPath();
+    this.canvas.context.arc(x, y, dotSize, 0, 2 * Math.PI);
+    this.canvas.context.fill();
   }
 
 }
