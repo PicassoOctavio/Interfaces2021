@@ -20,7 +20,7 @@ class Paint {
     })
   }
 
-  drawDot = (x, y) => {
+  drawDot(x, y) {
     this.context.fillStyle = this.lapiz.getColor();
     let dotSize = this.lapiz.getDotSize();
     this.context.beginPath(); //Start path
