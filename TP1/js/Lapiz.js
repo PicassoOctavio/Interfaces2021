@@ -3,7 +3,7 @@ class Lapiz {
   dotSize;
   color;
   lapiz;
-  isClicked;
+  isclicked;
 
   constructor(dotSize) {
     let colorPicker = document.querySelector('.js-color-picker');
@@ -12,7 +12,7 @@ class Lapiz {
     this.lapiz = document.querySelector('.js-pencil');
     this.lapiz.addEventListener('click', () => {
       console.log('CLICKEASTE LAPIZ')
-      this.isClicked = true;
+      this.isclicked = true;
     })
   }
 
@@ -25,7 +25,7 @@ class Lapiz {
   }
 
   isClicked() {
-    return this.isClicked;
+    return this.isclicked;
   }
 
 }

@@ -5,24 +5,24 @@ class Paint {
   lapiz;
 
   constructor() {
-    this.canvas = document.querySelector('canvas');
-    this.context = this.canvas.getContext('2d');
+    this.canvas = new Canvas();
+    this.context = this.canvas.canvas.getContext('2d');
     this.lapiz = new Lapiz(2);
   }
 
   listen() {
-    // if (this.lapiz.isClicked()) {
-      this.canvas.addEventListener('mousedown', (e) => {
-        // let x = canvas.getX();
-        // let y = canvas.getY();
-        // this.drawDot(x, y);
-      })
-    // }
+    this.canvas.canvas.addEventListener('mousedown', (e) => {
+      if (this.lapiz.isClicked()) {
+        let x = this.canvas.getX(e);
+        let y = this.canvas.getY(e);
+        this.drawDot(x, y)
+      }
+    })
   }
 
   drawDot = (x, y) => {
-    // this.context.fillStyle = lapiz.getColor();
-    // let dotSize = lapiz.getDotSize();
+    this.context.fillStyle = this.lapiz.getColor();
+    let dotSize = this.lapiz.getDotSize();
     this.context.beginPath(); //Start path
     this.context.arc(x, y, dotSize, 0, 2 * Math.PI); // Draw a point using the arc function of the canvas with a point structure.
     this.context.fill(); // Close the path and fill.
