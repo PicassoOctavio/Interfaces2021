@@ -21,6 +21,8 @@ body {
   align-items: center;
   height: fit-content;
   align-self: center;
+  justify-content: space-around;
+  width: 1600px;
 }
 
 .tool-bar {
