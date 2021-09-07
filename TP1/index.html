@@ -22,8 +22,8 @@
             <span class="tooltiptext">Filtros</span>
             <img src="icons/filter.svg" alt="" />
           </button>
-          <button class="upload tooltip">
-            <span class="tooltiptext">Subir imagen</span>
+          <button class="upload tooltip" onclick="document.querySelector('.input1').click();">
+            <span class="tooltiptext">Cargar imagen</span>
             <img src="icons/upload.svg" alt="" />
           </button>
           <button class="download tooltip">
@@ -59,9 +59,12 @@
           <input type="range" min="1" max="100" value="0" class="slider" id="brightness-slider">
         </div>
       </div>
-      <canvas width="800" height="600"></canvas>
+      <div>
+        <input class="input1" type="file" accept="image/png, .jpeg, .jpg"/>
+        <canvas width="800" height="600" class="canvas1"></canvas>
+      </div>
     </div>
 
-    <script src="main.js"></script>
+    <script type="text/javascript" src="main.js"></script>
   </body>
 </html>
