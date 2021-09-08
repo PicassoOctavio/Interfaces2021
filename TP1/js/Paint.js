@@ -6,15 +6,49 @@ class Paint {
   lastClickedY;
   tools;
   currentTool;
+  buttonLoadImage;
 
   constructor() {
     this.canvas = new Canvas();
     this.tools = [];
     this.currentTool = null;
+    this.buttonLoadImage;
     this.listenMouseMove();
     this.listenMouseDown();
     this.listenMouseUp();
   }
+
+  addButtonLoadImage(button) {
+    this.buttonLoadImage = button;
+    this.listenLoadImage();
+  }
+
+  listenLoadImage() {
+    this.buttonLoadImage.addEventListener('click', async () => {
+      let inputFile = document.querySelector('.js-input-file');
+      inputFile.click();
+      let image = await this.getImage(inputFile);
+      this.canvas.whiten();
+      this.canvas.drawImage(image);
+    })
+  }
+
+  getImage(inputFile) {
+    return new Promise((resolve, reject) => {
+      inputFile.onchange = e => {
+        let file = e.target.files[0];
+        let reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = readerEvent => {
+          let content = readerEvent.target.result;
+          let image = new Image();
+          image.src = content;
+          image.onload = () => { resolve (image); }
+        }
+      }
+    })
+  }
+
 
   // Agrega herramienta y escucha si se le hace click
   addTool(tool) {
@@ -26,7 +60,6 @@ class Paint {
   dibuja un punto en la posición clickeada */
   listenMouseDown() {
     this.canvas.canvas.addEventListener('mousedown', (e) => {
-      console.log(this.currentTool)
       if (this.currentTool) {
         this.isClickDown = true;
         let x = this.canvas.getX(e);
@@ -60,6 +93,8 @@ class Paint {
     })
   }
 
+  /* es posible hacer este metodo en la clase Canvas.js pasando
+  por parametro la herramienta --> drawLine(x0, y0, x1, y1, tool) */
   drawLine(x0, y0, x1, y1) {
     this.canvas.context.beginPath();
     this.canvas.context.strokeStyle = this.currentTool.getColor();

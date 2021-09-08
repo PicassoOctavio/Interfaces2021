@@ -9,6 +9,8 @@ function init() {
   const paint = new Paint();
   const lapiz = new Lapiz(2, document.querySelector('.js-pencil'));
   const goma  = new Goma(2, document.querySelector('.js-eraser'), '#FFFFFF');
+  const buttonUpload = document.querySelector('.js-button-upload');
+  paint.addButtonLoadImage(buttonUpload);
   paint.addTool(lapiz);
   paint.addTool(goma);
 }
