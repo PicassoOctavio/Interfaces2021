@@ -9,20 +9,24 @@ class Paint {
 
   constructor() {
     this.canvas = new Canvas();
+    this.tools = [];
+    this.currentTool = null;
     this.listenMouseMove();
     this.listenMouseDown();
     this.listenMouseUp();
-    this.tools = [];
-    this.currentTool = null;
   }
 
+  // Agrega herramienta y escucha si se le hace click
   addTool(tool) {
     this.tools.push(tool);
+    this.listenTool(tool)
   }
 
+  /* Escucha clicks dentro del canvas. Si hay una heramienta seleccionada,
+  dibuja un punto en la posición clickeada */
   listenMouseDown() {
     this.canvas.canvas.addEventListener('mousedown', (e) => {
-      this.currentTool = this.getCurrentTool();
+      console.log(this.currentTool)
       if (this.currentTool) {
         this.isClickDown = true;
         let x = this.canvas.getX(e);
@@ -32,14 +36,10 @@ class Paint {
     })
   }
 
-  // retorna la herramienta que está siendo seleccionada en el paint
-  getCurrentTool() {
-    for (let i = 0; i < this.tools.length; i++) {
-      if (this.tools[i].isClicked()) {
-        return this.tools[i]
-      }
-    }
-    return null;
+  /* Escucha el click en la herramienta. Si fue clickeada,
+  se define como la herramienta actual (currentTool) */
+  listenTool(tool) {
+    tool.boton.addEventListener('click', () => this.currentTool = tool)
   }
 
   listenMouseUp() {
@@ -48,14 +48,14 @@ class Paint {
     })
   }
 
+  /* Escucha movimiento dentro del canvas. Si hay una heramienta seleccionada
+  y se está manteniendo el click presionado, dibuja una linea */
   listenMouseMove() {
     this.canvas.canvas.addEventListener('mousemove', (e) => {
-      if (this.currentTool != null) {
-        if (this.isClickDown && this.currentTool.isClicked()) {
-          let x = this.canvas.getX(e);
-          let y = this.canvas.getY(e);
-          this.drawLine(this.lastClickedX, this.lastClickedY, x, y);
-        }
+      if (this.currentTool && this.isClickDown) {
+        let x = this.canvas.getX(e);
+        let y = this.canvas.getY(e);
+        this.drawLine(this.lastClickedX, this.lastClickedY, x, y);
       }
     })
   }
@@ -63,7 +63,7 @@ class Paint {
   drawLine(x0, y0, x1, y1) {
     this.canvas.context.beginPath();
     this.canvas.context.strokeStyle = this.currentTool.getColor();
-    this.canvas.context.lineWidth = this.currentTool.getDotSize();
+    this.canvas.context.lineWidth = this.currentTool.getSize();
     this.canvas.context.lineCap = 'round';
     this.canvas.context.moveTo( x1, y1);
     this.canvas.context.lineTo( x0, y0 );

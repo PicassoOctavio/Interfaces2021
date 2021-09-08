@@ -1,16 +1,17 @@
-class Lapiz {
+class Goma {
 
   size;
   color;
   boton;
   is_selected;
 
-  constructor(size, boton) {
+  constructor(size, boton, color) {
     this.size = size;
-    this.color = document.querySelector('.js-color-picker');
+    this.color = color;
     this.boton = boton;
     this.is_selected = false;
     this.listenClick();
+
   }
 
   unselect() {
@@ -19,13 +20,13 @@ class Lapiz {
 
   listenClick() {
     this.boton.addEventListener('click', () => {
-      console.log('CLICKEASTE LAPIZ')
+      console.log('CLICKEASTE goma')
       this.is_selected = true;
     })
   }
 
   getColor() {
-    return this.color.value;
+    return this.color;
   }
 
   getSize() {
