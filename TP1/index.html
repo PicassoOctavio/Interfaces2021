@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style.css" />
     <body>
     <div class="app-container">
+
       <div class="tool-bar">
         <div class="tools">
           <button class="js-pencil pencil tooltip">
@@ -23,7 +24,7 @@
             <span class="tooltiptext">Filtros</span>
             <img src="icons/filter.svg" alt="" />
           </button>
-          <button class="upload tooltip">
+          <button class="upload tooltip js-loadImage" onclick="document.querySelector('.inputFile').click();">
             <span class="tooltiptext">Subir imagen</span>
             <img src="icons/upload.svg" alt="" />
           </button>
@@ -33,6 +34,7 @@
           </button>
         </div>
       </div>
+
       <div class="js-filters-pop-up list-filters display-none">
         <div class="filter">
           <label for="border-det">Detección de bordes</label>
@@ -60,6 +62,8 @@
           <input type="range" min="1" max="100" value="0" class="slider" id="brightness-slider">
         </div>
       </div>
+      
+      <input class="inputFile display-none" type="file" accept="image/png, .jpeg, .jpg"/>
       <canvas width="800" height="600"></canvas>
     </div>
 

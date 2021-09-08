@@ -6,15 +6,80 @@ class Paint {
   lastClickedY;
   tools;
   currentTool;
+  btnLoadImage;
+  inputFile;
+
 
   constructor() {
+
     this.canvas = new Canvas();
     this.listenMouseMove();
     this.listenMouseDown();
     this.listenMouseUp();
     this.tools = [];
     this.currentTool = null;
+
+    this.btnLoadImage = document.querySelector( '.js-loadImage' );
+    this.inputFile = document.querySelector( '.inputFile' );
+    this.btnLoadImage.addEventListener("click",  () => {
+      console.log( this );
+      this.loadImage(); 
+    });
+    /* this.btnLoadImage.addEventListener( "click", () => {
+      console.log( this );
+      this.loadImage(); 
+    }); */
   }
+
+  loadImage( ) {
+    console.log("entre al load image");
+    //Cargar imagen adaptable
+    this.inputFile.onchange = e => {
+      // getting a hold of the file reference
+      let file = e.target.files[0];
+      // setting up the reader
+      let reader = new FileReader();
+      reader.readAsDataURL( file ); // this is reading as data url
+      reader.onload = readerEvent => {// here we tell the reader what to do when it's done reading...
+
+          let content = readerEvent.target.result; // this is the content!
+          let image = new Image();
+          image.src = content;
+
+          image.onload = () => {
+
+            this.scaleToFit( image );
+            /* let imageAspectRatio = (1.0 * image.height) / image.width;
+            let imageScaledWidth = this.canvas.canvas.width;
+            let imageScaledHeight = this.canvas.canvas.width * imageAspectRatio; */
+            //let imageAspectRatio = this.canvas.canvas.height / this.canvas.canvas.width;
+            /*let imageScaledWidth = this.canvas.canvas.width;
+            let imageScaledHeight = this.canvas.canvas.width * imageAspectRatio;
+            this.canvas.context.canvas.width = imageScaledWidth;
+            this.canvas.context.canvas.height = imageScaledHeight;
+            console.log( image ); 
+            this.canvas.context.drawImage( image, 0, 0, imageScaledWidth, imageScaledHeight );
+            let imageData = this.canvas.context.getImageData( 0, 0, imageScaledWidth, imageScaledHeigh );// get imageData from content of canvas
+            this.canvas.context.putImageData( imageData, 0, 0 );*/
+
+        
+
+          }
+      }
+    }
+  }
+
+  scaleToFit(img){
+    // get the scale
+    var scale = Math.min( this.canvas.canvas.width / img.width, this.canvas.canvas.height / img.height );
+    // get the top left position of the image
+    var x = ( this.canvas.canvas.width / 2) - (img.width / 2) * scale;
+    var y = ( this.canvas.canvas.height / 2) - (img.height / 2) * scale;
+    this.canvas.context.drawImage(img, x, y, img.width * scale, img.height * scale);
+    let imageData = this.canvas.context.getImageData( 0, 0, img.width * scale, img.height * scale );// get imageData from content of canvas
+    this.canvas.context.putImageData( imageData, 0, 0 );
+  }
+           
 
   addTool(tool) {
     this.tools.push(tool);
@@ -60,7 +125,7 @@ class Paint {
     })
   }
 
-  drawLine(x0, y0, x1, y1) {
+  drawLine( x0, y0, x1, y1 ) {
     this.canvas.context.beginPath();
     this.canvas.context.strokeStyle = this.currentTool.getColor();
     this.canvas.context.lineWidth = this.currentTool.getDotSize();
