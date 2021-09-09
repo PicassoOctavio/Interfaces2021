@@ -11,10 +11,11 @@ function init() {
   const goma  = new Goma(2, document.querySelector('.js-eraser'), '#FFFFFF');
   const buttonUpload = document.querySelector('.js-button-upload');
   const filtroNegativo = new FiltroNegativo(document.querySelector('.js-filter-negativo'));
-  paint.addButtonLoadImage(buttonUpload);
-  paint.addTool(lapiz);
-  paint.addTool(goma);
-  paint.addFilter(filtroNegativo);
+  
+  paint.listenButtonUpload(buttonUpload);
+  paint.listenTool(lapiz);
+  paint.listenTool(goma);
+  paint.listenFilter(filtroNegativo);
 }
 
 function showFilters(popUp) {

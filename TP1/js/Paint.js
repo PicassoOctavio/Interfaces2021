@@ -4,38 +4,29 @@ class Paint {
   isClickDown;
   lastClickedX;
   lastClickedY;
-  tools;
-  filtros;
   currentTool;
-  buttonLoadImage;
 
   constructor() {
     this.canvas = new Canvas();
-    this.tools = [];
-    this.filtros = [];
     this.currentTool = null;
-    this.buttonLoadImage;
     this.listenMouseMove();
     this.listenMouseDown();
     this.listenMouseUp();
   }
 
-  addButtonLoadImage(button) {
-    this.buttonLoadImage = button;
-    this.listenLoadImage();
-  }
-
-  addFilter(f) {
-    this.filtros.push(f);
-    this.listenFiltro(f);
-  }
-
-  listenFiltro(f) {
+  // si se clickea en el filtro 'f' se lo aplica al canvass
+  listenFilter(f) {
     f.boton.addEventListener('click', () => f.aplicar(this.canvas));
   }
 
-  listenLoadImage() {
-    this.buttonLoadImage.addEventListener('click', async () => {
+  // si la herramienta es clickeada, se define como currentTool
+  listenTool(tool) {
+    tool.boton.addEventListener('click', () => this.currentTool = tool)
+  }
+
+  // si se clickea el botón 'Subir imagen', esta se pinta en el canvas
+  listenButtonUpload(button) {
+    button.addEventListener('click', async () => {
       let inputFile = document.querySelector('.js-input-file');
       inputFile.click();
       let image = await this.getImage(inputFile);
@@ -60,13 +51,6 @@ class Paint {
     })
   }
 
-
-  // Agrega herramienta y escucha si se le hace click
-  addTool(tool) {
-    this.tools.push(tool);
-    this.listenTool(tool)
-  }
-
   /* Escucha clicks dentro del canvas. Si hay una heramienta seleccionada,
   dibuja un punto en la posición clickeada */
   listenMouseDown() {
@@ -78,12 +62,6 @@ class Paint {
         this.drawLine(x, y, x, y);
       }
     })
-  }
-
-  /* Escucha el click en la herramienta. Si fue clickeada,
-  se define como la herramienta actual (currentTool) */
-  listenTool(tool) {
-    tool.boton.addEventListener('click', () => this.currentTool = tool)
   }
 
   listenMouseUp() {
