@@ -2,10 +2,14 @@ class Canvas {
 
   canvas;
   context;
+  width;
+  height;
 
   constructor() {
     this.canvas = document.querySelector('canvas');
     this.context = this.canvas.getContext('2d');
+    this.width = this.canvas.width;
+    this.height = this.canvas.height;
   }
 
   /* Devuelve la posición x del puntero (dentro del canvas)
@@ -20,15 +24,23 @@ class Canvas {
     return event.clientY - this.canvas.getBoundingClientRect().top;
   }
 
+  // EXPLICAR
   drawImage(img) {
-    // get the scale
-    var scale = Math.min( this.canvas.width / img.width, this.canvas.height / img.height );
-    // get the top left position of the image
-    var x = ( this.canvas.width / 2) - (img.width / 2) * scale;
-    var y = ( this.canvas.height / 2) - (img.height / 2) * scale;
-    this.context.drawImage(img, x, y, img.width * scale, img.height * scale);
-    let imageData = this.context.getImageData( 0, 0, img.width * scale, img.height * scale );// get imageData from content of canvas
+    let imageData;
+    if ( ! this.fits(img) ) {
+      let scale = Math.min( this.canvas.width / img.width, this.canvas.height / img.height );
+      this.context.drawImage(img, 0, 0, img.width * scale, img.height * scale);
+      imageData = this.context.getImageData( 0, 0, img.width * scale, img.height * scale );
+    } else {
+      this.context.drawImage(img, 0, 0, img.width, img.height);
+      imageData = this.context.getImageData( 0, 0, img.width , img.height );
+    }
     this.context.putImageData( imageData, 0, 0 );
+  }
+
+  // Devuelve true si las dimensiones de la imagen son menores a las del canvas
+  fits(img) {
+    return img.width < this.canvas.width && img.height < this.canvas.height
   }
 
   whiten() {

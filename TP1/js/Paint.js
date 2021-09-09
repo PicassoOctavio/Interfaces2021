@@ -5,12 +5,14 @@ class Paint {
   lastClickedX;
   lastClickedY;
   tools;
+  filtros;
   currentTool;
   buttonLoadImage;
 
   constructor() {
     this.canvas = new Canvas();
     this.tools = [];
+    this.filtros = [];
     this.currentTool = null;
     this.buttonLoadImage;
     this.listenMouseMove();
@@ -21,6 +23,15 @@ class Paint {
   addButtonLoadImage(button) {
     this.buttonLoadImage = button;
     this.listenLoadImage();
+  }
+
+  addFilter(f) {
+    this.filtros.push(f);
+    this.listenFiltro(f);
+  }
+
+  listenFiltro(f) {
+    f.boton.addEventListener('click', () => f.aplicar(this.canvas));
   }
 
   listenLoadImage() {
