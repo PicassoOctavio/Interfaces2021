@@ -16,7 +16,7 @@
             <img src="icons/pencil.svg" alt="" />
           </button>
           <input type="color" name="color-picker" class="js-color-picker color-picker">
-          <button class="eraser tooltip">
+          <button class="js-eraser eraser tooltip">
             <span class="tooltiptext">Goma</span>
             <img src="icons/eraser.svg" alt="" />
           </button>
@@ -24,10 +24,11 @@
             <span class="tooltiptext">Filtros</span>
             <img src="icons/filter.svg" alt="" />
           </button>
-          <button class="upload tooltip js-loadImage" onclick="document.querySelector('.inputFile').click();">
+          <button class="js-button-upload upload tooltip">
             <span class="tooltiptext">Subir imagen</span>
             <img src="icons/upload.svg" alt="" />
           </button>
+          <input class="js-input-file display-none" type="file" accept="image/png, .jpeg, .jpg"/>
           <button class="download tooltip">
             <span class="tooltiptext">Descargar canvas</span>
             <img src="icons/download.svg" alt="" />
@@ -68,6 +69,7 @@
     </div>
 
     <script src="js/Canvas.js"></script>
+    <script src="js/Goma.js"></script>
     <script src="js/Lapiz.js"></script>
     <script src="js/Paint.js"></script>
     <script src="js/main.js"></script>

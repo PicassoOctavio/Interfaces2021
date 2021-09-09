@@ -6,72 +6,62 @@ class Paint {
   lastClickedY;
   tools;
   currentTool;
-  btnLoadImage;
-  inputFile;
-
+  buttonLoadImage;
 
   constructor() {
 
     this.canvas = new Canvas();
+    this.tools = [];
+    this.currentTool = null;
+    this.buttonLoadImage;
     this.listenMouseMove();
     this.listenMouseDown();
     this.listenMouseUp();
-    this.tools = [];
-    this.currentTool = null;
-
-    this.btnLoadImage = document.querySelector( '.js-loadImage' );
-    this.inputFile = document.querySelector( '.inputFile' );
-    this.btnLoadImage.addEventListener("click",  () => {
-      console.log( this );
-      this.loadImage(); 
-    });
-    /* this.btnLoadImage.addEventListener( "click", () => {
-      console.log( this );
-      this.loadImage(); 
-    }); */
-  }
-
-  loadImage() {
-    console.log("entre al load image");
-    //Cargar imagen adaptable
-    this.inputFile.onchange = e => {
-      // getting a hold of the file reference
-      let file = e.target.files[0];
-      // setting up the reader
-      let reader = new FileReader();
-      reader.readAsDataURL( file ); 
-      reader.onload = readerEvent => {
-
-        let content = readerEvent.target.result; 
-        let image = new Image();
-        image.src = content;
-
-        image.onload = () => {
-          this.scaleToFit( image );
-        }
-      }
-    }
-  }
-
-  scaleToFit( img ){
-    // get the scale
-    var scale = Math.min( this.canvas.canvas.width / img.width, this.canvas.canvas.height / img.height );
-    // get the top left position of the image
-    var x = ( this.canvas.canvas.width / 2) - ( img.width / 2 ) * scale;
-    var y = ( this.canvas.canvas.height / 2) - ( img.height / 2 ) * scale;
-    this.canvas.context.drawImage( img, x, y, img.width * scale, img.height * scale );
-    let imageData = this.canvas.context.getImageData( 0, 0, img.width * scale, img.height * scale );// get imageData from content of canvas
-    this.canvas.context.putImageData( imageData, 0, 0 );
   }
            
 
-  addTool( tool ) {
-    this.tools.push(tool);
+  addButtonLoadImage(button) {
+    this.buttonLoadImage = button;
+    this.listenLoadImage();
   }
 
+  listenLoadImage() {
+    this.buttonLoadImage.addEventListener('click', async () => {
+      let inputFile = document.querySelector('.js-input-file');
+      inputFile.click();
+      let image = await this.getImage(inputFile);
+      this.canvas.whiten();
+      this.canvas.drawImage(image);
+    })
+  }
+
+  getImage(inputFile) {
+    return new Promise((resolve, reject) => {
+      inputFile.onchange = e => {
+        let file = e.target.files[0];
+        let reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = readerEvent => {
+          let content = readerEvent.target.result;
+          let image = new Image();
+          image.src = content;
+          image.onload = () => { resolve (image); }
+        }
+      }
+    })
+  }
+
+
+  // Agrega herramienta y escucha si se le hace click
+  addTool(tool) {
+    this.tools.push(tool);
+    this.listenTool(tool)
+  }
+
+  /* Escucha clicks dentro del canvas. Si hay una heramienta seleccionada,
+  dibuja un punto en la posición clickeada */
   listenMouseDown() {
     this.canvas.canvas.addEventListener('mousedown', (e) => {
-      this.currentTool = this.getCurrentTool();
       if (this.currentTool) {
         this.isClickDown = true;
         let x = this.canvas.getX(e);
@@ -81,14 +71,10 @@ class Paint {
     })
   }
 
-  // retorna la herramienta que está siendo seleccionada en el paint
-  getCurrentTool() {
-    for (let i = 0; i < this.tools.length; i++) {
-      if (this.tools[i].isClicked()) {
-        return this.tools[i]
-      }
-    }
-    return null;
+  /* Escucha el click en la herramienta. Si fue clickeada,
+  se define como la herramienta actual (currentTool) */
+  listenTool(tool) {
+    tool.boton.addEventListener('click', () => this.currentTool = tool)
   }
 
   listenMouseUp() {
@@ -97,22 +83,24 @@ class Paint {
     })
   }
 
+  /* Escucha movimiento dentro del canvas. Si hay una heramienta seleccionada
+  y se está manteniendo el click presionado, dibuja una linea */
   listenMouseMove() {
     this.canvas.canvas.addEventListener('mousemove', (e) => {
-      if (this.currentTool != null) {
-        if (this.isClickDown && this.currentTool.isClicked()) {
-          let x = this.canvas.getX(e);
-          let y = this.canvas.getY(e);
-          this.drawLine(this.lastClickedX, this.lastClickedY, x, y);
-        }
+      if (this.currentTool && this.isClickDown) {
+        let x = this.canvas.getX(e);
+        let y = this.canvas.getY(e);
+        this.drawLine(this.lastClickedX, this.lastClickedY, x, y);
       }
     })
   }
 
-  drawLine( x0, y0, x1, y1 ) {
+  /* es posible hacer este metodo en la clase Canvas.js pasando
+  por parametro la herramienta --> drawLine(x0, y0, x1, y1, tool) */
+  drawLine(x0, y0, x1, y1) {
     this.canvas.context.beginPath();
     this.canvas.context.strokeStyle = this.currentTool.getColor();
-    this.canvas.context.lineWidth = this.currentTool.getDotSize();
+    this.canvas.context.lineWidth = this.currentTool.getSize();
     this.canvas.context.lineCap = 'round';
     this.canvas.context.moveTo( x1, y1);
     this.canvas.context.lineTo( x0, y0 );
