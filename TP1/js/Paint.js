@@ -2,8 +2,8 @@ class Paint {
 
   canvas;
   isClickDown;
-  lastClickedX;
-  lastClickedY;
+  lastX; // punto del eje x donde se dibujó por última vez
+  lastY; // punto del eje y donde se dibujó por última vez
   currentTool;
 
   constructor() {
@@ -59,7 +59,9 @@ class Paint {
         this.isClickDown = true;
         let x = this.canvas.getX(e);
         let y = this.canvas.getY(e);
-        this.drawLine(x, y, x, y);
+        this.canvas.drawLine(x, y, x, y, this.currentTool);
+        this.lastX = x;
+        this.lastY = y;
       }
     })
   }
@@ -77,23 +79,11 @@ class Paint {
       if (this.currentTool && this.isClickDown) {
         let x = this.canvas.getX(e);
         let y = this.canvas.getY(e);
-        this.drawLine(this.lastClickedX, this.lastClickedY, x, y);
+        this.canvas.drawLine(this.lastX, this.lastY, x, y, this.currentTool)
+        this.lastX = x;
+        this.lastY = y;  
       }
     })
-  }
-
-  /* es posible hacer este metodo en la clase Canvas.js pasando
-  por parametro la herramienta --> drawLine(x0, y0, x1, y1, tool) */
-  drawLine(x0, y0, x1, y1) {
-    this.canvas.context.beginPath();
-    this.canvas.context.strokeStyle = this.currentTool.getColor();
-    this.canvas.context.lineWidth = this.currentTool.getSize();
-    this.canvas.context.lineCap = 'round';
-    this.canvas.context.moveTo( x1, y1);
-    this.canvas.context.lineTo( x0, y0 );
-    this.canvas.context.stroke();
-    this.lastClickedX = x1;
-    this.lastClickedY = y1;  
   }
 
 }

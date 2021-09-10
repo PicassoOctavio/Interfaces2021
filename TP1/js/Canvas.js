@@ -12,14 +12,14 @@ class Canvas {
     this.height = this.canvas.height;
   }
 
-  /* Devuelve la posición x del puntero (dentro del canvas)
-  haciendo posición 'x' del mouse - distancia del canvas al borde izquierdo */
+  /* Devuelve la posición x del puntero (dentro del canvas) haciendo:
+  posición 'x' del mouse - distancia del canvas al borde izquierdo */
   getX(event) {
     return event.clientX - this.canvas.getBoundingClientRect().left;
   }
 
-  /* Devuelve la posición y del puntero (dentro del canvas)
-  haciendo posición 'y' del mouse - distancia del canvas al tope del documento */
+  /* Devuelve la posición y del puntero (dentro del canvas) haciendo:
+  posición 'y' del mouse - distancia del canvas al tope del documento */
   getY(event) {
     return event.clientY - this.canvas.getBoundingClientRect().top;
   }
@@ -43,9 +43,20 @@ class Canvas {
     return img.width < this.canvas.width && img.height < this.canvas.height
   }
 
+  // Pinta el canvas de color blanco
   whiten() {
     this.context.fillStyle = "#ffffff";
     this.context.fillRect(0, 0, this.canvas.width, this.canvas.height);
+  }
+
+  drawLine(x0, y0, x1, y1, tool) {
+    this.context.beginPath();
+    this.context.strokeStyle = tool.getColor();
+    this.context.lineWidth = tool.getSize();
+    this.context.lineCap = 'round';
+    this.context.moveTo( x1, y1);
+    this.context.lineTo( x0, y0 );
+    this.context.stroke();
   }
 
 }
