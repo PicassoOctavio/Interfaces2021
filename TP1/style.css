@@ -113,6 +113,10 @@ canvas {
   padding-right: 10%;
 }
 
+img::selection {
+  color: transparent;
+}
+
 #brightness-slider {
   margin-top: 6%;
   justify-self: left;
