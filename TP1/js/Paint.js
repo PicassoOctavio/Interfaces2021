@@ -12,6 +12,7 @@ class Paint {
     this.listenMouseMove();
     this.listenMouseDown();
     this.listenMouseUp();
+    this.listenMouseOut();
   }
 
   // si se clickea en el filtro 'f' se lo aplica al canvass
@@ -68,6 +69,13 @@ class Paint {
 
   listenMouseUp() {
     document.addEventListener('mouseup', () => {
+      this.isClickDown = false;
+    })
+  }
+
+  // Si el puntero sale del canvas, deja de dibujar
+  listenMouseOut() {
+    this.canvas.canvas.addEventListener('mouseout', () => {
       this.isClickDown = false;
     })
   }
