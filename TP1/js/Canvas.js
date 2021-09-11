@@ -10,6 +10,7 @@ class Canvas {
     this.context = this.canvas.getContext('2d');
     this.width = this.canvas.width;
     this.height = this.canvas.height;
+    this.whiten();
   }
 
   /* Devuelve la posición x del puntero (dentro del canvas) haciendo:

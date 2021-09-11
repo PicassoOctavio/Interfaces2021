@@ -17,6 +17,7 @@ class Paint {
 
   // si se clickea en el filtro 'f' se lo aplica al canvass
   listenFilter(f) {
+    //accedo al btn asignado de la clase filtro
     f.boton.addEventListener('click', () => f.aplicar(this.canvas));
   }
 
