@@ -2,31 +2,34 @@ class Paint {
 
   canvas;
   isClickDown;
-  lastClickedX;
-  lastClickedY;
-  tools;
+  lastX; // punto del eje x donde se dibujó por última vez
+  lastY; // punto del eje y donde se dibujó por última vez
   currentTool;
-  buttonLoadImage;
 
   constructor() {
 
     this.canvas = new Canvas();
-    this.tools = [];
     this.currentTool = null;
-    this.buttonLoadImage;
     this.listenMouseMove();
     this.listenMouseDown();
     this.listenMouseUp();
+    this.listenMouseOut();
   }
            
 
-  addButtonLoadImage(button) {
-    this.buttonLoadImage = button;
-    this.listenLoadImage();
+  // si se clickea en el filtro 'f' se lo aplica al canvass
+  listenFilter(f) {
+    f.boton.addEventListener('click', () => f.aplicar(this.canvas));
   }
 
-  listenLoadImage() {
-    this.buttonLoadImage.addEventListener('click', async () => {
+  // si la herramienta es clickeada, se define como currentTool
+  listenTool(tool) {
+    tool.boton.addEventListener('click', () => this.currentTool = tool)
+  }
+
+  // si se clickea el botón 'Subir imagen', esta se pinta en el canvas
+  listenButtonUpload(button) {
+    button.addEventListener('click', async () => {
       let inputFile = document.querySelector('.js-input-file');
       inputFile.click();
       let image = await this.getImage(inputFile);
@@ -51,13 +54,6 @@ class Paint {
     })
   }
 
-
-  // Agrega herramienta y escucha si se le hace click
-  addTool(tool) {
-    this.tools.push(tool);
-    this.listenTool(tool)
-  }
-
   /* Escucha clicks dentro del canvas. Si hay una heramienta seleccionada,
   dibuja un punto en la posición clickeada */
   listenMouseDown() {
@@ -66,19 +62,22 @@ class Paint {
         this.isClickDown = true;
         let x = this.canvas.getX(e);
         let y = this.canvas.getY(e);
-        this.drawLine(x, y, x, y);
+        this.canvas.drawLine(x, y, x, y, this.currentTool);
+        this.lastX = x;
+        this.lastY = y;
       }
     })
   }
 
-  /* Escucha el click en la herramienta. Si fue clickeada,
-  se define como la herramienta actual (currentTool) */
-  listenTool(tool) {
-    tool.boton.addEventListener('click', () => this.currentTool = tool)
-  }
-
   listenMouseUp() {
     document.addEventListener('mouseup', () => {
+      this.isClickDown = false;
+    })
+  }
+
+  // Si el puntero sale del canvas, deja de dibujar
+  listenMouseOut() {
+    this.canvas.canvas.addEventListener('mouseout', () => {
       this.isClickDown = false;
     })
   }
@@ -90,23 +89,11 @@ class Paint {
       if (this.currentTool && this.isClickDown) {
         let x = this.canvas.getX(e);
         let y = this.canvas.getY(e);
-        this.drawLine(this.lastClickedX, this.lastClickedY, x, y);
+        this.canvas.drawLine(this.lastX, this.lastY, x, y, this.currentTool)
+        this.lastX = x;
+        this.lastY = y;  
       }
     })
-  }
-
-  /* es posible hacer este metodo en la clase Canvas.js pasando
-  por parametro la herramienta --> drawLine(x0, y0, x1, y1, tool) */
-  drawLine(x0, y0, x1, y1) {
-    this.canvas.context.beginPath();
-    this.canvas.context.strokeStyle = this.currentTool.getColor();
-    this.canvas.context.lineWidth = this.currentTool.getSize();
-    this.canvas.context.lineCap = 'round';
-    this.canvas.context.moveTo( x1, y1);
-    this.canvas.context.lineTo( x0, y0 );
-    this.canvas.context.stroke();
-    this.lastClickedX = x1;
-    this.lastClickedY = y1;  
   }
 
 }
