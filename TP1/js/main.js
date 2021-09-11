@@ -1,4 +1,5 @@
 function init() {
+  
   const btnFilter = document.querySelector('.js-filter-button');
   const filterPopUp = document.querySelector('.js-filters-pop-up');
   
@@ -12,12 +13,14 @@ function init() {
   const buttonUpload = document.querySelector('.js-button-upload');
   const filtroNegativo = new FiltroNegativo(document.querySelector('.js-filter-negativo'));
   const filtroSepia = new FiltroSepia(document.querySelector('.js-filter-sepia'));
+  const filtroBinarizacion = new FiltroBinarizacion( document.querySelector( '.js-filter-binarizacion' ));
 
   paint.listenButtonUpload(buttonUpload);
   paint.listenTool(lapiz);
   paint.listenTool(goma);
   paint.listenFilter(filtroNegativo);
   paint.listenFilter(filtroSepia);
+  paint.listenFilter(filtroBinarizacion);
 }
 
 function showFilters(popUp) {

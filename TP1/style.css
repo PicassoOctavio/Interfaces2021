@@ -12,7 +12,7 @@ body {
 body {
   margin: 0;
   display: grid;
-  background-color: #FBFBFB;
+  background-color: #5c5c5c;
 }
 
 .app-container {
@@ -27,7 +27,7 @@ body {
   align-self: flex-start;
   width: 70px;
   height: 400px;
-  background-color: #EEF3FF;
+  background-color: #aaaaaa;
   box-shadow: -2px -2px 5px rgba(0, 0, 0, 0.25);
   border-radius: 22px;
   margin-left: 10%;
@@ -163,6 +163,7 @@ img::selection {
   height: 15px;
   width: 39px;
   margin-bottom: 40%;
+  background: #aaaaaa;
 }
 
 .pencil {
