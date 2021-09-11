@@ -5,7 +5,7 @@ class Lapiz {
   boton;
   is_selected;
 
-  constructor(size, boton) {
+  constructor( size, boton ) {
     this.size = size;
     this.color = document.querySelector('.js-color-picker');
     this.boton = boton;
