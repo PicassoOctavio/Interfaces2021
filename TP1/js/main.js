@@ -16,6 +16,7 @@ function init() {
   const filtroBinarizacion = new FiltroBinarizacion( document.querySelector( '.js-filter-binarizacion' ));
   const filtroSaturacion = new FiltroSaturacion( document.querySelector( '.js-filter-saturacion' ));
   const filtroBrillo = new FiltroBrillo( document.querySelector('.js-filter-brightness') );
+  const filtroBlur = new FiltroBlur(document.querySelector('.js-filter-blur'));
 
   paint.listenButtonUpload(buttonUpload);
   paint.listenTool(lapiz);
@@ -25,6 +26,7 @@ function init() {
   paint.listenFilter( filtroBinarizacion );
   paint.listenFilter( filtroSaturacion );
   paint.listenFilter( filtroBrillo );
+  paint.listenFilter(filtroBlur);
 }
 
 function showFilters(popUp) {
