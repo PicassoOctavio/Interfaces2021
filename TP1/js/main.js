@@ -14,13 +14,15 @@ function init() {
   const filtroNegativo = new FiltroNegativo(document.querySelector('.js-filter-negativo'));
   const filtroSepia = new FiltroSepia(document.querySelector('.js-filter-sepia'));
   const filtroBinarizacion = new FiltroBinarizacion( document.querySelector( '.js-filter-binarizacion' ));
+  const filtroBrillo = new FiltroBrillo( document.querySelector('.js-filter-brightness') );
 
   paint.listenButtonUpload(buttonUpload);
   paint.listenTool(lapiz);
   paint.listenTool(goma);
   paint.listenFilter(filtroNegativo);
   paint.listenFilter(filtroSepia);
-  paint.listenFilter(filtroBinarizacion);
+  paint.listenFilter( filtroBinarizacion );
+  paint.listenFilter( filtroBrillo );
 }
 
 function showFilters(popUp) {
