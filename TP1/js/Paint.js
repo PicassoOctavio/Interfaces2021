@@ -17,6 +17,10 @@ class Paint {
     this.buttonDownload.addEventListener('click', (e) => {
       this.downloadCanvas(e.currentTarget)
     });
+    this.buttonClear = document.querySelector('.js-button-clear');
+    this.buttonClear.addEventListener('click', () => {
+      this.canvas.whiten()
+    })
   }
 
   // Crea una imagen del canvas y le asigna al anchor la referencia a dicha img

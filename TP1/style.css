@@ -55,7 +55,7 @@ body {
   width: 60%;
 }
 
-.eraser, .filter-button, .upload {
+.eraser, .filter-button, .upload, .download {
   margin-bottom: 50%;
 }
 
