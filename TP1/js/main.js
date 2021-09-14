@@ -15,6 +15,7 @@ function init() {
   const filtroSaturacion = new FiltroSaturacion( document.querySelector( '.js-filter-saturacion' ));
   const filtroBrillo = new FiltroBrillo( document.querySelector('.js-filter-brightness') );
   const filtroBlur = new FiltroBlur(document.querySelector('.js-filter-blur'));
+  const filtroEscalaGrises = new FiltroEscalaGrises(document.querySelector('.js-filter-grayscale'));
 
   paint.listenButtonUpload(buttonUpload);
   paint.listenTool(lapiz);
@@ -25,6 +26,7 @@ function init() {
   paint.listenFilter( filtroSaturacion );
   paint.listenFilter( filtroBrillo );
   paint.listenFilter(filtroBlur);
+  paint.listenFilter(filtroEscalaGrises);
 }
 
 function showFilters(popUp) {
