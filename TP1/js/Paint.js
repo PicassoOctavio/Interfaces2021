@@ -19,7 +19,8 @@ class Paint {
     });
     this.buttonClear = document.querySelector('.js-button-clear');
     this.buttonClear.addEventListener('click', () => {
-      this.canvas.whiten()
+      this.canvas.whiten();
+      this.uncheckFilters();
     })
   }
 
@@ -49,7 +50,18 @@ class Paint {
       inputFile.value = '';
       this.canvas.whiten();
       this.canvas.drawImage(image);
+      this.uncheckFilters();
     })
+  }
+
+  // deselecciona el ultimo filtro aplicado
+  uncheckFilters() {
+    let inputRadios = document.querySelectorAll('input[type="radio"]');
+    for (let i = 0; i < inputRadios.length; i++) {
+      if (inputRadios[i].checked) {
+        inputRadios[i].checked = false;
+      }
+    }
   }
 
   getImage(inputFile) {
