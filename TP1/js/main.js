@@ -2,8 +2,14 @@ function init() {
   
   const btnFilter = document.querySelector('.js-filter-button');
   const filterPopUp = document.querySelector('.js-filters-pop-up');
+  const btnPencil = document.querySelector('.js-pencil');
+  const sliderPencilPopUp = document.querySelector('.js-slider-pencil-pop-up');
+  const btnEraser = document.querySelector('.js-eraser');
+  const sliderEraserPopUp = document.querySelector('.js-slider-eraser-pop-up');
   
-  btnFilter.addEventListener('click', () => showFilters(filterPopUp));
+  btnFilter.addEventListener('click', () => showFilters( filterPopUp ));
+  btnPencil.addEventListener("click", () => showFilters( sliderPencilPopUp ));
+  btnEraser.addEventListener('click', () => showFilters( sliderEraserPopUp ));
 
   const paint = new Paint();
   const lapiz = new Lapiz(2, document.querySelector('.js-pencil'));
@@ -30,6 +36,7 @@ function init() {
 }
 
 function showFilters(popUp) {
+  console.log( "popUp", popUp );
   popUp.classList.toggle('display-none');
 }
 

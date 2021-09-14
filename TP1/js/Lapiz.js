@@ -11,6 +11,17 @@ class Lapiz {
     this.boton = boton;
     this.is_selected = false;
     this.listenClick();
+
+    let sliderValue = document.querySelector('.js-slider-pencil');
+    sliderValue.addEventListener("input", (e) => {
+      this.slider( sliderValue );
+    })
+  }
+
+  // actualiza el tamaño del pincel segun el valor del input type="range"
+  slider( sliderValue ){
+    //console.log("sliderValue ", sliderValue.value );
+    this.size = sliderValue.value;
   }
 
   unselect() {
@@ -29,6 +40,7 @@ class Lapiz {
   }
 
   getSize() {
+    console.log("sizee", this.size );
     return this.size;
   }
 

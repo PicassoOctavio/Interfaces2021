@@ -8,25 +8,31 @@
     <link rel="stylesheet" href="style.css" />
     <body>
     <div class="app-container">
+
       <div class="tool-bar">
         <div class="tools">
+         
           <button class="js-pencil pencil tooltip">
             <span class="tooltiptext">Lápiz</span>
             <img src="icons/pencil.svg" alt="" />
           </button>
           <input type="color" name="color-picker" class="js-color-picker color-picker">
+          
           <button class="js-eraser eraser tooltip">
             <span class="tooltiptext">Goma</span>
             <img src="icons/eraser.svg" alt="" />
           </button>
+
           <button class="js-filter-button filter-button tooltip">
             <span class="tooltiptext">Filtros</span>
             <img src="icons/filter.svg" alt="" />
           </button>
+
           <button class="js-button-upload upload tooltip">
             <span class="tooltiptext">Subir imagen</span>
             <img src="icons/upload.svg" alt="" />
           </button>
+
           <input class="js-input-file display-none" type="file" accept="image/png, .jpeg, .jpg"/>
           <button class="download tooltip">
             <a class="js-button-download" download="mi_dibujo.jpg" href="" >
@@ -34,12 +40,14 @@
               <img src="icons/download.svg" alt="" />
             </a>
           </button>
+
           <button class="js-button-clear clear tooltip">
             <span class="tooltiptext">Limpiar lienzo</span>
             <img src="icons/clear.svg" alt="" />
           </button>
         </div>
       </div>
+
       <div class="js-filters-pop-up list-filters display-none">
         <div class="filter">
           <label for="border-det">Detección de bordes</label>
@@ -73,6 +81,13 @@
           <label for="brillo">Brillo</label>
           <input class="js-filter-brightness radio-button-filter" type="radio" id="brillo" name="filter">
         </div>
+      </div>
+
+      <div class="js-slider-pencil-pop-up list-filters tool-sizes display-none" name="sliders">
+        <input type="range" class="js-slider-pencil slider" value="5" min="5" max="50" step="5">
+      </div>
+      <div class="js-slider-eraser-pop-up list-filters tool-sizes display-none">
+        <input type="range" class="js-slider-eraser slider" value="5" min="5" max="50" step="5">
       </div>
       <canvas width="800" height="600"></canvas>
     </div>

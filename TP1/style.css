@@ -88,6 +88,7 @@ canvas {
   display: none;
 }
 
+
 .radio-button-filter {
   align-self: center;
   margin-top: 0;
@@ -171,4 +172,23 @@ img::selection {
 
 .pencil {
   margin-bottom: 0;
+}
+
+.slider{
+  width: 140px;
+  margin-left: 15px;
+}
+
+.pencil-tool{
+  display: flex;
+  flex-direction: row;
+}
+
+.tool-sizes{
+  height: 50px;
+  border-radius: 15px;
+  width: 180px;
+  margin-bottom: 580px;
+  margin-left: 280px;
+  background: #393939;
 }
