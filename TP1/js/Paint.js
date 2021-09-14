@@ -13,6 +13,16 @@ class Paint {
     this.listenMouseDown();
     this.listenMouseUp();
     this.listenMouseOut();
+    this.buttonDownload = document.querySelector('.js-button-download');
+    this.buttonDownload.addEventListener('click', (e) => {
+      this.downloadCanvas(e.currentTarget)
+    });
+  }
+
+  // Crea una imagen del canvas y le asigna al anchor la referencia a dicha img
+  downloadCanvas = (anchor) => {
+    let image = this.canvas.canvas.toDataURL("image/jpg");
+    anchor.href = image;
   }
 
   // si se clickea en el filtro 'f' se lo aplica al canvass

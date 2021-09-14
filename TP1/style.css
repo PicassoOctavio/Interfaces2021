@@ -45,7 +45,10 @@ body {
   border: none;
   padding: 0;
   transition: transform .2s; /* Animation */
+}
 
+.tools a {
+  border: none;
 }
 
 .tools button img {
