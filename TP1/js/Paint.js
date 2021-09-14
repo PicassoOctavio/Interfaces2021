@@ -46,6 +46,7 @@ class Paint {
       let inputFile = document.querySelector('.js-input-file');
       inputFile.click();
       let image = await this.getImage(inputFile);
+      inputFile.value = '';
       this.canvas.whiten();
       this.canvas.drawImage(image);
     })
