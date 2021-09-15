@@ -20,7 +20,6 @@ class Lapiz {
 
   // actualiza el tamaño del pincel segun el valor del input type="range"
   slider( sliderValue ){
-    //console.log("sliderValue ", sliderValue.value );
     this.size = sliderValue.value;
   }
 

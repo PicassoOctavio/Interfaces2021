@@ -35,8 +35,8 @@ function init() {
   paint.listenFilter(filtroEscalaGrises);
 }
 
+// muestra/oculta popUps
 function showFilters(popUp) {
-  console.log( "popUp", popUp );
   popUp.classList.toggle('display-none');
 }
 

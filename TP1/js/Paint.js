@@ -64,6 +64,7 @@ class Paint {
     }
   }
 
+  // carga una imagen local de manera asincrónica
   getImage(inputFile) {
     return new Promise((resolve, reject) => {
       inputFile.onchange = e => {
@@ -95,6 +96,7 @@ class Paint {
     })
   }
 
+  // escucha el evento del soltar click
   listenMouseUp() {
     document.addEventListener('mouseup', () => {
       this.isClickDown = false;
