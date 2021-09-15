@@ -2,8 +2,8 @@ class FiltroEscalaGrises {
 
   boton
 
-  constructor(boton) {
-    this.boton = boton;
+  constructor() {
+    this.boton = document.querySelector('.js-filter-grayscale');
   }
 
   aplicar(canvas) {
