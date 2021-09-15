@@ -16,7 +16,7 @@
             <span class="tooltiptext">Lápiz</span>
             <img src="icons/pencil.svg" alt="" />
           </button>
-          <input type="color" name="color-picker" class="js-color-picker color-picker">
+          <input type="color" value="#FF00EE" name="color-picker" class="js-color-picker color-picker visibility-hidden">
           
           <button class="js-eraser eraser tooltip">
             <span class="tooltiptext">Goma</span>
@@ -84,10 +84,10 @@
       </div>
 
       <div class="js-slider-pencil-pop-up list-filters tool-sizes display-none" name="sliders">
-        <input type="range" class="js-slider-pencil slider" value="5" min="5" max="50" step="5">
+        <input type="range" class="js-slider-pencil slider" value="5" min="5" max="50" step="any">
       </div>
       <div class="js-slider-eraser-pop-up list-filters tool-sizes display-none">
-        <input type="range" class="js-slider-eraser slider" value="5" min="5" max="50" step="5">
+        <input type="range" class="js-slider-eraser slider" value="5" min="5" max="50" step="any">
       </div>
       <canvas width="800" height="600"></canvas>
     </div>

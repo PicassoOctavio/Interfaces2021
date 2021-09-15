@@ -129,6 +129,10 @@ img::selection {
   width: 100%;
 }
 
+.visibility-hidden {
+  visibility: hidden;
+}
+
 .tooltip {
   position: relative;
   display: inline-block;
@@ -164,9 +168,9 @@ img::selection {
   margin: 0;
   padding: 0;
   border: 0;
-  height: 15px;
-  width: 39px;
-  margin-bottom: 40%;
+  height: 30px;
+  width: 30px;
+  margin-bottom: 10%;
   background: #aaaaaa;
 }
 

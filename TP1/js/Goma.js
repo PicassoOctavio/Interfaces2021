@@ -11,17 +11,10 @@ class Goma {
     this.boton = boton;
     this.is_selected = false;
     this.listenClick();
-
-    let sliderEraser = document.querySelector('.js-slider-eraser');
-    sliderEraser.addEventListener("input", (e) => {
-      this.slider( sliderEraser );
+    this.slider = document.querySelector('.js-slider-eraser');
+    this.slider.addEventListener("input", () => {
+      this.size = this.slider.value;
     })
-  }
-
-  // actualiza el tamaño del pincel segun el valor del input type="range"
-  slider( sliderEraser ){
-    //console.log("sliderEraser ", sliderEraser.value );
-    this.size = sliderEraser.value;
   }
 
   unselect() {
@@ -30,8 +23,13 @@ class Goma {
 
   listenClick() {
     this.boton.addEventListener('click', () => {
-      console.log('CLICKEASTE goma')
       this.is_selected = true;
+      let lapizSlider = document.querySelector('.js-slider-pencil');
+      lapizSlider.parentNode.classList.add('display-none');
+      this.slider.parentNode.classList.toggle('display-none');
+      let colorPicker = document.querySelector('.js-color-picker');
+      colorPicker.classList.add('visibility-hidden');
+
     })
   }
 

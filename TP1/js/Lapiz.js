@@ -11,17 +11,10 @@ class Lapiz {
     this.boton = boton;
     this.is_selected = false;
     this.listenClick();
-
-    let sliderValue = document.querySelector('.js-slider-pencil');
-    sliderValue.addEventListener("input", (e) => {
-      this.slider( sliderValue );
+    this.slider = document.querySelector('.js-slider-pencil');
+    this.slider.addEventListener("input", () => {
+      this.size = this.slider.value;
     })
-  }
-
-  // actualiza el tamaño del pincel segun el valor del input type="range"
-  slider( sliderValue ){
-    //console.log("sliderValue ", sliderValue.value );
-    this.size = sliderValue.value;
   }
 
   unselect() {
@@ -30,8 +23,11 @@ class Lapiz {
 
   listenClick() {
     this.boton.addEventListener('click', () => {
-      console.log('CLICKEASTE LAPIZ')
       this.is_selected = true;
+      let gomaSlider = document.querySelector('.js-slider-eraser');
+      gomaSlider.parentNode.classList.add('display-none');
+      this.slider.parentNode.classList.toggle('display-none');
+      this.color.classList.toggle('visibility-hidden');
     })
   }
 
