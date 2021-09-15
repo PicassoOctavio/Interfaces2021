@@ -21,7 +21,8 @@ function init() {
   const filtroSaturacion = new FiltroSaturacion( document.querySelector( '.js-filter-saturacion' ));
   const filtroBrillo = new FiltroBrillo( document.querySelector('.js-filter-brightness') );
   const filtroBlur = new FiltroBlur(document.querySelector('.js-filter-blur'));
-  const filtroEscalaGrises = new FiltroEscalaGrises(document.querySelector('.js-filter-grayscale'));
+  const filtroEscalaGrises = new FiltroEscalaGrises();
+  const filtroDeteccionBordes = new FiltroDeteccionBordes(document.querySelector('.js-filter-edge-detection'));
 
   paint.listenButtonUpload(buttonUpload);
   paint.listenTool(lapiz);
@@ -33,6 +34,7 @@ function init() {
   paint.listenFilter( filtroBrillo );
   paint.listenFilter(filtroBlur);
   paint.listenFilter(filtroEscalaGrises);
+  paint.listenFilter(filtroDeteccionBordes);
 }
 
 function showFilters(popUp) {
