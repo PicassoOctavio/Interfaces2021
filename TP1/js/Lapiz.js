@@ -17,6 +17,14 @@ class Lapiz {
     })
   }
 
+<<<<<<< HEAD
+=======
+  // actualiza el tamaño del pincel segun el valor del input type="range"
+  slider( sliderValue ){
+    this.size = sliderValue.value;
+  }
+
+>>>>>>> d2bef8948888944a4d13852f219610eaa0d726f7
   unselect() {
     this.is_selected = false;
   }

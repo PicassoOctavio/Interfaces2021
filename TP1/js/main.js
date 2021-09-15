@@ -31,8 +31,8 @@ function init() {
   paint.listenFilter(filtroDeteccionBordes);
 }
 
+// muestra/oculta popUps
 function showFilters(popUp) {
-  console.log( "popUp", popUp );
   popUp.classList.toggle('display-none');
 }
 

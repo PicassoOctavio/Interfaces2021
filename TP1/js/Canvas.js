@@ -25,7 +25,8 @@ class Canvas {
     return event.clientY - this.canvas.getBoundingClientRect().top;
   }
 
-  // EXPLICAR
+  // dibuja la imagen en el canvas y en caso de que exceda el tamaño del canvas
+  // reduce su tamaño manteniendo las proporsiones de la imagen original
   drawImage(img) {
     let imageData;
     if ( ! this.fits(img) ) {
@@ -50,6 +51,7 @@ class Canvas {
     this.context.fillRect(0, 0, this.canvas.width, this.canvas.height);
   }
 
+  // dibuja una linea continua mientras los eventos sean mousedown/mousemove
   drawLine(x0, y0, x1, y1, tool) {
     this.context.beginPath();
     this.context.strokeStyle = tool.getColor();

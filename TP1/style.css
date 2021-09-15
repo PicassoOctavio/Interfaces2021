@@ -188,11 +188,19 @@ img::selection {
   flex-direction: row;
 }
 
-.tool-sizes{
+.tool-sizes-pencil{
   height: 50px;
   border-radius: 15px;
   width: 180px;
   margin-bottom: 580px;
+  margin-left: 280px;
+  background: #393939;
+}
+.tool-sizes-eraser{
+  height: 50px;
+  border-radius: 15px;
+  width: 180px;
+  margin-bottom: 430px;
   margin-left: 280px;
   background: #393939;
 }

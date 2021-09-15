@@ -26,7 +26,7 @@ class FiltroSaturacion{
 
             let objHsv = this.rgb_to_hsv(r , g , b);
             
-            objHsv.s += 0.5; //<-- valor a cambiar con un posible slider
+            objHsv.s += 0.5;
             
             let objRgb = this.hsv_to_rgb( objHsv.h, objHsv.s, objHsv.v );
             
