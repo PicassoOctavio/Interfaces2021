@@ -1,6 +1,7 @@
 class Juego {
 
   canvas;
+  context;
   tablero;
   jugadores;
   fichas;
@@ -12,10 +13,11 @@ class Juego {
 
   constructor(canvas, tablero, botonReiniciar, tiempo) {
     this.canvas = canvas;
+    this.context = canvas.getContext('2d');
     this.tablero = tablero;
     this.botonReiniciar = botonReiniciar;
     this.tiempo = tiempo;
-    botonReiniciar.addEventListener('click', this.reiniciar)
+    // botonReiniciar.addEventListener('click', this.reiniciar)
     this.jugadores = [];
     this.fichas = [];
     this.turno = null; // turno es un Jugador. 
@@ -24,14 +26,14 @@ class Juego {
   }
 
   empezar = () => {
-    this.tablero.dibujar();
-    repartirFichas();
-    dibujarFichas();
-    listenMouseDown();
-    listenMouseUp();
-    listenMouseMove();
-    listenMouseOut();
-    mostrarTurno(); // muestra en la app el jugador que tiene que jugar
+    // this.tablero.dibujar();
+    // repartirFichas();
+    this.dibujarFichas();
+    this.listenMouseDown();
+    this.listenMouseUp();
+    this.listenMouseMove();
+    // this.listenMouseOut();
+    // mostrarTurno(); // muestra en la app el jugador que tiene que jugar
   }
 
   mostrarBienvenida = () => {
@@ -49,12 +51,15 @@ class Juego {
   la resalta y le dice al juego que el click se está presionando)*/
   listenMouseDown = () => {
     this.canvas.addEventListener('mousedown', (e) => {
-      let x = e.clientX;     // Get the horizontal coordinate
-      let y = e.clientY;     // Get the vertical coordinate
+      let rect = e.target.getBoundingClientRect();
+      let x = e.clientX - rect.left; //x position within the element.
+      let y = e.clientY - rect.top;  //y position within the element.
+      console.log('x: '+x +' y: ' +y);
       for (let i = 0; i < this.fichas.length; i++) {
-        let ficha = fichas[i];
+        let ficha = this.fichas[i];
         // si se clickeó una ficha y esa ficha pertence al jugador turno...
-        if (ficha.isClicked(x, y) && ficha.getOwner() == this.turno) {
+        // if (ficha.isClicked(x, y) && ficha.getOwner() == this.turno) {
+        if (ficha.isClicked(x, y)) {
           ficha.resaltar();
           this.fichaSeleccionada = ficha;
         }
@@ -64,12 +69,14 @@ class Juego {
 
   listenMouseMove = () => {
     this.canvas.addEventListener('mousemove', (e) => {
-      let x = e.clientX;
-      let y = e.clientY;
+      let rect = e.target.getBoundingClientRect();
+      let x = e.clientX - rect.left; //x position within the element.
+      let y = e.clientY - rect.top;  //y position within the element.
+
       if (this.fichaSeleccionada) {
         this.fichaSeleccionada.setX(x);
         this.fichaSeleccionada.setY(y);
-        dibujarFichas();
+        this.dibujarFichas();
       }
     })
   }
@@ -79,17 +86,17 @@ class Juego {
   se encarga de dibujar las fichas de nuevo */
   listenMouseUp = () => {
     this.canvas.addEventListener('mouseup', () =>  {
-      if (this.tablero.isOverColumn(this.fichaSeleccionada)) {
-        let celdaLibre = this.tablero.getCeldaLibre(this.fichaSeleccionada);
-        if (celdaLibre) {
-          this.fichaSeleccionada.setX(celdaLibre.getX());
-          this.fichaSeleccionada.setY(celdaLibre.getY());
-          dibujarFichas();
-          checkGame();
-        } else {
+      // if (this.tablero.isOverColumn(this.fichaSeleccionada)) {
+        // let celdaLibre = this.tablero.getCeldaLibre(this.fichaSeleccionada);
+        // if (celdaLibre) {
+          // this.fichaSeleccionada.setX(celdaLibre.getX());
+          // this.fichaSeleccionada.setY(celdaLibre.getY());
+          this.dibujarFichas();
+          // checkGame();
+        // } else {
           // hay que ver donde dejo la ficha si no se puede agregar
-        }
-      }
+        // }
+      // }
       this.fichaSeleccionada = null
     });
   }
@@ -102,7 +109,14 @@ class Juego {
   // Cada ficha del juego se dibuja en el canvas
   dibujarFichas = () => {
     // ojo que hay que dibujarlas separado (las del j1 a la izq y las del j2 a la der)
-    fichas.forEach(ficha => ficha.draw(this.canvas));
+    this.whiten();
+    this.fichas.forEach(ficha => ficha.draw(this.context));
+  }
+
+  // Pinta el canvas de color blanco
+  whiten = () => {
+    this.context.fillStyle = "#ffffff";
+    this.context.fillRect(0, 0, this.canvas.width, this.canvas.height);
   }
 
   addJugador = (jugador) => {
