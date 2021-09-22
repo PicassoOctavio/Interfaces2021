@@ -22,18 +22,28 @@ class Ficha {
     ctx.arc(this.x, this.y, this.radio, 0, 2 * Math.PI);
     ctx.stroke();
   }
-
+  
   isClicked = (x, y) => {
     let _x = this.x - x;
     let _y = this.y - y;
     console.log(Math.sqrt(_x * _x + _y * _y) < this.radio)
     return Math.sqrt(_x * _x + _y * _y) < this.radio;
   }
-
+  
   getOwner = () => this.owner;
-
-  resaltar = () => {
-
+  
+  remarcar = (ctx) => {
+    ctx.beginPath();
+    ctx.strokeStyle = 'red';
+    ctx.lineWidth = 5;
+    ctx.stroke();
+    ctx.closePath();
+  }
+  
+  desmarcar = (ctx) => {
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
   }
 
 
