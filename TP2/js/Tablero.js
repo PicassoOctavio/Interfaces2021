@@ -18,4 +18,12 @@ class Tablero {
   // determina si una ficha se encuentra encima de alguna de las columnas
   isOverColumn = (ficha) => {}
 
+  draw = (ctx) => {
+    ctx.beginPath();
+    ctx.lineWidth = 1;
+    ctx.rect(140, 140, 140, 140);
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+  }
+
 }

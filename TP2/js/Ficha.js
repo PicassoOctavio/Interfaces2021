@@ -6,11 +6,13 @@ class Ficha {
   outlineColor;   // color del borde de la ficha cuando se clickea
   radio;          // radio del círculo
   owner;          // indica el jugador que posee la ficha
+  is_clicked      // indica si la ficha está siendo presionada
 
   constructor(x, y, radio) {
     this.x = x;
     this.y = y;
     this.radio = radio
+    this.outlineColor = 'red';
   }
 
   setX = (x) => this.x = x;
@@ -21,26 +23,24 @@ class Ficha {
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.radio, 0, 2 * Math.PI);
     ctx.stroke();
+    if (this.is_clicked) {
+      ctx.strokeStyle = 'red';
+      ctx.lineWidth = 2;
+      ctx.stroke();
+    }
   }
   
   isClicked = (x, y) => {
     let _x = this.x - x;
     let _y = this.y - y;
-    console.log(Math.sqrt(_x * _x + _y * _y) < this.radio)
-    return Math.sqrt(_x * _x + _y * _y) < this.radio;
+    this.is_clicked = Math.sqrt(_x * _x + _y * _y) < this.radio
+    return this.is_clicked;
   }
   
   getOwner = () => this.owner;
   
-  remarcar = (ctx) => {
-    ctx.beginPath();
-    ctx.strokeStyle = 'red';
-    ctx.lineWidth = 5;
-    ctx.stroke();
-    ctx.closePath();
-  }
-  
   desmarcar = (ctx) => {
+    ctx.beginPath();
     ctx.lineWidth = 1;
     ctx.strokeStyle = "black";
     ctx.stroke();
