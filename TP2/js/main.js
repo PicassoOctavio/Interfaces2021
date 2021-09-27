@@ -6,10 +6,10 @@ function init() {
   const juego = new Juego(canvas);
   
   // creo ficha
-  const ficha = new Ficha(40, 40, 20);
+  //const ficha = new Ficha(40, 40, 20);
 
   // la agrego al juego
-  juego.addFicha(ficha);
+  //juego.addFicha(ficha);
 
   // creo tablero
   const tablero = new Tablero();

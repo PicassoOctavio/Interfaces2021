@@ -24,6 +24,7 @@ class Tablero {
     ctx.rect(140, 140, 140, 140);
     ctx.strokeStyle = "black";
     ctx.stroke();
+    ctx.closePath();
   }
 
 }

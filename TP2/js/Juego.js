@@ -10,6 +10,7 @@ class Juego {
   fichaSeleccionada;
   botonReiniciar;
   tiempo;
+  cantFichas;
 
   constructor(canvas, tablero, botonReiniciar, tiempo) {
     this.canvas = canvas;
@@ -23,11 +24,13 @@ class Juego {
     this.turno = null; // turno es un Jugador. 
     this.isFinished = false; // flag que determina si el juego terminó
     this.fichaSeleccionada = null;
+    this.cantFichas = 20;
   }
 
   setTablero = (tablero) => this.tablero = tablero;
 
   empezar = () => {
+    this.cargarFichas();
     this.dibujarFichas();
     this.tablero.draw(this.context);
     // repartirFichas();
@@ -36,6 +39,18 @@ class Juego {
     this.listenMouseMove();
     // this.listenMouseOut();
     // mostrarTurno(); // muestra en la app el jugador que tiene que jugar
+  }
+
+  cargarFichas = () => {
+    const y = 40;
+    let x = 90;
+    for (let i = 0; i <= this.cantFichas; i ++){
+      const ficha = new Ficha(x, y, 20, this.context);
+      //console.log(ficha);
+      this.addFicha( ficha );
+      x += 50;
+    }
+    console.log("fichas array", this.fichas);
   }
 
   mostrarBienvenida = () => {
@@ -56,6 +71,7 @@ class Juego {
       let rect = e.target.getBoundingClientRect();
       let x = e.clientX - rect.left; //x position within the element.
       let y = e.clientY - rect.top;  //y position within the element.
+      console.log("x:",x, "| y:", y);
       for (let i = 0; i < this.fichas.length; i++) {
         let ficha = this.fichas[i];
         // si se clickeó una ficha y esa ficha pertence al jugador turno...
@@ -77,7 +93,7 @@ class Juego {
       let x = e.clientX - rect.left; //x position within the element.
       let y = e.clientY - rect.top;  //y position within the element.
 
-      if ( this.fichaSeleccionada) {
+      if ( this.fichaSeleccionada ) {
         this.fichaSeleccionada.setX(x);
         this.fichaSeleccionada.setY(y);
         this.dibujarFichas();

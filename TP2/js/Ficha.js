@@ -6,7 +6,7 @@ class Ficha {
   outlineColor;   // color del borde de la ficha cuando se clickea
   radio;          // radio del círculo
   owner;          // indica el jugador que posee la ficha
-  is_clicked      // indica si la ficha está siendo presionada
+  is_clicked;      // indica si la ficha está siendo presionada
 
   constructor(x, y, radio) {
     this.x = x;
@@ -22,18 +22,32 @@ class Ficha {
   draw = (ctx) => {
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.radio, 0, 2 * Math.PI);
+    ctx.strokeStyle = 'black';
+    ctx.lineWidth = 1;
     ctx.stroke();
+    ctx.closePath();
     if (this.is_clicked) {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.radio, 0, 2 * Math.PI);
       ctx.strokeStyle = 'red';
-      ctx.lineWidth = 2;
-      ctx.stroke();
+      ctx.lineWidth = 4;
+      ctx.stroke();    
+      ctx.closePath();
     }
+  }
+  
+  marcar = (ctx) => {
+    ctx.beginPath();
+    ctx.arc( this.x, this.y, this.radio, 0, 2 * Math.PI);
+    ctx.strokeStyle = 'red';
+    ctx.lineWidth = 4;
+    ctx.stroke();
   }
   
   isClicked = (x, y) => {
     let _x = this.x - x;
     let _y = this.y - y;
-    this.is_clicked = Math.sqrt(_x * _x + _y * _y) < this.radio
+    this.is_clicked = Math.sqrt(_x * _x + _y * _y) < this.radio;
     return this.is_clicked;
   }
   
@@ -44,6 +58,7 @@ class Ficha {
     ctx.lineWidth = 1;
     ctx.strokeStyle = "black";
     ctx.stroke();
+    ctx.closePath();
   }
 
 
