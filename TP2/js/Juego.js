@@ -77,11 +77,11 @@ class Juego {
         // si se clickeó una ficha y esa ficha pertence al jugador turno...
         // if (ficha.isClicked(x, y) && ficha.getOwner() == this.turno) {
         if ( ficha.isClicked(x, y) ) {
+          console.log('ficha was clicked')
           this.fichaSeleccionada = ficha;
         }
         else {
           ficha.desmarcar( this.context );
-          this.fichaSeleccionada = null;
         }
       }
     })
@@ -94,6 +94,7 @@ class Juego {
       let y = e.clientY - rect.top;  //y position within the element.
 
       if ( this.fichaSeleccionada ) {
+        console.log('fichaaa')
         this.fichaSeleccionada.setX(x);
         this.fichaSeleccionada.setY(y);
         this.dibujarFichas();
