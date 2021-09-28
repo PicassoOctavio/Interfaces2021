@@ -46,11 +46,9 @@ class Juego {
     let x = 90;
     for (let i = 0; i <= this.cantFichas; i ++){
       const ficha = new Ficha(x, y, 20, this.context);
-      //console.log(ficha);
       this.addFicha( ficha );
       x += 50;
     }
-    console.log("fichas array", this.fichas);
   }
 
   mostrarBienvenida = () => {
@@ -71,13 +69,11 @@ class Juego {
       let rect = e.target.getBoundingClientRect();
       let x = e.clientX - rect.left; //x position within the element.
       let y = e.clientY - rect.top;  //y position within the element.
-      console.log("x:",x, "| y:", y);
       for (let i = 0; i < this.fichas.length; i++) {
         let ficha = this.fichas[i];
         // si se clickeó una ficha y esa ficha pertence al jugador turno...
         // if (ficha.isClicked(x, y) && ficha.getOwner() == this.turno) {
         if ( ficha.isClicked(x, y) ) {
-          console.log('ficha was clicked')
           this.fichaSeleccionada = ficha;
         }
         else {
@@ -94,7 +90,6 @@ class Juego {
       let y = e.clientY - rect.top;  //y position within the element.
 
       if ( this.fichaSeleccionada ) {
-        console.log('fichaaa')
         this.fichaSeleccionada.setX(x);
         this.fichaSeleccionada.setY(y);
         this.dibujarFichas();

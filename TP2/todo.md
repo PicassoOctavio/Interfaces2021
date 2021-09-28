@@ -1,0 +1,2 @@
+- Solucionar resaltado cuando dos fichas se superponen y se clickea en la intersección
+- Centrar tablero

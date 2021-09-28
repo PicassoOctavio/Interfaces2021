@@ -12,7 +12,7 @@ function init() {
   //juego.addFicha(ficha);
 
   // creo tablero
-  const tablero = new Tablero();
+  const tablero = new Tablero(6, 6);
   
   // lo agrego al juego
   juego.setTablero(tablero);
