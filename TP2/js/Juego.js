@@ -29,7 +29,9 @@ class Juego {
 
   setTablero = (tablero) => this.tablero = tablero;
 
-  empezar = () => {
+  empezar = (tablero) => {
+    console.log("entro");
+    this.setTablero( tablero );
     this.cargarFichas();
     this.dibujarFichas();
     this.tablero.draw(this.context);

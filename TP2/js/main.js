@@ -11,14 +11,18 @@ function init() {
   // la agrego al juego
   //juego.addFicha(ficha);
 
+  
   // creo tablero
   const tablero = new Tablero(6, 6);
   
+  const btnEmpezar = document.querySelector(".js-btn-start");
+  btnEmpezar.addEventListener("click", () => juego.empezar(tablero));
+
   // lo agrego al juego
-  juego.setTablero(tablero);
+  //juego.setTablero(tablero);
   
   // empiezo el juego
-  juego.empezar();
+  //juego.empezar();
   
 }
 
