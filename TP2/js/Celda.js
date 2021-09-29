@@ -7,8 +7,8 @@ class Celda {
   image; // eventualmente la celda será una imagen
   ancho;
   alto;
-  x;  // The x-coordinate of the upper-left corner of the rectangle	
-  y;  // The y-coordinate of the upper-left corner of the rectangle	
+  x = 350;  // The x-coordinate of the upper-left corner of the rectangle	
+  y = 120;  // The y-coordinate of the upper-left corner of the rectangle	
 
 
   constructor(fila, columna) {
@@ -19,8 +19,10 @@ class Celda {
     this.image;
     this.ancho = 80;
     this.alto = 80;
-    this.x = this.ancho * this.columna;
-    this.y = this.alto * this.fila;
+    this.x += this.ancho * this.columna;
+    this.y += this.alto * this.fila;
+    //console.log("this.columna",this.columna,"| this.fila", this.fila);
+    //console.log("this.x",this.x,"| this.y", this.x);
   }
 
   isEmpty = () => {

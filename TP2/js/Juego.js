@@ -69,6 +69,7 @@ class Juego {
       let rect = e.target.getBoundingClientRect();
       let x = e.clientX - rect.left; //x position within the element.
       let y = e.clientY - rect.top;  //y position within the element.
+      console.log("x:", x, "| y:", y);
       for (let i = 0; i < this.fichas.length; i++) {
         let ficha = this.fichas[i];
         // si se clickeó una ficha y esa ficha pertence al jugador turno...
