@@ -158,6 +158,9 @@ class Juego {
 
   mostrarGanador = (jugador) => {}; // muestra el ganador en la app
 
-
-
+  /* ------------ seteo de nombres ------------ */
+  setNombreJugador = ( nameJugador, showName ) => {
+    console.log( "nameJugador", nameJugador.value );
+    showName.innerHTML = nameJugador.value;
+  }
 }

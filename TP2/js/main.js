@@ -24,6 +24,20 @@ function init() {
   // empiezo el juego
   //juego.empezar();
   
+  // set nombre jugador Uno
+  const btnJugadorUno = document.querySelector('.js-btn-setName');
+  const nameJugadorUno = document.querySelector('.nameJugUno');
+  let showJugadorUno = document.querySelector('.nameJugadorUno');
+  btnJugadorUno.addEventListener("click", 
+    () => juego.setNombreJugador( nameJugadorUno, showJugadorUno )); 
+
+  // set nombre jugador Uno
+  const btnJugadorDos = document.querySelector('.js-btn-setNameDos');
+  const nameJugadorDos = document.querySelector('.nameJugDos');
+  let showJugadorDos = document.querySelector('.nameJugadorDos');
+  btnJugadorDos.addEventListener( "click", 
+    () => juego.setNombreJugador( nameJugadorDos, showJugadorDos )); 
+
 }
 
 document.addEventListener('DOMContentLoaded', init);

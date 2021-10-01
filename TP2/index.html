@@ -9,13 +9,34 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 </head>
 <body>
+
   <div class="inicioJuego">
     <div class="inputsNombres">
-      <input type="text" placeholder="Nombre jugador 1">
+      <div class="setNombre">
+        <input type="text" class="nameJugUno" 
+          placeholder="Nombre jugador 1">
+        <button type="button" 
+          class="btn btn-info btnOkName js-btn-setName">
+          Ok
+        </button>
+      </div>
       <h2>Vs.</h2>
-      <input type="text" placeholder="Nombre jugador 2">
+      <div class="setNombre">
+        <input type="text" class="nameJugDos" placeholder="Nombre jugador 2">
+        <button type="button" 
+          class="btn btn-info btnOkName js-btn-setNameDos">
+          Ok
+        </button>
+      </div>
     </div>
-    <button type="button" class="btn btn-info btnStart js-btn-start">Empezar!</button>
+    <button type="button" class="btn btn-info btnStart js-btn-start">
+      Empezar!
+    </button>
+  </div>
+  <div class="mostrarJugadores">
+    <h3 class="nameJugadorUno"></h3>
+    <h3 class="nameJugadorDos"></h3>
+
   </div>
   <canvas width="1200" height="600"></canvas>
 
