@@ -23,7 +23,9 @@ function init() {
   
   // empiezo el juego
   //juego.empezar();
-  
+
+
+  //---------------------- Setear nombres ---------------------------
   // set nombre jugador Uno
   const btnJugadorUno = document.querySelector('.js-btn-setName');
   const nameJugadorUno = document.querySelector('.nameJugUno');

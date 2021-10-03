@@ -19,6 +19,7 @@ class Juego {
     this.botonReiniciar = botonReiniciar;
     this.tiempo = tiempo;
     // botonReiniciar.addEventListener('click', this.reiniciar)
+    // array de strings con los nombres de cada jugador
     this.jugadores = [];
     this.fichas = [];
     this.turno = null; // turno es un Jugador. 
@@ -31,16 +32,22 @@ class Juego {
 
   empezar = (tablero) => {
     console.log("entro");
-    this.setTablero( tablero );
-    this.cargarFichas();
-    this.dibujarFichas();
-    this.tablero.draw(this.context);
-    // repartirFichas();
-    this.listenMouseDown();
-    this.listenMouseUp();
-    this.listenMouseMove();
-    // this.listenMouseOut();
-    // mostrarTurno(); // muestra en la app el jugador que tiene que jugar
+      this.setTablero( tablero );
+      this.cargarFichas();
+      this.dibujarFichas();
+      this.tablero.draw(this.context);
+      // repartirFichas();
+      this.listenMouseDown();
+      this.listenMouseUp();
+      this.listenMouseMove();
+      // this.listenMouseOut();
+      // mostrarTurno(); // muestra en la app el jugador que tiene que jugar
+    
+    /* //mostrar cartel de advertencia que se debe setear los jugadores
+    console.log("Deben existir al menos dos jugadores");
+    const mensaje = "Deben existir al menos dos jugadores";
+    this.mostrarAdvertencia( mensaje ); */
+    
   }
 
   cargarFichas = () => {
@@ -156,11 +163,31 @@ class Juego {
     this.isFinished = true;
   }
 
+  existenDosJugadores = () => {
+    return this.jugadores.length === 2;
+  }
+
+  mostrarAdvertencia = ( mensaje ) => {
+    let alert = document.querySelector('.alert');
+    document.querySelector('.alert').hidden = false;
+    alert.innerHTML = mensaje;
+  }
+
+  habilitarBtnEmpezar = () => {
+    document.querySelector('.js-btn-start').disabled = false;
+  }
+
   mostrarGanador = (jugador) => {}; // muestra el ganador en la app
 
   /* ------------ seteo de nombres ------------ */
   setNombreJugador = ( nameJugador, showName ) => {
     console.log( "nameJugador", nameJugador.value );
     showName.innerHTML = nameJugador.value;
+    //agregando el jugador a lista de jugadores
+    this.addJugador(nameJugador);
+    console.log("this.jugadores", this.jugadores, this.jugadores.length);
+    if ( this.existenDosJugadores() ){
+      this.habilitarBtnEmpezar();
+    }
   }
 }
