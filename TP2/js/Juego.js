@@ -207,7 +207,7 @@ class Juego {
   // -------------------------------------------------------------------------
 
   mostrarMensaje = ( mensaje ) => {
-    let alert = document.querySelector('.alert');
+    let alert = document.querySelector('.alertText');
     document.querySelector('.alert').hidden = false;
     alert.innerHTML = mensaje;
   }

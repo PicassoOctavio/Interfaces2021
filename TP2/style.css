@@ -58,7 +58,12 @@ input{
   align-items: center;
 }
 .alert{
-  width: 600px;
-  height: 40px;
+  width: auto;
+  height: 60px;
+  margin-top: 20px;
+}
+.alertText{
+  margin: auto;
+  padding-bottom: 10px;
 }
 
