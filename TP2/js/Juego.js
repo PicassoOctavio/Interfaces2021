@@ -25,7 +25,7 @@ class Juego {
     this.turno = null; // turno es un Jugador. 
     this.isFinished = false; // flag que determina si el juego terminó
     this.fichaSeleccionada = null;
-    this.cantFichas = 20;
+    this.cantFichas = 36;
   }
 
   setTablero = (tablero) => this.tablero = tablero;
@@ -37,6 +37,11 @@ class Juego {
       this.dibujarFichas();
       this.tablero.draw(this.context);
       // repartirFichas();
+
+      const msjTurnoUno = "Es turno del jugador "+ this.obtenerNombreJugador(0);
+      this.mostrarMensaje( msjTurnoUno );
+
+
       this.listenMouseDown();
       this.listenMouseUp();
       this.listenMouseMove();
@@ -46,11 +51,11 @@ class Juego {
     /* //mostrar cartel de advertencia que se debe setear los jugadores
     console.log("Deben existir al menos dos jugadores");
     const mensaje = "Deben existir al menos dos jugadores";
-    this.mostrarAdvertencia( mensaje ); */
+    this.mostrarMensaje( mensaje ); */
     
   }
 
-  cargarFichas = () => {
+  /* cargarFichas = () => {
     const y = 40;
     let x = 90;
     for (let i = 0; i <= this.cantFichas; i ++){
@@ -58,7 +63,34 @@ class Juego {
       this.addFicha( ficha );
       x += 50;
     }
+  } */
+
+  
+  cargarFichas = () => {
+    let y = 100;
+    let x = 40;
+    for (let i = 0; i <= this.cantFichas / 2; i ++){
+      const ficha = new Ficha(x, y, 20, this.context);
+      this.addFicha( ficha );
+      y += 50;
+      if ( y >= 580 && i <=17 ){
+        x = 100;
+        y = 100;
+      }
+    }
+    x = 1080;
+    y = 100;
+    for (let i = 0; i <= this.cantFichas / 2; i ++){
+      const ficha = new Ficha(x, y, 20, this.context);
+      this.addFicha( ficha );
+      y += 50;
+      if ( y >= 530 && i >= 9 ){
+        x = 1140;
+        y = 100;
+      }
+    }
   }
+ 
 
   mostrarBienvenida = () => {
     // poder elegir nombre de los jugadores
@@ -155,19 +187,26 @@ class Juego {
     this.fichas.push(ficha);
   };
 
+  // --------------------- jugador funcitons ---------------------------------
+
+  obtenerNombreJugador = (pos) => {
+    return this.jugadores[pos].value;
+  }
+
   setTurno = (jugador) => {
     this.turno = jugador; 
   }
-
+  
   terminar = () => {
     this.isFinished = true;
   }
-
+  
   existenDosJugadores = () => {
     return this.jugadores.length === 2;
   }
+  // -------------------------------------------------------------------------
 
-  mostrarAdvertencia = ( mensaje ) => {
+  mostrarMensaje = ( mensaje ) => {
     let alert = document.querySelector('.alert');
     document.querySelector('.alert').hidden = false;
     alert.innerHTML = mensaje;
