@@ -3,7 +3,7 @@ class Celda {
   fila;
   columna;
   ficha;
-  isEmpty;
+  empty;
   image; // eventualmente la celda será una imagen
   ancho;
   alto;
@@ -15,7 +15,7 @@ class Celda {
     this.fila = fila;
     this.columna = columna;
     this.ficha = null;
-    this.isEmpty = true;
+    this.empty = true;
     this.image;
     this.ancho = 80;
     this.alto = 80;
@@ -26,7 +26,15 @@ class Celda {
   }
 
   isEmpty = () => {
-    return this.isEmpty;
+    return this.empty;
+  }
+
+  // devuelve las coordenadas del centro de la celda
+  getCenter = () => {
+    let centro = {};
+    centro.x = this.x + this.ancho / 2;
+    centro.y = this.y + this.alto / 2;
+    return centro;
   }
 
   getAncho = () => {
@@ -57,7 +65,6 @@ class Celda {
   draw = (ctx) => {
     ctx.beginPath();
     ctx.lineWidth = 1;
-    console.log(ctx.canvas.clientWidth)
     ctx.rect(this.x, this.y, this.ancho, this.alto);
     ctx.strokeStyle = "black";
     ctx.stroke();

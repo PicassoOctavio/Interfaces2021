@@ -5,6 +5,7 @@ class Tablero {
   cantFichasColocadas;
   isEmpty;
   celdas;
+  zonas;
 
   constructor(filas, columnas) {
     this.cantFilas = filas;
@@ -12,7 +13,9 @@ class Tablero {
     this.cantFichasColocadas = 0;
     this.isEmpty = true;
     this.celdas = [];
+    this.zonas = [];
     this.setCeldas();
+    this.setZonas();
   }
 
   setCeldas = () => {
@@ -24,13 +27,46 @@ class Tablero {
     }
   }
 
+  // por cada columna agrega al arreglo 'zonas' un objeto que contiene
+  // los puntos inicio y fin de cada celda
+  setZonas = () => {
+    for (let i = 0; i < this.celdas.length; i+=this.cantCols) {
+      let celda = this.celdas[i];
+        this.zonas.push({
+          inicio: celda.getX(),
+          fin: celda.getAncho() + celda.getX()
+        }) 
+    }
+  }
+
+  // Dada una ficha, devuelve la columna a la cual quiere ingresar
+  getColumn = (ficha) => {
+    let x = ficha.getX();
+    for (let i = 0; i < this.zonas.length; i++) {
+      let zona = this.zonas[i];
+      if (zona.inicio <= x && x <= zona.fin) {
+        return i
+      }
+    }
+    return null
+  }
+
   // ancho en pixeles del tablero
   getAncho = () => {
     return this.cantCols * this.celdas[0].getAncho();
   }
 
   // le pregunta a la ficha dónde esta y devuelve una celda donde pueda ponerse
-  getCeldaLibre = (ficha) => {}
+  getCeldaLibre = (ficha) => {
+    let col = this.getColumn(ficha);
+    for (let i = this.celdas.length - 1; i > 0; i--) {
+      let celda = this.celdas[i];
+      if (celda.getColumna() == col && celda.isEmpty()) {
+        return celda;
+      }
+    }
+    return null;
+  }
 
   // determina si una ficha se encuentra encima de alguna de las columnas
   isOverColumn = (ficha) => {}
