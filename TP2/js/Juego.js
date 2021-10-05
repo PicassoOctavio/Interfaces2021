@@ -69,7 +69,6 @@ class Juego {
       let rect = e.target.getBoundingClientRect();
       let x = e.clientX - rect.left; //x position within the element.
       let y = e.clientY - rect.top;  //y position within the element.
-      console.log("x:", x, "| y:", y);
       for (let i = 0; i < this.fichas.length; i++) {
         let ficha = this.fichas[i];
         // si se clickeó una ficha y esa ficha pertence al jugador turno...
@@ -104,18 +103,21 @@ class Juego {
   se encarga de dibujar las fichas de nuevo */
   listenMouseUp = () => {
     this.canvas.addEventListener('mouseup', () =>  {
-      // if (this.tablero.isOverColumn(this.fichaSeleccionada)) {
-        // let celdaLibre = this.tablero.getCeldaLibre(this.fichaSeleccionada);
-        // if (celdaLibre) {
-          // this.fichaSeleccionada.setX(celdaLibre.getX());
-          // this.fichaSeleccionada.setY(celdaLibre.getY());
-          this.dibujarFichas();
-          this.tablero.draw(this.context);
-          // checkGame();
-        // } else {
-          // hay que ver donde dejo la ficha si no se puede agregar
-        // }
-      // }
+      if (this.fichaSeleccionada) {
+        if (this.tablero.getColumn(this.fichaSeleccionada) != null) {
+          let celdaLibre = this.tablero.getCeldaLibre(this.fichaSeleccionada);
+          if (celdaLibre) {
+            this.fichaSeleccionada.setX(celdaLibre.getCenter().x);
+            this.fichaSeleccionada.setY(celdaLibre.getCenter().y);
+            celdaLibre.empty = false;
+            this.dibujarFichas();
+            this.tablero.draw(this.context);
+            // checkGame();
+          // } else {
+            // hay que ver donde dejo la ficha si no se puede agregar
+          }
+        }
+      }
       this.fichaSeleccionada = null
     });
   }
