@@ -11,6 +11,7 @@ class Juego {
   botonReiniciar;
   tiempo;
   cantFichas;
+  btnStart;
 
   constructor(canvas, tablero, botonReiniciar, tiempo) {
     this.canvas = canvas;
@@ -28,25 +29,44 @@ class Juego {
     this.cantFichas = 36;
   }
 
+  setStartButton = (btn) => {
+    this.btnStart = btn;
+    this.btnStart.addEventListener('click', () => this.empezar());
+  }
+
   setTablero = (tablero) => this.tablero = tablero;
 
-  empezar = (tablero) => {
-    console.log("entro");
-      this.setTablero( tablero );
+  cargarJugadores = () => {
+    // Creo jugador 1
+    const namePlayer1 = document.querySelector('.js-player-1');
+    const player1 = new Jugador(namePlayer1.value);
+
+    // Creo jugador 2
+    const namePlayer2 = document.querySelector('.js-player-2');
+    const player2 = new Jugador(namePlayer2.value);
+
+    // Agrego los jugadores al juego
+    this.addJugador(player1);
+    this.addJugador(player2);
+  }
+
+  empezar = () => {
+      this.cargarJugadores();
       this.cargarFichas();
       this.dibujarFichas();
       this.tablero.draw(this.context);
+      this.turno = this.jugadores[0];
       // repartirFichas();
 
-      const msjTurnoUno = "Es turno del jugador "+ this.obtenerNombreJugador(0);
-      this.mostrarMensaje( msjTurnoUno );
+      // const msjTurnoUno = "Es turno del jugador "+ this.obtenerNombreJugador(0);
+      // this.mostrarMensaje( msjTurnoUno );
 
 
       this.listenMouseDown();
       this.listenMouseUp();
       this.listenMouseMove();
       // this.listenMouseOut();
-      // mostrarTurno(); // muestra en la app el jugador que tiene que jugar
+      this.mostrarTurno();
     
     /* //mostrar cartel de advertencia que se debe setear los jugadores
     console.log("Deben existir al menos dos jugadores");
@@ -55,16 +75,18 @@ class Juego {
     
   }
 
-  /* cargarFichas = () => {
-    const y = 40;
-    let x = 90;
-    for (let i = 0; i <= this.cantFichas; i ++){
-      const ficha = new Ficha(x, y, 20, this.context);
-      this.addFicha( ficha );
-      x += 50;
-    }
-  } */
+  // mostrarMensaje = ( mensaje ) => {
+  //   let alert = document.querySelector('.alertText');
+  //   document.querySelector('.alert').hidden = false;
+  //   alert.innerHTML = mensaje;
+  // }
 
+  mostrarTurno = () => {
+    console.log(this.turno)
+    const turnPlayerMsg = document.querySelector('.js-turn-player');
+    turnPlayerMsg.classList.remove('js-display-none');
+    turnPlayerMsg.innerHTML = `Es el turno de ${this.turno.nombre}`;
+  }
   
   cargarFichas = () => {
     let y = 100;
@@ -206,29 +228,7 @@ class Juego {
   existenDosJugadores = () => {
     return this.jugadores.length === 2;
   }
-  // -------------------------------------------------------------------------
-
-  mostrarMensaje = ( mensaje ) => {
-    let alert = document.querySelector('.alertText');
-    document.querySelector('.alert').hidden = false;
-    alert.innerHTML = mensaje;
-  }
-
-  habilitarBtnEmpezar = () => {
-    document.querySelector('.js-btn-start').disabled = false;
-  }
 
   mostrarGanador = (jugador) => {}; // muestra el ganador en la app
 
-  /* ------------ seteo de nombres ------------ */
-  setNombreJugador = ( nameJugador, showName ) => {
-    console.log( "nameJugador", nameJugador.value );
-    showName.innerHTML = nameJugador.value;
-    //agregando el jugador a lista de jugadores
-    this.addJugador(nameJugador);
-    console.log("this.jugadores", this.jugadores, this.jugadores.length);
-    if ( this.existenDosJugadores() ){
-      this.habilitarBtnEmpezar();
-    }
-  }
 }

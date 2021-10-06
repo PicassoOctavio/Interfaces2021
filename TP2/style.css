@@ -10,6 +10,10 @@ body {
   height: 100vh;
 }
 
+.js-display-none {
+  display: none;
+}
+
 .btnStart{
   width: 200px;
   height: 40px;

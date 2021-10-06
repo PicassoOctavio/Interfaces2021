@@ -13,34 +13,24 @@
   <div class="inicioJuego">
     <div class="inputsNombres">
       <div class="setNombre">
-        <input type="text" class="nameJugUno" 
+        <input type="text" class="js-player-1" 
           placeholder="Nombre jugador 1">
-        <button type="button" 
-          class="btn btn-info btnOkName js-btn-setName">
-          Ok
-        </button>
+        
       </div>
       <h2>Vs.</h2>
       <div class="setNombre">
-        <input type="text" class="nameJugDos" 
+        <input type="text" class="js-player-2" 
           placeholder="Nombre jugador 2">
-        <button type="button" 
-          class="btn btn-info btnOkName js-btn-setNameDos">
-          Ok
-        </button>
+        
       </div>
     </div>
     <button type="button"
       class="btn btn-info btnStart js-btn-start" 
-      disabled>
+      >
       Empezar!
     </button>
-    <div class="alert alert-warning" 
-      role="alert" 
-      fxFlexAlign="center" 
-      hidden>
-      <h5 class="alertText"></h5>
-    </div>
+
+    <h5 class="js-turn-player js-display-none"></h5>
   </div>
   <div class="mostrarJugadores">
     <h3 class="nameJugadorUno"></h3>
@@ -51,6 +41,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
   <script src="js/main.js"></script>
+  <script src="js/Jugador.js"></script>
   <script src="js/Celda.js"></script>
   <script src="js/Tablero.js"></script>
   <script src="js/Juego.js"></script>

@@ -14,31 +14,17 @@ function init() {
   
   // creo tablero
   const tablero = new Tablero(6, 6);
-  
-  const btnEmpezar = document.querySelector(".js-btn-start");
-  btnEmpezar.addEventListener("click", () => juego.empezar(tablero));
 
   // lo agrego al juego
-  //juego.setTablero(tablero);
+  juego.setTablero(tablero);
+
+  // creo botón 'Empezar'
+  const btnEmpezar = document.querySelector(".js-btn-start");
+
+  // lo agrego al juego
+  juego.setStartButton(btnEmpezar);
   
-  // empiezo el juego
-  //juego.empezar();
-
-
-  //---------------------- Setear nombres ---------------------------
-  // set nombre jugador Uno
-  const btnJugadorUno = document.querySelector('.js-btn-setName');
-  const nameJugadorUno = document.querySelector('.nameJugUno');
-  let showJugadorUno = document.querySelector('.nameJugadorUno');
-  btnJugadorUno.addEventListener("click", 
-    () => juego.setNombreJugador( nameJugadorUno, showJugadorUno )); 
-
-  // set nombre jugador Uno
-  const btnJugadorDos = document.querySelector('.js-btn-setNameDos');
-  const nameJugadorDos = document.querySelector('.nameJugDos');
-  let showJugadorDos = document.querySelector('.nameJugadorDos');
-  btnJugadorDos.addEventListener( "click", 
-    () => juego.setNombreJugador( nameJugadorDos, showJugadorDos )); 
+  
 
 }
 
