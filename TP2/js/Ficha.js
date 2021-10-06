@@ -7,12 +7,14 @@ class Ficha {
   radio;          // radio del círculo
   owner;          // indica el jugador que posee la ficha
   is_clicked;      // indica si la ficha está siendo presionada
+  color;
 
-  constructor(x, y, radio) {
+  constructor(x, y, radio, color) {
     this.x = x;
     this.y = y;
     this.radio = radio
     this.outlineColor = 'red';
+    this.color = color;
   }
 
   getX = () => {
@@ -32,14 +34,17 @@ class Ficha {
     ctx.arc(this.x, this.y, this.radio, 0, 2 * Math.PI);
     ctx.strokeStyle = 'black';
     ctx.lineWidth = 1;
-    ctx.stroke();
+    // ctx.stroke();
+    ctx.fillStyle = this.color;
+    ctx.fill();
+
     ctx.closePath();
     if (this.is_clicked) {
       ctx.beginPath();
       ctx.arc(this.x, this.y, this.radio, 0, 2 * Math.PI);
       ctx.strokeStyle = 'red';
       ctx.lineWidth = 4;
-      ctx.stroke();    
+      // ctx.stroke();    
       ctx.closePath();
     }
   }

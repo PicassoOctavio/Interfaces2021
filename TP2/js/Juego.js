@@ -70,7 +70,7 @@ class Juego {
     let y = 100;
     let x = 40;
     for (let i = 0; i <= this.cantFichas / 2; i ++){
-      const ficha = new Ficha(x, y, 20, this.context);
+      const ficha = new Ficha(x, y, 20, 'red');
       this.addFicha( ficha );
       y += 50;
       if ( y >= 580 && i <=17 ){
@@ -81,7 +81,7 @@ class Juego {
     x = 1080;
     y = 100;
     for (let i = 0; i <= this.cantFichas / 2; i ++){
-      const ficha = new Ficha(x, y, 20, this.context);
+      const ficha = new Ficha(x, y, 20, 'blue');
       this.addFicha( ficha );
       y += 50;
       if ( y >= 530 && i >= 9 ){
