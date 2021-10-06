@@ -59,7 +59,7 @@ class Tablero {
   // le pregunta a la ficha dónde esta y devuelve una celda donde pueda ponerse
   getCeldaLibre = (ficha) => {
     let col = this.getColumn(ficha);
-    for (let i = this.celdas.length - 1; i > 0; i--) {
+    for (let i = this.celdas.length - 1; i >= 0; i--) {
       let celda = this.celdas[i];
       if (celda.getColumna() == col && celda.isEmpty()) {
         return celda;
