@@ -56,30 +56,14 @@ class Juego {
       this.dibujarFichas();
       this.tablero.draw(this.context);
       this.turno = this.jugadores[0];
-      // repartirFichas();
-
-      // const msjTurnoUno = "Es turno del jugador "+ this.obtenerNombreJugador(0);
-      // this.mostrarMensaje( msjTurnoUno );
-
 
       this.listenMouseDown();
       this.listenMouseUp();
       this.listenMouseMove();
       // this.listenMouseOut();
-      this.mostrarTurno();
-    
-    /* //mostrar cartel de advertencia que se debe setear los jugadores
-    console.log("Deben existir al menos dos jugadores");
-    const mensaje = "Deben existir al menos dos jugadores";
-    this.mostrarMensaje( mensaje ); */
-    
-  }
 
-  // mostrarMensaje = ( mensaje ) => {
-  //   let alert = document.querySelector('.alertText');
-  //   document.querySelector('.alert').hidden = false;
-  //   alert.innerHTML = mensaje;
-  // }
+      this.mostrarTurno();
+  }
 
   mostrarTurno = () => {
     console.log(this.turno)
@@ -92,7 +76,7 @@ class Juego {
     let y = 100;
     let x = 40;
     for (let i = 0; i <= this.cantFichas / 2; i ++){
-      const ficha = new Ficha(x, y, 20, 'red');
+      const ficha = new Ficha(x, y, 20, 'red', this.jugadores[0]);
       this.addFicha( ficha );
       y += 50;
       if ( y >= 580 && i <=17 ){
@@ -103,7 +87,7 @@ class Juego {
     x = 1080;
     y = 100;
     for (let i = 0; i <= this.cantFichas / 2; i ++){
-      const ficha = new Ficha(x, y, 20, 'blue');
+      const ficha = new Ficha(x, y, 20, 'blue', this.jugadores[1]);
       this.addFicha( ficha );
       y += 50;
       if ( y >= 530 && i >= 9 ){
@@ -135,8 +119,7 @@ class Juego {
       for (let i = 0; i < this.fichas.length; i++) {
         let ficha = this.fichas[i];
         // si se clickeó una ficha y esa ficha pertence al jugador turno...
-        // if (ficha.isClicked(x, y) && ficha.getOwner() == this.turno) {
-        if ( ficha.isClicked(x, y) ) {
+        if ( ficha.isClicked(x, y) && ficha.getOwner().nombre == this.turno.nombre) {
           this.fichaSeleccionada = ficha;
         }
         else {
@@ -175,7 +158,7 @@ class Juego {
             celdaLibre.empty = false;
             this.dibujarFichas();
             this.tablero.draw(this.context);
-            // checkGame();
+            this.checkGame();
           // } else {
             // hay que ver donde dejo la ficha si no se puede agregar
           }
@@ -188,11 +171,23 @@ class Juego {
   /* Determina si se puede seguir jugando.
   En caso de que no, se imprime el jugador ganador (o el empate).
   Si se puede jugar, cambia el turno al siguiente jugador */
-  checkGame = () => {}
+  checkGame = () => {
+    // if tablero no está lleno y no hay ganador... then
+    this.turno = this.getTurn();
+    this.mostrarTurno();
+  }
+
+  getTurn = () => {
+    for (let i = 0; i < this.jugadores.length; i++) {
+      let jugador = this.jugadores[i];
+      if (jugador != this.turno) {
+        return jugador;
+      }
+    }
+  }
 
   // Cada ficha del juego se dibuja en el canvas
   dibujarFichas = () => {
-    // ojo que hay que dibujarlas separado (las del j1 a la izq y las del j2 a la der)
     this.whiten();
     this.fichas.forEach(ficha => ficha.draw(this.context));
   }
@@ -210,23 +205,9 @@ class Juego {
   addFicha = (ficha) => {
     this.fichas.push(ficha);
   };
-
-  // --------------------- jugador funcitons ---------------------------------
-
-  obtenerNombreJugador = (pos) => {
-    return this.jugadores[pos].value;
-  }
-
-  setTurno = (jugador) => {
-    this.turno = jugador; 
-  }
   
   terminar = () => {
     this.isFinished = true;
-  }
-  
-  existenDosJugadores = () => {
-    return this.jugadores.length === 2;
   }
 
   mostrarGanador = (jugador) => {}; // muestra el ganador en la app

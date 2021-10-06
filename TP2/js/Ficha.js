@@ -6,15 +6,16 @@ class Ficha {
   outlineColor;   // color del borde de la ficha cuando se clickea
   radio;          // radio del círculo
   owner;          // indica el jugador que posee la ficha
-  is_clicked;      // indica si la ficha está siendo presionada
+  is_clicked;     // indica si la ficha está siendo presionada
   color;
 
-  constructor(x, y, radio, color) {
+  constructor(x, y, radio, color, owner) {
     this.x = x;
     this.y = y;
     this.radio = radio
     this.outlineColor = 'red';
     this.color = color;
+    this.owner = owner;
   }
 
   getX = () => {
@@ -64,7 +65,9 @@ class Ficha {
     return this.is_clicked;
   }
   
-  getOwner = () => this.owner;
+  getOwner = () => {
+    return this.owner;
+  }
   
   desmarcar = (ctx) => {
     ctx.beginPath();
