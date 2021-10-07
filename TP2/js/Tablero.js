@@ -18,6 +18,11 @@ class Tablero {
     this.setZonas();
   }
 
+  addFicha = (ficha) => {
+    let celda = this.getCeldaLibre(ficha);
+    celda.addFicha(ficha);
+  }
+
   setCeldas = () => {
     for (let col = 0; col < this.cantCols; col++) {
       for (let fila = 0; fila < this.cantFilas; fila++) {

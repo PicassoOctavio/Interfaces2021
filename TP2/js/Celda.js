@@ -21,12 +21,15 @@ class Celda {
     this.alto = 80;
     this.x += this.ancho * this.columna;
     this.y += this.alto * this.fila;
-    //console.log("this.columna",this.columna,"| this.fila", this.fila);
-    //console.log("this.x",this.x,"| this.y", this.x);
   }
 
   isEmpty = () => {
     return this.empty;
+  }
+
+  addFicha = (ficha) => {
+    this.ficha = ficha;
+    this.empty = false;
   }
 
   // devuelve las coordenadas del centro de la celda
@@ -61,7 +64,6 @@ class Celda {
     return this.y;
   }
 
-
   draw = (ctx) => {
     ctx.beginPath();
     ctx.lineWidth = 1;
@@ -70,7 +72,5 @@ class Celda {
     ctx.stroke();
     ctx.closePath();
   }
-
-  
 
 }

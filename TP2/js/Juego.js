@@ -66,7 +66,6 @@ class Juego {
   }
 
   mostrarTurno = () => {
-    console.log(this.turno)
     const turnPlayerMsg = document.querySelector('.js-turn-player');
     turnPlayerMsg.classList.remove('js-display-none');
     turnPlayerMsg.innerHTML = `Es el turno de ${this.turno.nombre}`;
@@ -158,6 +157,7 @@ class Juego {
             this.fichaSeleccionada.setX(celdaLibre.getCenter().x);
             this.fichaSeleccionada.setY(celdaLibre.getCenter().y);
             this.fichaSeleccionada.colocada(true);
+            this.tablero.addFicha(this.fichaSeleccionada);
             celdaLibre.empty = false;
             this.dibujarFichas();
             this.tablero.draw(this.context);
