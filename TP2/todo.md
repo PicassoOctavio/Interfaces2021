@@ -1,3 +1,4 @@
 - Solucionar resaltado cuando dos fichas se superponen y se clickea en la intersección
 - Centrar tablero
 - Crear borde a la ficha cuando se clickea
+- No permitir que los jugadores tengan nombres iguales (se rompe)

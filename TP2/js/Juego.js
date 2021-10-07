@@ -39,11 +39,11 @@ class Juego {
   cargarJugadores = () => {
     // Creo jugador 1
     const namePlayer1 = document.querySelector('.js-player-1');
-    const player1 = new Jugador(namePlayer1.value);
+    const player1 = namePlayer1.value;
 
     // Creo jugador 2
     const namePlayer2 = document.querySelector('.js-player-2');
-    const player2 = new Jugador(namePlayer2.value);
+    const player2 = namePlayer2.value;
 
     // Agrego los jugadores al juego
     this.addJugador(player1);
@@ -68,7 +68,7 @@ class Juego {
   mostrarTurno = () => {
     const turnPlayerMsg = document.querySelector('.js-turn-player');
     turnPlayerMsg.classList.remove('js-display-none');
-    turnPlayerMsg.innerHTML = `Es el turno de ${this.turno.nombre}`;
+    turnPlayerMsg.innerHTML = `Es el turno de ${this.turno}`;
   }
   
   cargarFichas = () => {
@@ -119,7 +119,7 @@ class Juego {
         let ficha = this.fichas[i];
         if (ficha.isClicked(x, y)) {
           // si la ficha pertenece al turno y si la ficha no está en el tablero...
-          if (ficha.getOwner().nombre == this.turno.nombre && ! ficha.isColocada()) {
+          if (ficha.getOwner() == this.turno && ! ficha.isColocada()) {
             this.fichaSeleccionada = ficha;
           }
         }
