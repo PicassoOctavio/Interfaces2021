@@ -7,6 +7,7 @@ class Ficha {
   radio;          // radio del círculo
   owner;          // indica el jugador que posee la ficha
   is_clicked;     // indica si la ficha está siendo presionada
+  _colocada;      // indica si la ficha está en el tablero
   color;
 
   constructor(x, y, radio, color, owner) {
@@ -16,6 +17,14 @@ class Ficha {
     this.outlineColor = 'red';
     this.color = color;
     this.owner = owner;
+  }
+
+  colocada = (valor) => {
+    this._colocada = valor;
+  }
+
+  isColocada = () => {
+    return this._colocada;
   }
 
   getX = () => {

@@ -118,9 +118,11 @@ class Juego {
       let y = e.clientY - rect.top;  //y position within the element.
       for (let i = 0; i < this.fichas.length; i++) {
         let ficha = this.fichas[i];
-        // si se clickeó una ficha y esa ficha pertence al jugador turno...
-        if ( ficha.isClicked(x, y) && ficha.getOwner().nombre == this.turno.nombre) {
-          this.fichaSeleccionada = ficha;
+        if (ficha.isClicked(x, y)) {
+          // si la ficha pertenece al turno y si la ficha no está en el tablero...
+          if (ficha.getOwner().nombre == this.turno.nombre && ! ficha.isColocada()) {
+            this.fichaSeleccionada = ficha;
+          }
         }
         else {
           ficha.desmarcar( this.context );
@@ -155,6 +157,7 @@ class Juego {
           if (celdaLibre) {
             this.fichaSeleccionada.setX(celdaLibre.getCenter().x);
             this.fichaSeleccionada.setY(celdaLibre.getCenter().y);
+            this.fichaSeleccionada.colocada(true);
             celdaLibre.empty = false;
             this.dibujarFichas();
             this.tablero.draw(this.context);
