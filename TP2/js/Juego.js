@@ -27,7 +27,7 @@ class Juego {
     this.isFinished = false; // flag que determina si el juego terminó
     this.fichaSeleccionada = null;
     this.cantFichas = 36;
-    this.winLine = 3;
+    this.winLine = 2;
   }
 
   setStartButton = (btn) => {

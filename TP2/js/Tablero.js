@@ -75,53 +75,51 @@ class Tablero {
 
   seFormoLinea = (celda, winLine) => {
     return  this.checkDown(celda, winLine) ||
-            this.checkHorizontal(celda, winLine);
+            this.checkHorizontal(celda, winLine)
   }
 
   checkDown = (celda, winLine) => {
     let fichas = this.getFichasDown(celda);
-    let count = 1;
-    for (let i = 0; i < fichas.length; i++) {
-      let ficha = fichas[i];
-      if (ficha.getOwner() == celda.getFicha().getOwner()) {
-        count++;
-      } else {
-        return false;
-      }
-    }
-    return count == winLine;
+    return this.checkLinea(fichas, winLine);
   }
 
   checkHorizontal = (celda, winLine) => {
     let fichas = this.getFichasHorizontal(celda);
-    let count = 0;
+    return this.checkLinea(fichas, winLine);
+  }
+
+  /* dado un arreglo de fichas determina si existe una linea 
+  de tamaño 'winLine' que contenga fichas del mismo dueño */
+  checkLinea = (fichas, winLine) => {
+    let count = 1;
     for (let i = 0; i < fichas.length; i++) {
       let ficha = fichas[i];
       if (ficha) {
-        if (ficha.getOwner() == celda.getFicha().getOwner()) {
-          count++;
-          if (count == winLine) {
-            return true
+        let owner = ficha.getOwner();
+        if (i+1 < fichas.length) {
+          if (fichas[i+1]) {
+            if (fichas[i+1].getOwner() == owner) {
+              count++
+              if (count == winLine) {
+                return true;
+              }
+            } else {
+              count = 1;
+            }
           }
-        } else {
-          count = 0;
         }
-      } else {
-        count = 0;
       }
     }
-    return count == winLine;
-  }
+    return count == winLine
+  } 
 
   getFichasDown(celda) {
     let col = celda.getColumna();
-    let fila = celda.getFila();
     let fichas = [];
     for (let i = 0; i < this.celdas.length; i++) {
       let _celda = this.celdas[i];
-      if (_celda.getColumna() == col && _celda.getFila() == fila + 1) {
+      if (_celda.getColumna() == col) {
         fichas.push(_celda.getFicha());
-        fila++;
       }
     }
     return fichas;
@@ -136,7 +134,6 @@ class Tablero {
         fichas.push(_celda.getFicha());
       }
     }
-    console.log(fichas)
     return fichas;
   }
 
