@@ -27,6 +27,7 @@ class Juego {
     this.isFinished = false; // flag que determina si el juego terminó
     this.fichaSeleccionada = null;
     this.cantFichas = 36;
+    this.winLine = 3;
   }
 
   setStartButton = (btn) => {
@@ -161,7 +162,7 @@ class Juego {
             celdaLibre.empty = false;
             this.dibujarFichas();
             this.tablero.draw(this.context);
-            this.checkGame();
+            this.checkGame(celdaLibre);
           // } else {
             // hay que ver donde dejo la ficha si no se puede agregar
           }
@@ -174,10 +175,14 @@ class Juego {
   /* Determina si se puede seguir jugando.
   En caso de que no, se imprime el jugador ganador (o el empate).
   Si se puede jugar, cambia el turno al siguiente jugador */
-  checkGame = () => {
+  checkGame = (celda) => {
     // if tablero no está lleno y no hay ganador... then
-    this.turno = this.getTurn();
-    this.mostrarTurno();
+    if (! this.tablero.seFormoLinea(celda, this.winLine) ) {
+      this.turno = this.getTurn();
+      this.mostrarTurno();
+    } else {
+      this.mostrarGanador();
+    }
   }
 
   getTurn = () => {
@@ -213,6 +218,11 @@ class Juego {
     this.isFinished = true;
   }
 
-  mostrarGanador = (jugador) => {}; // muestra el ganador en la app
+  // muestra el ganador en la app
+  mostrarGanador = () => {
+    const turnPlayerMsg = document.querySelector('.js-turn-player');
+    turnPlayerMsg.classList.remove('js-display-none');
+    turnPlayerMsg.innerHTML = `¡GANÓ ${this.turno}!`;
+  }; 
 
 }

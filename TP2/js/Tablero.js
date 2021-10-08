@@ -73,6 +73,38 @@ class Tablero {
     return null;
   }
 
+  seFormoLinea = (celda, winLine) => {
+    return this.searchDown(celda, winLine)
+  }
+
+  searchDown = (celda, winLine) => {
+    let fichas = this.getFichasDown(celda);
+    let count = 1;
+    for (let i = 0; i < fichas.length; i++) {
+      let ficha = fichas[i];
+      if (ficha.getOwner() == celda.getFicha().getOwner()) {
+        count++;
+      } else {
+        return false;
+      }
+    }
+    return count == winLine;
+  }
+
+  getFichasDown(celda) {
+    let col = celda.getColumna();
+    let fila = celda.getFila();
+    let fichas = [];
+    for (let i = 0; i < this.celdas.length; i++) {
+      let _celda = this.celdas[i];
+      if (_celda.getColumna() == col && _celda.getFila() == fila + 1) {
+        fichas.push(_celda.getFicha());
+        fila++;
+      }
+    }
+    return fichas;
+  }
+
   // determina si una ficha se encuentra encima de alguna de las columnas
   isOverColumn = (ficha) => {}
 
