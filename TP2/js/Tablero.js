@@ -74,10 +74,11 @@ class Tablero {
   }
 
   seFormoLinea = (celda, winLine) => {
-    return this.searchDown(celda, winLine)
+    return  this.checkDown(celda, winLine) ||
+            this.checkHorizontal(celda, winLine);
   }
 
-  searchDown = (celda, winLine) => {
+  checkDown = (celda, winLine) => {
     let fichas = this.getFichasDown(celda);
     let count = 1;
     for (let i = 0; i < fichas.length; i++) {
@@ -86,6 +87,27 @@ class Tablero {
         count++;
       } else {
         return false;
+      }
+    }
+    return count == winLine;
+  }
+
+  checkHorizontal = (celda, winLine) => {
+    let fichas = this.getFichasHorizontal(celda);
+    let count = 0;
+    for (let i = 0; i < fichas.length; i++) {
+      let ficha = fichas[i];
+      if (ficha) {
+        if (ficha.getOwner() == celda.getFicha().getOwner()) {
+          count++;
+          if (count == winLine) {
+            return true
+          }
+        } else {
+          count = 0;
+        }
+      } else {
+        count = 0;
       }
     }
     return count == winLine;
@@ -102,6 +124,19 @@ class Tablero {
         fila++;
       }
     }
+    return fichas;
+  }
+
+  getFichasHorizontal(celda) {
+    let fila = celda.getFila();
+    let fichas = [];
+    for (let i = 0; i < this.celdas.length; i++) {
+      let _celda = this.celdas[i];
+      if (_celda.getFila() == fila) {
+        fichas.push(_celda.getFicha());
+      }
+    }
+    console.log(fichas)
     return fichas;
   }
 
