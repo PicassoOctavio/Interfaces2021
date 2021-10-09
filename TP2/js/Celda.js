@@ -77,13 +77,12 @@ class Celda {
     ctx.strokeStyle = "black";
     ctx.stroke();
     ctx.closePath();
-    ctx.fillStyle = "blue";
-    ctx.fill();
-    
-    this.context.arc((this.x + this.ancho)/2, (this.y + this.alto)/2,
-      20, 0, 2 * Math.PI)
-    this.context.closePath()
-    this.context.fill('evenodd')
+    ctx.fillStyle = "#48FAB8";
+
+    //genero los huecos
+    ctx.arc((this.x + 40), (this.y + 40), 20, 0, 2 * Math.PI);
+    ctx.closePath();
+    ctx.fill('evenodd');
   }
 
 }

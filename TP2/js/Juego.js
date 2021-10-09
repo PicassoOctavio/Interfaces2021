@@ -247,7 +247,7 @@ class Juego {
     this.isFinished = true;
   }
 
-  // NO BORRAR !!
+
   jugadoresEstanCargados = () => {
     return this.jugadores.length === 2 ;
   }
