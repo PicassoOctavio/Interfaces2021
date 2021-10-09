@@ -27,7 +27,9 @@ class Juego {
     this.isFinished = false; // flag que determina si el juego terminó
     this.fichaSeleccionada = null;
     this.cantFichas = 36;
-    this.winLine = 2;
+    this.winLine = 3;
+    this.oldXFicha;
+    this.oldYFicha;
   }
 
   setStartButton = (btn) => {
@@ -122,6 +124,8 @@ class Juego {
           // si la ficha pertenece al turno y si la ficha no está en el tablero...
           if (ficha.getOwner() == this.turno && ! ficha.isColocada()) {
             this.fichaSeleccionada = ficha;
+            this.oldXFicha = this.fichaSeleccionada.getX();
+            this.oldYFicha = this.fichaSeleccionada.getY();    
           }
         }
         else {
@@ -160,13 +164,17 @@ class Juego {
             this.fichaSeleccionada.colocada(true);
             this.tablero.addFicha(this.fichaSeleccionada);
             celdaLibre.empty = false;
-            this.dibujarFichas();
-            this.tablero.draw(this.context);
             this.checkGame(celdaLibre);
           // } else {
             // hay que ver donde dejo la ficha si no se puede agregar
           }
+        } else {
+          this.fichaSeleccionada.setX(this.oldXFicha);
+          this.fichaSeleccionada.setY(this.oldYFicha);
         }
+        this.dibujarFichas();
+        this.tablero.draw(this.context);
+        
       }
       this.fichaSeleccionada = null
     });
