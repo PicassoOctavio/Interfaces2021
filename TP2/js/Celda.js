@@ -24,6 +24,10 @@ class Celda {
     this.y += this.alto * this.fila;
   }
 
+  getFicha = () => {
+    return this.ficha;
+  }
+
   isEmpty = () => {
     return this.empty;
   }
