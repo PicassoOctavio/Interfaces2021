@@ -1,3 +1,4 @@
+"use strict"
 class Ficha {
 
   x;              // x-coordinate of the center of the circle	

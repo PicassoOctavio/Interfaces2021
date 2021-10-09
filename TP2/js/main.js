@@ -1,3 +1,5 @@
+"use strict"
+
 function init() {
   // defino canvas
   const canvas = document.querySelector('canvas');

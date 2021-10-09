@@ -1,3 +1,4 @@
+"use strict"
 class Celda {
 
   fila;
@@ -64,6 +65,7 @@ class Celda {
     return this.y;
   }
 
+  //dibuja cada cerca
   draw = (ctx) => {
     ctx.beginPath();
     ctx.lineWidth = 1;
@@ -71,6 +73,13 @@ class Celda {
     ctx.strokeStyle = "black";
     ctx.stroke();
     ctx.closePath();
+    ctx.fillStyle = "blue";
+    ctx.fill();
+    
+    this.context.arc((this.x + this.ancho)/2, (this.y + this.alto)/2,
+      20, 0, 2 * Math.PI)
+    this.context.closePath()
+    this.context.fill('evenodd')
   }
 
 }

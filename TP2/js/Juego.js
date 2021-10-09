@@ -1,3 +1,4 @@
+"use strict"
 class Juego {
 
   canvas;
@@ -45,30 +46,50 @@ class Juego {
     const namePlayer2 = document.querySelector('.js-player-2');
     const player2 = namePlayer2.value;
 
+    console.log( "player1", player1, "player2", player2 );
     // Agrego los jugadores al juego
-    this.addJugador(player1);
-    this.addJugador(player2);
+    if ( player1 != '' && player2 != '' ){
+
+      this.addJugador( player1 );
+      this.addJugador( player2 );
+    }
   }
 
   empezar = () => {
       this.cargarJugadores();
-      this.cargarFichas();
-      this.dibujarFichas();
-      this.tablero.draw(this.context);
-      this.turno = this.jugadores[0];
 
-      this.listenMouseDown();
-      this.listenMouseUp();
-      this.listenMouseMove();
-      // this.listenMouseOut();
+      if ( this.jugadoresEstanCargados() ){ // NO BORRAR!
 
-      this.mostrarTurno();
+        this.cargarFichas();
+        this.dibujarFichas();
+        this.tablero.draw(this.context);
+        this.turno = this.jugadores[0];
+  
+        this.listenMouseDown();
+        this.listenMouseUp();
+        this.listenMouseMove();
+        // this.listenMouseOut();
+  
+        this.mostrarTurno();
+      }
+      else{
+        // NO BORRAR!
+        const mensaje = "Ingrese los nombres de los jugadores";
+        this.mostrarMensaje( mensaje );
+      }
   }
 
   mostrarTurno = () => {
     const turnPlayerMsg = document.querySelector('.js-turn-player');
     turnPlayerMsg.classList.remove('js-display-none');
     turnPlayerMsg.innerHTML = `Es el turno de ${this.turno}`;
+  }
+
+  // NO QUITAR FUNCIONALIDAD
+  mostrarMensaje = ( mensaje ) => {  
+    const turnPlayerMsg = document.querySelector('.js-turn-player');
+    turnPlayerMsg.classList.remove('js-display-none');
+    turnPlayerMsg.innerHTML = mensaje;
   }
   
   cargarFichas = () => {
@@ -212,6 +233,12 @@ class Juego {
   terminar = () => {
     this.isFinished = true;
   }
+
+  // NO BORRAR !!
+  jugadoresEstanCargados = () => {
+    return this.jugadores.length === 2 ;
+  }
+
 
   mostrarGanador = (jugador) => {}; // muestra el ganador en la app
 
