@@ -43,19 +43,19 @@ class Ficha {
   draw = (ctx) => {
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.radio, 0, 2 * Math.PI);
+    //ctx.stroke();
+    ctx.fillStyle = this.color;
     ctx.strokeStyle = 'black';
     ctx.lineWidth = 1;
-    // ctx.stroke();
-    ctx.fillStyle = this.color;
     ctx.fill();
 
     ctx.closePath();
     if (this.is_clicked) {
       ctx.beginPath();
       ctx.arc(this.x, this.y, this.radio, 0, 2 * Math.PI);
-      ctx.strokeStyle = 'red';
+      ctx.strokeStyle = 'green';
       ctx.lineWidth = 4;
-      // ctx.stroke();    
+      ctx.stroke();    
       ctx.closePath();
     }
   }
@@ -63,7 +63,7 @@ class Ficha {
   marcar = (ctx) => {
     ctx.beginPath();
     ctx.arc( this.x, this.y, this.radio, 0, 2 * Math.PI);
-    ctx.strokeStyle = 'red';
+    ctx.strokeStyle = 'green';
     ctx.lineWidth = 4;
     ctx.stroke();
   }
