@@ -21,12 +21,13 @@ function init() {
   juego.setTablero(tablero);
 
   // creo botón 'Empezar'
-  const btnEmpezar = document.querySelector(".js-btn-start");
+  let btnEmpezar = document.querySelector(".js-btn-start");
+  //let btnRestart = document.querySelector(".js-btn-restart");
+  
 
   // lo agrego al juego
   juego.setStartButton(btnEmpezar);
-  
-  
+  //juego.setRestartButton(btnRestart);
 
 }
 

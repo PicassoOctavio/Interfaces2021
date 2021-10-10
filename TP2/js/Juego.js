@@ -7,12 +7,15 @@ class Juego {
   jugadores;
   fichas;
   turno;
-  isFinished;
+  isFinished = false;
   fichaSeleccionada;
   botonReiniciar;
   tiempo;
   cantFichas;
   btnStart;
+  backgroundImage;
+  btnRestart;
+  timer;
 
   constructor(canvas, tablero, botonReiniciar, tiempo) {
     this.canvas = canvas;
@@ -25,12 +28,50 @@ class Juego {
     this.jugadores = [];
     this.fichas = [];
     this.turno = null; // turno es un Jugador. 
-    this.isFinished = false; // flag que determina si el juego terminó
+    this.isFinished; // flag que determina si el juego terminó
     this.fichaSeleccionada = null;
     this.cantFichas = 36;
-    this.winLine = 3;
+    this.winLine = 4;
     this.oldXFicha;
     this.oldYFicha;
+  }
+
+  setTiempoRestante = () => {
+    document.querySelector(".tiempo").hidden = false;
+    let tiempoTerminado = false;
+
+    let oldDateObj = new Date();
+    let newDateObj = new Date();
+    // en caso de querer menos tiempo reemplazar el 5 por 0.1 (sería 5 seg)
+    newDateObj.setTime(oldDateObj.getTime() + (5 * 60 * 1000));
+    console.log(newDateObj);
+    this.timer = setInterval(function(){
+      if (!tiempoTerminado){
+        let horaNow = new Date().getTime();
+        let distancia = newDateObj - horaNow;
+        let minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+        let segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+        if (minutos === 0 && segundos === 0){
+          tiempoTerminado = true;
+        }
+        
+        document.querySelector(".timer").innerHTML= minutos +":"+ segundos;
+      }
+      else{
+        document.querySelector(".timer").innerHTML= "Se acabó el tiempo.";
+        clearInterval(this.timer);
+        //console.log("this.isFinished", this.isFinished);
+      }
+    });
+  }
+
+  // CONTINUAR!
+  setBackgroundImage = () => {
+    this.backgroundImage = new Image();
+    this.backgroundImage = "background.jpg";
+
+    this.context.drawImage( this.backgroundImage, 0, 0, 
+        this.canvas.width, this.canvas.height );
   }
 
   setStartButton = (btn) => {
@@ -59,9 +100,9 @@ class Juego {
   }
 
   empezar = () => {
-      this.cargarJugadores();
-
-      if ( this.jugadoresEstanCargados() ){ 
+    this.cargarJugadores();
+    
+    if ( this.jugadoresEstanCargados() ){ 
 
         this.cargarFichas();
         this.dibujarFichas();
@@ -74,6 +115,7 @@ class Juego {
         // this.listenMouseOut();
   
         this.mostrarTurno();
+        this.setTiempoRestante();
       }
       else{
 
@@ -88,7 +130,7 @@ class Juego {
     turnPlayerMsg.innerHTML = `Es el turno de ${this.turno}`;
   }
 
-  // NO QUITAR FUNCIONALIDAD
+
   mostrarMensaje = ( mensaje ) => {  
     const turnPlayerMsg = document.querySelector('.js-turn-player');
     turnPlayerMsg.classList.remove('js-display-none');
@@ -162,7 +204,7 @@ class Juego {
       let x = e.clientX - rect.left; //x position within the element.
       let y = e.clientY - rect.top;  //y position within the element.
 
-      if ( this.fichaSeleccionada ) {
+      if ( this.fichaSeleccionada && !this.isGameFinished() ) {
         this.fichaSeleccionada.setX(x);
         this.fichaSeleccionada.setY(y);
         this.dibujarFichas();
@@ -176,28 +218,31 @@ class Juego {
   se encarga de dibujar las fichas de nuevo */
   listenMouseUp = () => {
     this.canvas.addEventListener('mouseup', () =>  {
-      if (this.fichaSeleccionada) {
-        if (this.tablero.getColumn(this.fichaSeleccionada) != null) {
-          let celdaLibre = this.tablero.getCeldaLibre(this.fichaSeleccionada);
-          if (celdaLibre) {
-            this.fichaSeleccionada.setX(celdaLibre.getCenter().x);
-            this.fichaSeleccionada.setY(celdaLibre.getCenter().y);
-            this.fichaSeleccionada.colocada(true);
-            this.tablero.addFicha(this.fichaSeleccionada);
-            celdaLibre.empty = false;
-            this.checkGame(celdaLibre);
-          // } else {
-            // hay que ver donde dejo la ficha si no se puede agregar
+      if(!this.isGameFinished()){
+
+        if (this.fichaSeleccionada) {
+          if (this.tablero.getColumn(this.fichaSeleccionada) != null) {
+            let celdaLibre = this.tablero.getCeldaLibre(this.fichaSeleccionada);
+            if (celdaLibre) {
+              this.fichaSeleccionada.setX(celdaLibre.getCenter().x);
+              this.fichaSeleccionada.setY(celdaLibre.getCenter().y);
+              this.fichaSeleccionada.colocada(true);
+              this.tablero.addFicha(this.fichaSeleccionada);
+              celdaLibre.empty = false;
+              this.checkGame(celdaLibre);
+            // } else {
+              // hay que ver donde dejo la ficha si no se puede agregar
+            }
+          } else {
+            this.fichaSeleccionada.setX(this.oldXFicha);
+            this.fichaSeleccionada.setY(this.oldYFicha);
           }
-        } else {
-          this.fichaSeleccionada.setX(this.oldXFicha);
-          this.fichaSeleccionada.setY(this.oldYFicha);
+          this.dibujarFichas();
+          this.tablero.draw(this.context);
+          
         }
-        this.dibujarFichas();
-        this.tablero.draw(this.context);
-        
+        this.fichaSeleccionada = null
       }
-      this.fichaSeleccionada = null
     });
   }
 
@@ -247,6 +292,11 @@ class Juego {
   
   terminar = () => {
     this.isFinished = true;
+  };
+
+  isGameFinished = () => {
+    //console.log("isGameFinished?", this.isFinished);
+    return this.isFinished;
   }
 
 

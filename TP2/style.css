@@ -38,13 +38,6 @@ body {
   align-items: center;
 }
 
-.mostrarJugadores{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  height: 50px;
-}
-
 .btnOkName{
   margin-left:5px;
   margin-right:5px;
@@ -69,5 +62,16 @@ input{
 .alertText{
   margin: auto;
   padding-bottom: 10px;
+}
+
+.mensaje{
+  margin: auto; 
+  margin-top: 20px;
+}
+
+.botones{
+  display: flex;
+  width: auto;
+  height: 50px;
 }
 
