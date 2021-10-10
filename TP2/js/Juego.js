@@ -61,7 +61,7 @@ class Juego {
   empezar = () => {
       this.cargarJugadores();
 
-      if ( this.jugadoresEstanCargados() ){ // NO BORRAR!
+      if ( this.jugadoresEstanCargados() ){ 
 
         this.cargarFichas();
         this.dibujarFichas();
@@ -76,7 +76,7 @@ class Juego {
         this.mostrarTurno();
       }
       else{
-        // NO BORRAR!
+
         const mensaje = "Ingrese los nombres de los jugadores";
         this.mostrarMensaje( mensaje );
       }
@@ -209,7 +209,9 @@ class Juego {
     if (! this.tablero.seFormoLinea(celda, this.winLine) ) {
       this.turno = this.getTurn();
       this.mostrarTurno();
-    } else {
+    } 
+    else {
+      //esta entrando aunque no gano
       this.mostrarGanador();
     }
   }
