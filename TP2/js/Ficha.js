@@ -19,7 +19,7 @@ class Ficha {
     this.color = color;
     this.owner = owner;
     this.img = new Image();
-    this.img.src = '../img/coin.png';
+    this.img.src = "img/coin.png";
     this.loadedImg = false;
   }
 
