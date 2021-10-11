@@ -7,6 +7,10 @@ function init() {
   // creo Juego
   const juego = new Juego(canvas);
   
+
+  // agrego boton para resetear
+  let btnRestart = document.querySelector(".js-btn-restart");
+  juego.setRestartButton(btnRestart);
   // creo ficha
   //const ficha = new Ficha(40, 40, 20);
 
@@ -22,7 +26,6 @@ function init() {
 
   // creo botón 'Empezar'
   let btnEmpezar = document.querySelector(".js-btn-start");
-  //let btnRestart = document.querySelector(".js-btn-restart");
   
 
   // lo agrego al juego

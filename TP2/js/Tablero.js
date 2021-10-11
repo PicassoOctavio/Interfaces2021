@@ -242,4 +242,12 @@ class Tablero {
   
   }
 
+  vaciar = () => {
+    for (let i = 0; i < this.celdas.length; i++) {
+      let celda = this.celdas[i];
+      celda.empty = true;
+      celda.ficha = null;
+    }
+  }
+
 }

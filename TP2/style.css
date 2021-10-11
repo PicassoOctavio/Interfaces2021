@@ -17,6 +17,7 @@ body {
 .btnStart{
   width: 200px;
   height: 40px;
+  margin-right: 10%;
 }
 
 .inputsNombres{

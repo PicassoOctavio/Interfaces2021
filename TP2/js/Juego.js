@@ -99,9 +99,30 @@ class Juego {
     }
   }
 
+  setRestartButton = (btn) => {
+    btn.addEventListener('click', () => this.reiniciar());
+  }
+
+  // reinicia el juego
+  reiniciar = () => {
+    this.tablero.vaciar();
+    this.fichas = [];
+    clearInterval(this.timer);
+    this.whiten(); 
+    this.jugadores = [];
+    const player1 = document.querySelector('.js-player-1');
+    player1.value = null;
+    const player2 = document.querySelector('.js-player-2');
+    player2.value = null;
+    document.querySelector(".js-tiempo").parentNode.hidden = true;
+
+    this.empezar();
+
+  } 
+
   empezar = () => {
     this.cargarJugadores();
-    
+    console.log(this.jugadores.length)
     if ( this.jugadoresEstanCargados() ){ 
 
         this.cargarFichas();
@@ -172,7 +193,7 @@ class Juego {
     // mostrar botón 'Jugar'
   }
 
-  reiniciar = () => {} // reiniciar el juego
+ 
 
   /* escucha el click en canvas (si se clickea una ficha
   la resalta y le dice al juego que el click se está presionando)*/

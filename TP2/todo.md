@@ -3,3 +3,4 @@
 - Crear borde a la ficha cuando se clickea
 - No permitir que los jugadores tengan nombres iguales (se rompe)
 - gestionar Mouseout
+- corregir el reiniciar
