@@ -3,7 +3,7 @@ class Ficha {
 
   x;              // x-coordinate of the center of the circle	
   y;              // y-coordinate of the center of the circle	
-  image;          // imagen de la ficha
+  img;            // imagen de la ficha
   outlineColor;   // color del borde de la ficha cuando se clickea
   radio;          // radio del círculo
   owner;          // indica el jugador que posee la ficha
@@ -18,6 +18,9 @@ class Ficha {
     this.outlineColor = 'red';
     this.color = color;
     this.owner = owner;
+    this.img = new Image();
+    this.img.src = '../img/coin.png';
+    this.loadedImg = false;
   }
 
   colocada = (valor) => {
@@ -57,6 +60,15 @@ class Ficha {
       ctx.lineWidth = 4;
       ctx.stroke();    
       ctx.closePath();
+    }
+    if (this.loadedImg) {
+      ctx.drawImage(this.img, this.x - this.radio, this.y - this.radio, this.radio * 2, this.radio * 2);
+    }
+    else {
+      this.img.onload = () => {
+        ctx.drawImage(this.img, this.x - this.radio, this.y - this.radio, this.radio * 2, this.radio * 2);
+      }
+      this.loadedImg = true;
     }
   }
   
