@@ -25,24 +25,31 @@ class Tablero {
   }
 
   setCeldas = () => {
+    //console.log("this.cantCols", this.cantCols);
+    //console.log("this.cantCols", this.cantFilas);
     for (let col = 0; col < this.cantCols; col++) {
       for (let fila = 0; fila < this.cantFilas; fila++) {
-        let celda = new Celda(fila, col);
+        let celda = new Celda(fila, col, this.cantCols);
+        //console.log("celda", celda);
         this.celdas.push(celda);
       }
     }
+    //console.log("celdas", [this.celdas]);
   }
 
   // por cada columna agrega al arreglo 'zonas' un objeto que contiene
   // los puntos inicio y fin de cada celda
   setZonas = () => {
-    for (let i = 0; i < this.celdas.length; i+=this.cantCols) {
+    for (let i = 0; i < this.celdas.length; i+=this.cantFilas) {
       let celda = this.celdas[i];
         this.zonas.push({
           inicio: celda.getX(),
           fin: celda.getAncho() + celda.getX()
         }) 
+        console.log("zonas", [this.zonas])
     }
+    console.table(this.zonas);
+    console.log(this.cantCols);
   }
 
   // Dada una ficha, devuelve la columna a la cual quiere ingresar

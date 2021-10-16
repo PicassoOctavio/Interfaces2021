@@ -71,7 +71,7 @@ class Juego {
     this.backgroundImage = "background.jpg";
 
     this.context.drawImage( this.backgroundImage, 0, 0, 
-        this.canvas.width, this.canvas.height );
+      this.canvas.width, this.canvas.height );
   }
 
   setStartButton = (btn) => {
@@ -79,7 +79,10 @@ class Juego {
     this.btnStart.addEventListener('click', () => this.empezar());
   }
 
-  setTablero = (tablero) => this.tablero = tablero;
+  //setTablero = (tablero) => this.tablero = tablero;
+  setTablero = ( filas, columnas ) => {
+    this.tablero = new Tablero( filas, parseInt(columnas));
+  }
 
   cargarJugadores = () => {
     // Creo jugador 1

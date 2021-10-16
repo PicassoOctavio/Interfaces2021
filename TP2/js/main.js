@@ -3,26 +3,33 @@
 function init() {
   // defino canvas
   const canvas = document.querySelector('canvas');
-  
+  const filas = 6;
+  let columnas;
   // creo Juego
   const juego = new Juego(canvas);
   
+  let dimensiones = document.querySelector('.dimensiones');
 
+  dimensiones.addEventListener("change", () => {
+    columnas = dimensiones.value;
+    juego.setTablero(filas, columnas);
+  });
+  
   // agrego boton para resetear
   let btnRestart = document.querySelector(".js-btn-restart");
   juego.setRestartButton(btnRestart);
   // creo ficha
   //const ficha = new Ficha(40, 40, 20);
-
+  
   // la agrego al juego
   //juego.addFicha(ficha);
-
+  
   
   // creo tablero
-  const tablero = new Tablero(6, 6);
-
+  //const tablero = new Tablero(6, 6);
+  
   // lo agrego al juego
-  juego.setTablero(tablero);
+  //juego.setTablero(tablero);
 
   // creo botón 'Empezar'
   let btnEmpezar = document.querySelector(".js-btn-start");

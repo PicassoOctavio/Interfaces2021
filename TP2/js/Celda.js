@@ -8,11 +8,11 @@ class Celda {
   image; // eventualmente la celda será una imagen
   ancho;
   alto;
-  x = 350;  // The x-coordinate of the upper-left corner of the rectangle	
+  x;  // The x-coordinate of the upper-left corner of the rectangle	
   y = 120;  // The y-coordinate of the upper-left corner of the rectangle	
 
 
-  constructor(fila, columna) {
+  constructor(fila, columna, cantCols) {
     this.fila = fila;
     this.columna = columna;
     this.ficha = null;
@@ -20,8 +20,21 @@ class Celda {
     this.image;
     this.ancho = 80;
     this.alto = 80;
+    this.setXsegunColumns( cantCols );
     this.x += this.ancho * this.columna;
     this.y += this.alto * this.fila;
+  }
+  
+  setXsegunColumns = ( cantCols ) => {
+    if (cantCols == 8) {
+      this.x = 270;
+    }
+    if (cantCols == 7) {
+      this.x = 310;
+    }
+    if (cantCols == 6) {
+      this.x = 350;
+    }
   }
 
   getFicha = () => {
