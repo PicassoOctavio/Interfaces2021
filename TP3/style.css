@@ -14,13 +14,15 @@ body {
   width: 800px;
   height: 600px;
   border: 1px solid black;
+  overflow-x: hidden;
+  display: inline;
 }
 
 .character {
   width: 20px;
   height: 50px;
   background-color: red;
-  top: 550px;
+  top: 550px; /* height del .app (600px) - altura de .character (50px) */
   position: relative;
 }
 
@@ -32,5 +34,20 @@ body {
 }
 
 .js-jump{
-  animation: jump 0.5s linear;
+  animation: jump 0.3s linear;
+}
+
+.block{
+  background-color: blue;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  top: 530px; /* altura .app (600px) - altura .block (20px) - altura .character (50px) */
+  left: 800px;
+  animation: move-block 2s infinite linear;
+}
+
+@keyframes move-block{
+  0%{left: 800px}
+  100%{left: -20px}
 }

@@ -1,16 +1,17 @@
 class Character {
 
   constructor(element) {
-    this.character = element;
+    this.element = element;
+    this.height = 550;
   }
 
   /* Si el div no tiene la clase 'js-jump' se la agrega. Una vez
   terminada la animación, se quita la clase del elemento */
   jump() {
-    if ( ! this.character.classList.contains('js-jump')) {
-      this.character.classList.add("js-jump");
-      this.character.addEventListener('animationend', () => {
-        this.character.classList.remove("js-jump");
+    if ( ! this.element.classList.contains('js-jump')) {
+      this.element.classList.add("js-jump");
+      this.element.addEventListener('animationend', () => {
+        this.element.classList.remove("js-jump");
       })
     }
   }
