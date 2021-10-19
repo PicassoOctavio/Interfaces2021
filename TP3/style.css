@@ -1,0 +1,36 @@
+html {
+  border: none;
+}
+
+body {
+  display: grid;
+  margin: 0;
+  height: 100vh;
+}
+
+.app {
+  justify-self: center;
+  align-self: center;
+  width: 800px;
+  height: 600px;
+  border: 1px solid black;
+}
+
+.character {
+  width: 20px;
+  height: 50px;
+  background-color: red;
+  top: 550px;
+  position: relative;
+}
+
+@keyframes jump{
+  0%{top: 550px;}
+  30%{top: 500px;}
+  70%{top: 500px;}
+  100%{top: 550px;}
+}
+
+.js-jump{
+  animation: jump 0.5s linear;
+}
