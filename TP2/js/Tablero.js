@@ -257,4 +257,8 @@ class Tablero {
     }
   }
 
+  getCantColumn = () => {
+    return this.cantCols;
+  }
+
 }

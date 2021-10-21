@@ -44,7 +44,7 @@ class Juego {
     let newDateObj = new Date();
     // en caso de querer menos tiempo reemplazar el 5 por 0.1 (sería 5 seg)
     newDateObj.setTime(oldDateObj.getTime() + (5 * 60 * 1000));
-    console.log(newDateObj);
+    //console.log(newDateObj);
     this.timer = setInterval(function(){
       if (!tiempoTerminado){
         let horaNow = new Date().getTime();
@@ -127,7 +127,7 @@ class Juego {
     this.cargarJugadores();
     console.log(this.jugadores.length)
     if ( this.jugadoresEstanCargados() ){ 
-
+        this.setWinLine();
         this.cargarFichas();
         this.dibujarFichas();
         this.tablero.draw(this.context);
@@ -162,9 +162,10 @@ class Juego {
   }
   
   cargarFichas = () => {
+    this.cantFichas = this.setCantFichas();
     let y = 100;
     let x = 40;
-    for (let i = 0; i <= this.cantFichas / 2; i ++){
+    for (let i = 0; i < this.cantFichas / 2; i ++){
       const ficha = new Ficha(x, y, 20, 'red', this.jugadores[0]);
       this.addFicha( ficha );
       y += 50;
@@ -172,14 +173,22 @@ class Juego {
         x = 100;
         y = 100;
       }
+      if ( y >= 580 && i >=17 ){
+        x = 160;
+        y = 100;
+      }
     }
-    x = 1080;
+    x = 1020;
     y = 100;
-    for (let i = 0; i <= this.cantFichas / 2; i ++){
+    for (let i = 0; i < this.cantFichas / 2; i ++){
       const ficha = new Ficha(x, y, 20, 'blue', this.jugadores[1]);
       this.addFicha( ficha );
       y += 50;
-      if ( y >= 530 && i >= 9 ){
+      if ( y >= 580 && (i >= 9 && i < 18 )){
+        x = 1080;
+        y = 100;
+      }
+      if ( y >= 580 && i > 18 ){
         x = 1140;
         y = 100;
       }
@@ -205,6 +214,7 @@ class Juego {
       let rect = e.target.getBoundingClientRect();
       let x = e.clientX - rect.left; //x position within the element.
       let y = e.clientY - rect.top;  //y position within the element.
+      console.log("x", x, "|y", y);
       for (let i = 0; i < this.fichas.length; i++) {
         let ficha = this.fichas[i];
         if (ficha.isClicked(x, y)) {
@@ -337,5 +347,29 @@ class Juego {
     turnPlayerMsg.classList.remove('js-display-none');
     turnPlayerMsg.innerHTML = `¡GANÓ ${this.turno}!`;
   }; 
+
+  setCantFichas = () => {
+    if ( this.tablero ){
+      const cantCols = this.tablero.getCantColumn();
+      if (cantCols === 6)
+        return 36;
+      if (cantCols === 7)
+        return 42;
+      if (cantCols === 8)
+        return 48;
+    }
+  }
+
+  setWinLine = () => {
+    if ( this.tablero ){
+      const cantCols = this.tablero.getCantColumn();
+      if (cantCols === 6)
+        this.winLine = 4;
+      if (cantCols === 7)
+        this.winLine = 5;
+      if (cantCols === 8)
+        this.winLine = 6;
+    }
+  }
 
 }
