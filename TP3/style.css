@@ -11,26 +11,41 @@ body {
 .app {
   justify-self: center;
   align-self: center;
-  width: 800px;
+  width: 1200px;
   height: 600px;
-  border: 1px solid black;
+  border: 1px solid rgb(112, 107, 107);
   overflow-x: hidden;
+  overflow-y: hidden;
   display: inline;
 }
 
+@keyframes walk { 
+	0% { background-position: 0px; }
+  100% { background-position: -1102.4px; }
+  /*
+    Ancho del personaje:      133.8px;
+    Distancia entre sprites:  2px adelante y 2px atrás = 4px;
+    Cantidad de sprites:      8
+
+    Entonces...
+    background-position:(AnchoPersonaje + DistanciaSprites) * CantSprites = 1102.4px
+  */
+} 
+
 .character {
-  width: 20px;
-  height: 50px;
-  background-color: red;
-  top: 550px; /* height del .app (600px) - altura de .character (50px) */
+  width: 133.8px; 
+  height: 113.8px;
+  background: url('img/running.png') left center;
+  animation: walk 1s steps(8) infinite;
+  top: 500.2px; /* height del .app  - altura de .character */
   position: relative;
 }
 
 @keyframes jump{
-  0%{top: 550px;}
-  30%{top: 500px;}
-  70%{top: 500px;}
-  100%{top: 550px;}
+  0%{top: 486.2px;}
+  30%{top: 440px;}
+  70%{top: 440px;}
+  100%{top: 486.2px;}
 }
 
 .js-jump{
@@ -42,12 +57,12 @@ body {
   width: 20px;
   height: 20px;
   position: relative;
-  top: 530px; /* altura .app (600px) - altura .block (20px) - altura .character (50px) */
+  top: 466.2px; /* altura .app - altura .block - altura .character */
   left: 800px;
   animation: move-block 2s infinite linear;
 }
 
 @keyframes move-block{
-  0%{left: 800px}
+  0%{left: 1200px}
   100%{left: -20px}
 }

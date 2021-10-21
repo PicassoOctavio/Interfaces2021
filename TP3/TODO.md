@@ -1,0 +1,1 @@
+- Reimplementar el método crash() de la clase Block.js

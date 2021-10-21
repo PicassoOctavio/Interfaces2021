@@ -17,7 +17,7 @@ document.addEventListener('keydown', (e) => {
 checkDead = () => {
   setInterval(function() {
     if (block.wasCrashed(character)) {
-        alert("Game Over");
+        // alert("Game Over");
     }
   }, 10);
 }
