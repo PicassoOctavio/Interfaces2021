@@ -1,1 +1,0 @@
-** Segundo trabajo práctico entregable **
