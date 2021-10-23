@@ -34,6 +34,7 @@ class Juego {
     this.winLine = 4;
     this.oldXFicha;
     this.oldYFicha;
+    this.canvas.style.visibility = "hidden";
   }
 
   setTiempoRestante = () => {
@@ -68,11 +69,23 @@ class Juego {
   // CONTINUAR!
   setBackgroundImage = () => {
     this.backgroundImage = new Image();
-    this.backgroundImage = "background.jpg";
+    this.backgroundImage.src = 'img/fondo.jpg';
 
-    this.context.drawImage( this.backgroundImage, 0, 0, 
-      this.canvas.width, this.canvas.height );
+    this.backgroundImage.onload = () => {
+      this.context.drawImage( this.backgroundImage, 0, 0 );   
+    }
+    /* this.context.drawImage( this.backgroundImage, 0, 0, 
+      this.canvas.width, this.canvas.height ); */
   }
+
+  /* 
+  var background = new Image();
+  background.src = "http://www.samskirrow.com/background.png";
+
+  // Make sure the image is loaded first otherwise nothing will draw.
+  background.onload = function(){
+      ctx.drawImage(background,0,0);   
+  } */
 
   setStartButton = (btn) => {
     this.btnStart = btn;
@@ -126,25 +139,34 @@ class Juego {
   empezar = () => {
     this.cargarJugadores();
     console.log(this.jugadores.length)
-    if ( this.jugadoresEstanCargados() ){ 
-        this.setWinLine();
-        this.cargarFichas();
-        this.dibujarFichas();
-        this.tablero.draw(this.context);
-        this.turno = this.jugadores[0];
-  
-        this.listenMouseDown();
-        this.listenMouseUp();
-        this.listenMouseMove();
-        // this.listenMouseOut();
-  
-        this.mostrarTurno();
-        this.setTiempoRestante();
+    if ( this.jugadoresEstanCargados() && this.existeTablero() ){ 
+      document.querySelector('.js-canvas').style.visibility = "visible";
+      this.setWinLine();
+      this.cargarFichas();
+      this.dibujarFichas();
+      this.tablero.draw(this.context);
+      this.turno = this.jugadores[0];
+      
+      this.listenMouseDown();
+      this.listenMouseUp();
+      this.listenMouseMove();
+      // this.listenMouseOut();
+      
+      this.mostrarTurno();
+      this.setTiempoRestante();
+      //this.setBackgroundImage();
       }
       else{
-
-        const mensaje = "Ingrese los nombres de los jugadores";
-        this.mostrarMensaje( mensaje );
+        this.borrarJugadores();
+        if(!this.jugadoresEstanCargados()){
+          const mensaje = "Ingrese los nombres de los jugadores";
+          this.mostrarMensaje( mensaje );
+        }
+        if ( !this.existeTablero() ){
+          const mensaje = "Seleccione las dimensiones del tablero";
+          this.mostrarMensaje( mensaje );
+          
+        }
       }
   }
 
@@ -335,7 +357,13 @@ class Juego {
 
 
   jugadoresEstanCargados = () => {
-    return this.jugadores.length === 2 ;
+    //  console.log("this.jugadores.length", this.jugadores.length);
+    if (this.jugadores.length === 2 ){
+      return true;
+    }
+    else {
+      return false;
+    }
   }
 
 
@@ -369,6 +397,19 @@ class Juego {
         this.winLine = 5;
       if (cantCols === 8)
         this.winLine = 6;
+    }
+  }
+
+  borrarJugadores = () => {
+    this.jugadores = [];
+  }
+
+  existeTablero = () => {
+    if ( this.tablero != null){
+      return true;
+    }
+    else {
+      return false;
     }
   }
 

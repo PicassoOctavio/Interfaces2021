@@ -1,13 +1,21 @@
 canvas {
   border: 1px solid black;
+  border-radius: 10px;
   justify-self: center;
   align-self: center;
+  margin-bottom: 20px;
 }
 
 body {
   display: grid;
   margin: 0;
   height: 100vh;
+  background-color: #0B8CBF !important;
+  font-family: 'Gluten', cursive !important;
+}
+
+.titulo{
+  margin-top: 20px;
 }
 
 .js-display-none {
@@ -15,28 +23,38 @@ body {
 }
 
 .btnStart{
-  width: 200px;
+  width: 120px;
   height: 40px;
-  margin-right: 10%;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  color: #F2CB05 !important;
+  font-weight: bold !important;
 }
 
 .inputsNombres{
   display: flex;
   flex-direction: row;
   margin-bottom: 20px;
-  width: 700px;
-  justify-content: space-between;
+  width: 550px;
+  justify-content: space-evenly;
   margin-top: 20px;
-  height: 60px;
+  align-items: center;
 }
 
 .inicioJuego{
+  color: #0F7CBF;
   margin: auto;
   justify-content: space-between;
-  width: 700px;
+  width: 800px;
+  height: 350px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #F2CB05;
+  border-radius: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
 }
 
 .btnOkName{
@@ -47,7 +65,8 @@ body {
 
 input{
   height: 40px;
-  margin-top:5px;
+  width: 200px;
+  border-radius: 7px;
 }
 
 .setNombre{
@@ -67,12 +86,24 @@ input{
 
 .mensaje{
   margin: auto; 
-  margin-top: 20px;
+  margin-bottom: 10px;
+  
 }
 
 .botones{
   display: flex;
-  width: auto;
+  flex-direction: row;
+  width: 300px;
   height: 50px;
+  justify-content: space-between;
+}
+
+.botonesAndSelect {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 150px;
+  margin: auto;
+  justify-content: space-evenly;
 }
 

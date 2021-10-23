@@ -46,10 +46,10 @@ class Tablero {
           inicio: celda.getX(),
           fin: celda.getAncho() + celda.getX()
         }) 
-        console.log("zonas", [this.zonas])
+        //console.log("zonas", [this.zonas])
     }
-    console.table(this.zonas);
-    console.log(this.cantCols);
+    //console.table(this.zonas);
+    //console.log(this.cantCols);
   }
 
   // Dada una ficha, devuelve la columna a la cual quiere ingresar

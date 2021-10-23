@@ -32,7 +32,7 @@ function init() {
   //juego.setTablero(tablero);
 
   // creo botón 'Empezar'
-  let btnEmpezar = document.querySelector(".js-btn-start");
+  const btnEmpezar = document.querySelector(".js-btn-start");
   
 
   // lo agrego al juego
