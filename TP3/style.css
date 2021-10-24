@@ -9,19 +9,21 @@ body {
 }
 
 .app {
+  display: flex;
   justify-self: center;
+  text-align: center;
   align-self: center;
   width: 1200px;
   height: 600px;
   border: 1px solid rgb(112, 107, 107);
   overflow-x: hidden;
-  overflow-y: hidden;
-  display: inline;
+  /* overflow-y: hidden; */
+  /* display: inline; */
 }
 
 @keyframes walk { 
-	0% { background-position: 0px; }
-  100% { background-position: -1102.4px; }
+	0% { background-position: -50px; }
+  100% { background-position: -1152.4px; }
   /*
     Ancho del personaje:      133.8px;
     Distancia entre sprites:  2px adelante y 2px atrás = 4px;
@@ -33,23 +35,32 @@ body {
 } 
 
 .character {
-  width: 133.8px; 
-  height: 113.8px;
-  background: url('img/running.png') left center;
+  width: 60px; 
+  height: 105px;
+  /* margin-left: 10px;
+  margin-top: 5px; */
+  background-position: 10px 120px;
+  background: url('img/running.png');
+  /* background-size: cover; */
+  /* background-position: left; */
   animation: walk 1s steps(8) infinite;
-  top: 500.2px; /* height del .app  - altura de .character */
+  top: 495px; /* height del .app  - altura de .character */
   position: relative;
 }
 
 @keyframes jump{
-  0%{top: 486.2px;}
+  0%{top: 500px;}
   30%{top: 440px;}
   70%{top: 440px;}
-  100%{top: 486.2px;}
+  100%{top: 500px;}
+}
+
+.character, .block {
+  /* display: inline; */
 }
 
 .js-jump{
-  animation: jump 0.3s linear;
+  animation: jump 0.5s linear;
 }
 
 .block{
@@ -57,12 +68,12 @@ body {
   width: 20px;
   height: 20px;
   position: relative;
-  top: 466.2px; /* altura .app - altura .block - altura .character */
+  top: 580px; /* altura .app - altura .block */
   left: 800px;
   animation: move-block 2s infinite linear;
 }
 
 @keyframes move-block{
   0%{left: 1200px}
-  100%{left: -20px}
+  100%{left: -80px}
 }

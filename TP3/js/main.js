@@ -16,7 +16,7 @@ document.addEventListener('keydown', (e) => {
 // Checkea cada 10 milisegundos si el personaje chocó con el bloque
 checkDead = () => {
   setInterval(function() {
-    if (block.wasCrashed(character)) {
+    if (block.overlaps(block.block, character.element)) {
         // alert("Game Over");
     }
   }, 10);
