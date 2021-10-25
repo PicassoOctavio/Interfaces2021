@@ -10,12 +10,13 @@ body {
   display: grid;
   margin: 0;
   height: 100vh;
-  background-color: #0B8CBF !important;
+  /* background-color: #0B8CBF !important; */
   font-family: 'Gluten', cursive !important;
+  color: #243340;
 }
 
 .titulo{
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .js-display-none {
@@ -27,35 +28,35 @@ body {
   height: 40px;
   margin-top: 10px;
   margin-bottom: 20px;
-  color: #F2CB05 !important;
+  /* color: #F2CB05 !important; */
   font-weight: bold !important;
 }
 
 .inputsNombres{
   display: flex;
   flex-direction: row;
-  margin-bottom: 20px;
   width: 550px;
   justify-content: space-evenly;
-  margin-top: 20px;
   align-items: center;
 }
 
 .inicioJuego{
-  color: #0F7CBF;
+  color: #243340;
   margin: auto;
   justify-content: space-between;
   width: 800px;
-  height: 350px;
+  height: 320px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #F2CB05;
+  background-color:#F2D027;
   border-radius: 10px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-
-}
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: #F2A516;
+}/* F2A516 */
 
 .btnOkName{
   margin-left:5px;
@@ -86,7 +87,12 @@ input{
 
 .mensaje{
   margin: auto; 
-  margin-bottom: 10px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.canvas{
+  background-color:#243340 !important
   
 }
 
@@ -102,7 +108,7 @@ input{
   display: flex;
   flex-direction: column;
   width: 300px;
-  height: 150px;
+  height: 100px;
   margin: auto;
   justify-content: space-evenly;
 }

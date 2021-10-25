@@ -90,7 +90,7 @@ class Celda {
     ctx.strokeStyle = "black";
     ctx.stroke();
     ctx.closePath();
-    ctx.fillStyle = "#F29F05";
+    ctx.fillStyle = "#243340";
 
     //genero los huecos
     ctx.arc((this.x + 40), (this.y + 40), 20, 0, 2 * Math.PI);

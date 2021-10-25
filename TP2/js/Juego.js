@@ -188,7 +188,7 @@ class Juego {
     let y = 100;
     let x = 40;
     for (let i = 0; i < this.cantFichas / 2; i ++){
-      const ficha = new Ficha(x, y, 20, 'red', this.jugadores[0]);
+      const ficha = new Ficha(x, y, 20, '#F2E527', this.jugadores[0]);
       this.addFicha( ficha );
       y += 50;
       if ( y >= 580 && i <=17 ){
@@ -203,7 +203,7 @@ class Juego {
     x = 1020;
     y = 100;
     for (let i = 0; i < this.cantFichas / 2; i ++){
-      const ficha = new Ficha(x, y, 20, 'blue', this.jugadores[1]);
+      const ficha = new Ficha(x, y, 20, '#D95204', this.jugadores[1]);
       this.addFicha( ficha );
       y += 50;
       if ( y >= 580 && (i >= 9 && i < 18 )){

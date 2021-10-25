@@ -1,6 +1,8 @@
 "use strict"
 
 function init() {
+
+  document.body.style.backgroundImage = "url('img/fondo1.jpg')";
   // defino canvas
   const canvas = document.querySelector('canvas');
   const filas = 6;
@@ -42,3 +44,12 @@ function init() {
 }
 
 document.addEventListener('DOMContentLoaded', init);
+
+
+/* 
+Check list
+- Poner instrucciones de juego
+- Avisar la cantidad de fichas para ganar en linea
+- cambiar colores 
+- meter sonido 
+*/
