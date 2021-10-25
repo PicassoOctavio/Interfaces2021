@@ -88,6 +88,11 @@ canvas {
   display: none;
 }
 
+.color-picker{
+  width: 10px;
+  height: 10px;
+}
+
 
 .radio-button-filter {
   align-self: center;

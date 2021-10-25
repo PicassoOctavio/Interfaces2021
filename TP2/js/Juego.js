@@ -16,6 +16,7 @@ class Juego {
   backgroundImage;
   btnRestart;
   timer;
+  btnFinish;
 
   constructor(canvas, tablero, botonReiniciar, tiempo) {
     this.canvas = canvas;
@@ -34,7 +35,6 @@ class Juego {
     this.winLine = 4;
     this.oldXFicha;
     this.oldYFicha;
-    this.canvas.style.visibility = "hidden";
   }
 
   setTiempoRestante = () => {
@@ -118,6 +118,33 @@ class Juego {
   setRestartButton = (btn) => {
     btn.addEventListener('click', () => this.reiniciar());
   }
+  
+  setFinishButton = (btn) => {
+    this.btnFinish = btn;
+    this.btnFinish.addEventListener('click', () => this.terminarJuego());
+  }
+  
+  terminarJuego = () =>{
+    console.log("asdasdasd");
+    this.tablero.vaciar();
+    this.fichas = [];
+    this.whiten(); 
+    let canvas = document.querySelector('.js-canvas');
+    this.toggleDisplayNone(canvas);
+    
+    const botonesAndSelect = document.querySelector('.botonesAndSelect');
+    this.toggleDisplayNone(botonesAndSelect);
+    document.querySelector(".tiempo").hidden = true;
+    const turnPlayerMsg = document.querySelector('.js-turn-player');
+    turnPlayerMsg.classList.add('js-display-none');
+
+    let btnRestart = document.querySelector(".js-btn-restart");
+    btnRestart.disabled= true;
+    let btnTerminar = document.querySelector(".js-btn-terminar");
+    btnTerminar.disabled = true;
+    let btnEmpezar = document.querySelector(".js-btn-start");
+      btnEmpezar.disabled = false;
+  }
 
   // reinicia el juego
   reiniciar = () => {
@@ -125,22 +152,59 @@ class Juego {
     this.fichas = [];
     clearInterval(this.timer);
     this.whiten(); 
-    this.jugadores = [];
+    //this.jugadores = [];
     const player1 = document.querySelector('.js-player-1');
     player1.value = null;
     const player2 = document.querySelector('.js-player-2');
     player2.value = null;
-    document.querySelector(".js-tiempo").parentNode.hidden = true;
+    document.querySelector(".tiempo").hidden = true;
 
-    this.empezar();
+    //Empieza de nuevo
+    this.setWinLine();
+    this.cargarFichas();
+    this.dibujarFichas();
+    this.tablero.draw(this.context);
+    this.turno = this.jugadores[0];
+    
+    this.listenMouseDown();
+    this.listenMouseUp();
+    this.listenMouseMove();
+    // this.listenMouseOut();
+    
+    this.mostrarTurno();
+    this.setTiempoRestante();
 
-  } 
+  }
+
+  //document.querySelector('.js-canvas').style.visibility = "visible";
+  
+  
+  toggleDisplayNone = (element) => {
+    console.log(element);
+    element.classList.toggle('displayNone');
+  }
 
   empezar = () => {
     this.cargarJugadores();
     console.log(this.jugadores.length)
     if ( this.jugadoresEstanCargados() && this.existeTablero() ){ 
-      document.querySelector('.js-canvas').style.visibility = "visible";
+
+      //ocultar select + picker color
+      const botonesAndSelect = document.querySelector('.botonesAndSelect');
+      this.toggleDisplayNone(botonesAndSelect);
+
+      // mostrar canvas
+      let canvas = document.querySelector('.js-canvas');
+      this.toggleDisplayNone(canvas);
+
+      //deshabilitar/habilitar botones
+      let btnRestart = document.querySelector(".js-btn-restart");
+      btnRestart.disabled= false;
+      let btnTerminar = document.querySelector(".js-btn-terminar");
+      btnTerminar.disabled = false;
+      let btnEmpezar = document.querySelector(".js-btn-start");
+      btnEmpezar.disabled = true;
+
       this.setWinLine();
       this.cargarFichas();
       this.dibujarFichas();
@@ -184,11 +248,14 @@ class Juego {
   }
   
   cargarFichas = () => {
+
+    const colorFichaJ1 = document.querySelector('.js-color-pickerUno');
+    const colorFichaJ2 = document.querySelector('.js-color-pickerDos');
     this.cantFichas = this.setCantFichas();
     let y = 100;
     let x = 40;
     for (let i = 0; i < this.cantFichas / 2; i ++){
-      const ficha = new Ficha(x, y, 20, '#F2E527', this.jugadores[0]);
+      const ficha = new Ficha(x, y, 20, colorFichaJ1.value, this.jugadores[0]);
       this.addFicha( ficha );
       y += 50;
       if ( y >= 580 && i <=17 ){
@@ -203,7 +270,7 @@ class Juego {
     x = 1020;
     y = 100;
     for (let i = 0; i < this.cantFichas / 2; i ++){
-      const ficha = new Ficha(x, y, 20, '#D95204', this.jugadores[1]);
+      const ficha = new Ficha(x, y, 20, colorFichaJ2.value, this.jugadores[1]);
       this.addFicha( ficha );
       y += 50;
       if ( y >= 580 && (i >= 9 && i < 18 )){

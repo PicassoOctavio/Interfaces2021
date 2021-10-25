@@ -19,6 +19,8 @@ function init() {
   
   // agrego boton para resetear
   let btnRestart = document.querySelector(".js-btn-restart");
+  btnRestart.disabled = true;
+  //juego.toggleDisplayNone(btnRestart);
   juego.setRestartButton(btnRestart);
   // creo ficha
   //const ficha = new Ficha(40, 40, 20);
@@ -32,6 +34,10 @@ function init() {
   
   // lo agrego al juego
   //juego.setTablero(tablero);
+  let btnTerminar = document.querySelector(".js-btn-terminar");
+  //juego.toggleDisplayNone(btnTerminar);
+  btnTerminar.disabled = true;
+  juego.setFinishButton( btnTerminar );
 
   // creo botón 'Empezar'
   const btnEmpezar = document.querySelector(".js-btn-start");
@@ -40,6 +46,7 @@ function init() {
   // lo agrego al juego
   juego.setStartButton(btnEmpezar);
   //juego.setRestartButton(btnRestart);
+
 
 }
 
