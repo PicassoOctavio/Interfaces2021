@@ -17,8 +17,26 @@ body {
   height: 600px;
   border: 1px solid rgb(112, 107, 107);
   overflow-x: hidden;
-  /* overflow-y: hidden; */
+  overflow-y: hidden;
   /* display: inline; */
+}
+
+.character-body {
+  width: 38px;
+  height: 98px;
+  align-self: flex-start;
+  margin-left: 15px;
+}
+
+.character {
+  display: grid;
+  width: 68px; 
+  height: 105px;
+  background-position: 10px 120px;
+  background: url('img/running.png');
+  animation: walk 1s steps(8) infinite;
+  top: 503px;
+  position: relative;
 }
 
 @keyframes walk { 
@@ -34,33 +52,18 @@ body {
   */
 } 
 
-.character {
-  width: 60px; 
-  height: 105px;
-  /* margin-left: 10px;
-  margin-top: 5px; */
-  background-position: 10px 120px;
-  background: url('img/running.png');
-  /* background-size: cover; */
-  /* background-position: left; */
-  animation: walk 1s steps(8) infinite;
-  top: 495px; /* height del .app  - altura de .character */
-  position: relative;
+.js-jump{
+  background: url('img/jumping.png');
+  animation: jump .6s steps(12);
 }
 
 @keyframes jump{
-  0%{top: 500px;}
+  0%{top: 503px;background-position: -50px;}
+  20% { }
   30%{top: 440px;}
   70%{top: 440px;}
-  100%{top: 500px;}
-}
-
-.character, .block {
-  /* display: inline; */
-}
-
-.js-jump{
-  animation: jump 0.5s linear;
+  95%{top: 503px;}
+  100%{background-position: -1704px;} /* jumping.png width + (cant sprites * dist sprites) = 1704*/
 }
 
 .block{
@@ -77,3 +80,4 @@ body {
   0%{left: 1200px}
   100%{left: -80px}
 }
+

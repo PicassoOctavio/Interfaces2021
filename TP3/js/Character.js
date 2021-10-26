@@ -2,8 +2,10 @@ class Character {
 
   constructor(element) {
     this.element =  element;
+    this.body = element.querySelector('.js-character-body');
     this.height  =  this.element.clientHeight;
     this.width   =  this.element.clientWidth;
+    this.listenJump();
   }
 
   /* Si el div no tiene la clase 'js-jump' se la agrega. Una vez
@@ -16,5 +18,11 @@ class Character {
       })
     }
   }
+
+  // Cuando se presiona la tecla 'flecha arriba' le digo al personaje que salte
+  listenJump = () => document.addEventListener('keydown', (e) => {
+    if (e.key == 'ArrowUp')
+      this.jump()    
+  });
 
 }

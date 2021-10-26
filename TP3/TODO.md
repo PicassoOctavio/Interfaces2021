@@ -1,2 +1,2 @@
 - Reimplementar el método crash() de la clase Block.js
-- Animar cuando salta el personaje
+- Hacer que el salto se vea más 'fluido'
