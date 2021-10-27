@@ -1,3 +1,11 @@
 - Reimplementar el método crash() de la clase Block.js
 - Hacer que el salto se vea más 'fluido'
 - Mejorar mensaje de ganador (showWinMessage)
+- Agregar obstáculo volador
+- Cambiar imagen del bloque
+- Agregar animación para esquivar obstáculo volador
+- Animar moneda antes de agarrarla
+- Animar muerte del personaje
+- Mejorar mensaje 'Game Over'
+- Dar la posibilidad de reiniciar
+- Dar la posibilidad de elegir cuántas coins agarrar para ganar
