@@ -10,26 +10,8 @@ const block = new Block(blockElement);
 const coinElement = document.querySelector('.js-coin');
 const coin = new Coin(coinElement);
 
-// Checkea cada 10 milisegundos si el personaje chocó con el bloque
-// checkDead = () => {
-//   setInterval(function() {
-//     if (block.overlaps(block.block, character.body)) {
-//         alert("Game Over");
-//     }
-//   }, 10);
-// }
-
-checkCoin = () => {
-  setInterval(function() {
-    if (coin.isTouched(character)) {
-      // updateScore();
-      coin.animate();
-    }
-  }, 10);
-}
-
-console.log(coin.body)
-
-document.addEventListener('DOMContentLoaded', checkCoin)
-document.addEventListener('DOMContentLoaded', checkDead)
-
+// Creo juego y agrego todo lo anterior al juego
+const game = new Game(1);
+game.setCharacter(character);
+game.setBlock(block);
+game.setCoin(coin);

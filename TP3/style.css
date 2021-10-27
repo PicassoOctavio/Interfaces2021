@@ -18,7 +18,31 @@ body {
   border: 1px solid rgb(112, 107, 107);
   overflow-x: hidden;
   overflow-y: hidden;
-  /* display: inline; */
+}
+
+.scoreboard {
+  display: flex;
+  width: fit-content;
+  height: 40px;
+  justify-self: left;
+  margin-left: auto;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+
+.score {
+  height: fit-content;
+  align-self: center;
+  margin-left: 5px;
+  margin-right: 20px;
+  font-size: 20px;
+}
+
+.scoreboard img {
+  margin-left: auto;
+  justify-self: right;
+  align-self: center;
+  margin-right: 5px;
 }
 
 .character-body {
@@ -89,8 +113,7 @@ body {
   width: 30px;
   background-image: url('img/coin/Gold_30.png');
   background-size: cover;
-  animation: move-coin 4s infinite linear;
-  /* animation-iteration-count: 1; */
+  animation: move-coin 2s infinite linear;
 }
 
 .coin-body {
@@ -115,5 +138,5 @@ body {
   25%{top: 450px; opacity: .75;}
   50%{top: 400px; opacity: .5;}
   100%{top: 350px; opacity: 0;}
-
 }
+

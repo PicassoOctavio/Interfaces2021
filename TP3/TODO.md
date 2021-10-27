@@ -1,2 +1,3 @@
 - Reimplementar el método crash() de la clase Block.js
 - Hacer que el salto se vea más 'fluido'
+- Mejorar mensaje de ganador (showWinMessage)
