@@ -9,7 +9,7 @@ class Game {
     this.block;
     this.coin;
     this.drawMaxScore();
-    // this.checkDead();
+    this.checkDead();
     this.checkCoin();
   }
 
@@ -25,13 +25,13 @@ class Game {
 
 
   // Checkea cada 10 milisegundos si el personaje chocó con el bloque
-  // checkDead = () => {
-  //   setInterval(function() {
-  //     if (block.overlaps(block.block, character.body)) {
-  //         alert("Game Over");
-  //     }
-  //   }, 10);
-  // }
+  checkDead = () => {
+    setInterval(() => {
+      if (this.block.overlaps(this.block.block, this.character.body)) {
+          alert("Game Over");
+      }
+    }, 10);
+  }
 
   checkCoin = () => {
     setInterval(() => {

@@ -11,7 +11,7 @@ const coinElement = document.querySelector('.js-coin');
 const coin = new Coin(coinElement);
 
 // Creo juego y agrego todo lo anterior al juego
-const game = new Game(1);
+const game = new Game(2);
 game.setCharacter(character);
 game.setBlock(block);
 game.setCoin(coin);
