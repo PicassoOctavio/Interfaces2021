@@ -59,7 +59,6 @@ body {
 
 @keyframes jump{
   0%{top: 503px;background-position: -50px;}
-  20% { }
   30%{top: 440px;}
   70%{top: 440px;}
   95%{top: 503px;}
@@ -78,6 +77,43 @@ body {
 
 @keyframes move-block{
   0%{left: 1200px}
-  100%{left: -80px}
+  100%{left: -200px}
 }
 
+.coin {
+  display: grid;
+  position: relative;
+  /* border: 1px solid black; */
+  top: 550px;
+  height: 30px;
+  width: 30px;
+  background-image: url('img/coin/Gold_30.png');
+  background-size: cover;
+  animation: move-coin 4s infinite linear;
+  /* animation-iteration-count: 1; */
+}
+
+.coin-body {
+  justify-self: right;
+  width: 15px;
+  height: 30px;
+}
+
+@keyframes move-coin{
+  0%{left: 1200px}
+  100%{left: -300px}
+}
+
+.js-coin-collected {
+  animation-name: coin-collected;
+  animation-duration: .6s;
+  animation-iteration-count: 1;
+}
+
+@keyframes coin-collected {
+  0%{top: 550px; opacity: 1;}
+  25%{top: 450px; opacity: .75;}
+  50%{top: 400px; opacity: .5;}
+  100%{top: 350px; opacity: 0;}
+
+}
