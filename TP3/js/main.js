@@ -6,6 +6,10 @@ const character = new Character(characterElement);
 const blockElement = document.querySelector('.js-block');
 const block = new Block(blockElement);
 
+// Creo abeja
+const beeElement = document.querySelector('.js-bee-body');
+const bee = new Block(beeElement);
+
 // Creo coin
 const coinElement = document.querySelector('.js-coin');
 const coin = new Coin(coinElement);
@@ -15,3 +19,4 @@ const game = new Game(2);
 game.setCharacter(character);
 game.setBlock(block);
 game.setCoin(coin);
+// game.setBee(bee);

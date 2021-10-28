@@ -7,6 +7,7 @@ class Game {
     this.maxScore = maxScore;
     this.character;
     this.block;
+    this.bee;
     this.coin;
     this.drawMaxScore();
     this.checkDead();
@@ -23,11 +24,14 @@ class Game {
 
   setCoin = (coin) => this.coin = coin;
 
+  setBee = (bee) => this.bee = bee;
 
-  // Checkea cada 10 milisegundos si el personaje chocó con el bloque
+  // Checkea cada 10 milisegundos si el personaje chocó con un obstáculo
   checkDead = () => {
     setInterval(() => {
-      if (this.block.overlaps(this.block.block, this.character.body)) {
+      if (
+        this.block.overlaps(this.block.block, this.character.body) ||
+        this.bee.overlaps(this.bee.block, this.character.body)) {
           alert("Game Over");
       }
     }, 10);

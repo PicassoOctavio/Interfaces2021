@@ -93,7 +93,7 @@ body {
 }
 
 .character-body {
-  width: 38px;
+  width: 30px;
   height: 98px;
   align-self: flex-start;
   margin-left: 15px;
@@ -113,14 +113,6 @@ body {
 @keyframes walk { 
 	0% { background-position: -50px; }
   100% { background-position: -1152.4px; }
-  /*
-    Ancho del personaje:      133.8px;
-    Distancia entre sprites:  2px adelante y 2px atrás = 4px;
-    Cantidad de sprites:      8
-
-    Entonces...
-    background-position:(AnchoPersonaje + DistanciaSprites) * CantSprites = 1102.4px
-  */
 } 
 
 .js-jump{
@@ -134,21 +126,6 @@ body {
   70%{top: 440px;}
   95%{top: 503px;}
   100%{background-position: -1704px;} /* jumping.png width + (cant sprites * dist sprites) = 1704*/
-}
-
-.block{
-  background-color: blue;
-  width: 20px;
-  height: 20px;
-  position: relative;
-  top: 580px; /* altura .app - altura .block */
-  left: 800px;
-  animation: move-block 4s infinite linear;
-}
-
-@keyframes move-block{
-  0%{left: 1200px}
-  100%{left: -300px}
 }
 
 .coin {
@@ -187,3 +164,38 @@ body {
   100%{top: 350px; opacity: 0;}
 }
 
+.block{
+  background-color: blue;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  top: 580px;
+  left: 800px;
+  animation: move-block 4s infinite linear;
+}
+
+@keyframes move-block{
+  0%{left: 1200px}
+  100%{left: -300px}
+}
+
+.bee {
+  width: 52px;
+  height: 40px;
+  top: 505px;
+  position: relative;
+  background: url('img/flying-bee.png');
+  background-size: cover;
+  animation: bee-flying 1s steps(6) infinite, move-block 3s infinite linear;
+}
+
+.bee-body {
+  height: 40px;
+  width: 30px;
+  margin-left: 10px;
+}
+
+@keyframes bee-flying {
+  0% { background-position: 0px; }
+  100% { background-position: 313px; }  
+}
