@@ -10,8 +10,8 @@ class Game {
     this.bee;
     this.coin;
     this.drawMaxScore();
-    // this.checkDead();
-    // this.checkCoin();
+    this.checkDead();
+    this.checkCoin();
   }
 
   drawMaxScore = () => {

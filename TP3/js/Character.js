@@ -5,6 +5,7 @@ class Character {
     this.body = element.querySelector('.js-character-body');
     this.height  =  this.element.clientHeight;
     this.width   =  this.element.clientWidth;
+    this.isJumping = false;
     this.listenJump();
     this.listenSlide();
   }
@@ -14,8 +15,10 @@ class Character {
   jump = () => {
     if ( ! this.element.classList.contains('js-jump')) {
       this.element.classList.add("js-jump");
+      this.isJumping = true;
       this.element.addEventListener('animationend', () => {
         this.element.classList.remove("js-jump");
+        this.isJumping = false;
       })
     }
   }
@@ -27,10 +30,12 @@ class Character {
   });
 
   slide = () => {
-    if ( ! this.element.classList.contains('js-slide')) {
+    if ( ! this.element.classList.contains('js-slide')  && ! this.isJumping ) {
       this.element.classList.add("js-slide");
+      this.body.classList.add('js-height-50px');
       this.element.addEventListener('animationend', () => {
         this.element.classList.remove("js-slide");
+        this.body.classList.remove('js-height-50px');
       })
     }
   }
