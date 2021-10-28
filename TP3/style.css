@@ -195,8 +195,8 @@ body {
 .rock-body {
   justify-self: center;
   align-self: flex-end;
-  margin-bottom: 15px;
-  margin-left: 5px;
+  margin-bottom: 12px;
+  /* margin-left: 5px; */
   width: 30px;
   height: 30px;
 }

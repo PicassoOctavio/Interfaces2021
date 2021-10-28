@@ -6,7 +6,7 @@ class Game {
     this.maxScoreDiv = document.querySelector('.js-max-score');
     this.maxScore = maxScore;
     this.character;
-    this.block;
+    this.rock;
     this.bee;
     this.coin;
     this.drawMaxScore();
@@ -20,7 +20,7 @@ class Game {
 
   setCharacter = (character) => this.character = character;
 
-  setBlock = (block) => this.block = block;
+  setRock = (rock) => this.rock = rock;
 
   setCoin = (coin) => this.coin = coin;
 
@@ -30,8 +30,8 @@ class Game {
   checkDead = () => {
     setInterval(() => {
       if (
-        this.block.overlaps(this.block.block, this.character.body) ||
-        this.bee.overlaps(this.bee.block, this.character.body)) {
+        this.rock.overlaps(this.rock.element, this.character.body) ||
+        this.bee.overlaps(this.bee.element, this.character.body)) {
           alert("Game Over");
       }
     }, 10);
