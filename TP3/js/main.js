@@ -3,7 +3,7 @@ const characterElement = document.querySelector('.js-character');
 const character = new Character(characterElement);
 
 // Creo bloque
-const blockElement = document.querySelector('.js-block');
+const blockElement = document.querySelector('.js-rock-body');
 const block = new Block(blockElement);
 
 // Creo abeja
