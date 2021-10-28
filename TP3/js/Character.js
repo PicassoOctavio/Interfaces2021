@@ -6,6 +6,7 @@ class Character {
     this.height  =  this.element.clientHeight;
     this.width   =  this.element.clientWidth;
     this.listenJump();
+    this.listenSlide();
   }
 
   /* Si el div no tiene la clase 'js-jump' se la agrega. Una vez
@@ -25,4 +26,17 @@ class Character {
       this.jump()    
   });
 
+  slide = () => {
+    if ( ! this.element.classList.contains('js-slide')) {
+      this.element.classList.add("js-slide");
+      this.element.addEventListener('animationend', () => {
+        this.element.classList.remove("js-slide");
+      })
+    }
+  }
+
+  listenSlide = () => document.addEventListener('keydown', (e) => {
+    if (e.key == 'ArrowDown')
+      this.slide()    
+  });
 }
