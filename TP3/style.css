@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 html {
   border: none;
 }
@@ -6,6 +8,8 @@ body {
   display: grid;
   margin: 0;
   height: 100vh;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 12px;
 }
 
 .app {
@@ -17,6 +21,38 @@ body {
   border: 1px solid rgb(112, 107, 107);
   overflow-x: hidden;
   overflow-y: hidden;
+}
+
+.keys {
+  display: grid;
+  height: fit-content;
+  margin-left: 15px;
+  margin-top: 10px;
+}
+
+.key-up {
+  background: url('img/arrowUp.png');
+  margin-bottom: 10px;
+}
+
+.key-down {
+  background: url('img/arrowDown.png');
+}
+
+.key-up, .key-down {
+  display: grid;
+  width: 35px;
+  height: 35px;
+  background-size: cover;
+}
+
+.key-up p, .key-down p {
+  align-self: center;
+  color: white;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-right: 0;
+  margin-left: 45px;
 }
 
 .foreground-trees, .mountain-far, .mountain-near, .parallax-background, .background-trees {
@@ -73,7 +109,7 @@ body {
   justify-self: left;
   margin-left: auto;
   margin-right: 20px;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .score {
@@ -81,7 +117,6 @@ body {
   align-self: center;
   margin-left: 5px;
   margin-right: 20px;
-  font-size: 20px;
   color: whitesmoke;
 }
 
