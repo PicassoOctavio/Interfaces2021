@@ -22,6 +22,8 @@ class Coin {
 
   animate = () => {
     this.div.classList.add("js-coin-collected");
+    const audio = new Audio('sounds/addCoin.wav');
+    audio.play();
     this.div.addEventListener('animationend', () => {
       this.div.classList.remove("js-coin-collected");
     })
