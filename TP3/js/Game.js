@@ -11,7 +11,7 @@ class Game {
     this.coin;
     this.drawMaxScore();
     // this.checkDead();
-    // this.checkCoin();
+    //this.checkCoin();
   }
 
   drawMaxScore = () => {
@@ -40,6 +40,7 @@ class Game {
   checkCoin = () => {
     setInterval(() => {
       if (coin.isTouched(character)) {
+        console.log("entra")
         this.updateScore();
         coin.animate();
         if (this.score == this.maxScore) {
