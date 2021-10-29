@@ -27,7 +27,7 @@ btnStart.addEventListener('click', () => {
     let coin = new Coin(coinElement);
     
     // Creo juego y agrego todo lo anterior al juego
-    const game = new Game(1);
+    const game = new Game(10, this);
     game.setCharacter(character);
     game.setRock(rock);
     game.setCoin(coin);
@@ -38,8 +38,21 @@ btnStart.addEventListener('click', () => {
     rockDiv.classList.toggle('display-none');
     beeDiv.classList.toggle('display-none');
     coinElement.classList.toggle('display-none');
-
+    
     //oculto cartel
     beginMessage.classList.add('display-none');
-
+    
 });
+
+function ocultarElementos() {
+    console.log("ebntr");
+    const characterElement = document.querySelector('.js-character');
+    const rockDiv = document.querySelector('.rock');
+    const beeDiv = document.querySelector('.bee');
+    const coinElement = document.querySelector('.js-coin');
+
+    characterElement.classList.add('display-none');
+    rockDiv.classList.add('display-none');
+    beeDiv.classList.add('display-none');
+    coinElement.classList.add('display-none');
+}
