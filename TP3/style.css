@@ -195,7 +195,7 @@ body {
   height: 10%;
   position: absolute;
   border-radius: 20%;
-  animation: sparksCoins 0.2s ease 1s forwards;
+  animation: sparksCoins 1s ease infinite;
   top:13px;
   left: 13px;
   transform: rotate(calc(60deg * var(--i))) translate(0px, 25px);
