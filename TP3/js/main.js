@@ -9,10 +9,12 @@ btnStart.addEventListener('click', () => {
     console.log(character);
     
     // Creo roca
+    const rockDiv = document.querySelector('.rock');
     const rockElement = document.querySelector('.js-rock-body');
     let rock = new Obstacle(rockElement);
     
     // Creo abeja
+    const beeDiv = document.querySelector('.bee');
     const beeElement = document.querySelector('.js-bee-body');
     let bee = new Obstacle(beeElement);
     
@@ -29,8 +31,8 @@ btnStart.addEventListener('click', () => {
 
     // Muestro los elementos integrantes del juego
     characterElement.classList.toggle('display-none');
-    rockElement.classList.toggle('display-none');
-    beeElement.classList.toggle('display-none');
+    rockDiv.classList.toggle('display-none');
+    beeDiv.classList.toggle('display-none');
     coinElement.classList.toggle('display-none');
     beginMessage.classList.add('display-none');
 
