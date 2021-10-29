@@ -1,6 +1,10 @@
 
 const btnStart = document.querySelector('.js-btn-start');
 const beginMessage = document.querySelector('.begin-message');
+const titleGame = document.querySelector('.js-title-game');
+titleGame.innerHTML = "Runner Boy";
+btnStart.innerHTML = "Comenzar";
+
 btnStart.addEventListener('click', () => {
 
     // Creo personaje
@@ -23,7 +27,7 @@ btnStart.addEventListener('click', () => {
     let coin = new Coin(coinElement);
     
     // Creo juego y agrego todo lo anterior al juego
-    const game = new Game(200);
+    const game = new Game(1);
     game.setCharacter(character);
     game.setRock(rock);
     game.setCoin(coin);
@@ -34,6 +38,8 @@ btnStart.addEventListener('click', () => {
     rockDiv.classList.toggle('display-none');
     beeDiv.classList.toggle('display-none');
     coinElement.classList.toggle('display-none');
+
+    //oculto cartel
     beginMessage.classList.add('display-none');
 
 });
