@@ -1,4 +1,4 @@
-- Hacer que el salto se vea más 'fluido'
+- Hacer que el salto se vea más 'fluido' - done
 - Mejorar mensaje de ganador (showWinMessage)
 - Animar moneda antes de agarrarla
 - Animar muerte del personaje

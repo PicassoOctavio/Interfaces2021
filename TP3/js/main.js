@@ -1,22 +1,37 @@
-// Creo personaje
-const characterElement = document.querySelector('.js-character');
-const character = new Character(characterElement);
 
-// Creo roca
-const rockElement = document.querySelector('.js-rock-body');
-const rock = new Obstacle(rockElement);
+const btnStart = document.querySelector('.js-btn-start');
+const beginMessage = document.querySelector('.begin-message');
+btnStart.addEventListener('click', () => {
 
-// Creo abeja
-const beeElement = document.querySelector('.js-bee-body');
-const bee = new Obstacle(beeElement);
+    // Creo personaje
+    const characterElement = document.querySelector('.js-character');
+    let character = new Character(characterElement);
+    console.log(character);
+    
+    // Creo roca
+    const rockElement = document.querySelector('.js-rock-body');
+    let rock = new Obstacle(rockElement);
+    
+    // Creo abeja
+    const beeElement = document.querySelector('.js-bee-body');
+    let bee = new Obstacle(beeElement);
+    
+    // Creo coin
+    const coinElement = document.querySelector('.js-coin');
+    let coin = new Coin(coinElement);
+    
+    // Creo juego y agrego todo lo anterior al juego
+    const game = new Game(200);
+    game.setCharacter(character);
+    game.setRock(rock);
+    game.setCoin(coin);
+    game.setBee(bee);
 
-// Creo coin
-const coinElement = document.querySelector('.js-coin');
-const coin = new Coin(coinElement);
+    // Muestro los elementos integrantes del juego
+    characterElement.classList.toggle('display-none');
+    rockElement.classList.toggle('display-none');
+    beeElement.classList.toggle('display-none');
+    coinElement.classList.toggle('display-none');
+    beginMessage.classList.add('display-none');
 
-// Creo juego y agrego todo lo anterior al juego
-const game = new Game(200);
-game.setCharacter(character);
-game.setRock(rock);
-game.setCoin(coin);
-game.setBee(bee);
+});
