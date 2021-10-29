@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Runner game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+  <div class="app">
+
+    <!-- Backgrounds -->
+    <div class="parallax-background"></div>
+    <div class="js-animation-foreground-trees foreground-trees"></div>
+    <div class="js-animation-background-trees background-trees"></div>
+    <div class="js-animation-mountain-far mountain-far"></div>
+    <div class="js-animation-mountain-near mountain-near"></div>
+
+    
+    <!-- Keys -->
+    <div class="keys">
+      <div class="key-up">
+        <p>Jump</p>
+      </div>
+      <div class="key-down">
+        <p>Slide</p>
+      </div>
+    </div>
+    
+    <!-- Begin message -->
+    <div class="begin-message">
+      <h1 class="title-game js-title-game"></h1>
+      <button type="button" class="js-btn-start btn-start"></button>
+    </div>
+
+    <!-- Character -->
+    <div class="js-character js-walking-animation character display-none">
+      <div class="js-character-body character-body"></div>
+    </div>
+
+
+    <!-- Coin -->
+    <div class="js-coin js-coin-movement coin display-none">
+      <div class="js-coin-body coin-body"></div>
+      <span class="coin-efect" style="--i:1"></span>
+      <span class="coin-efect" style="--i:2"></span>
+      <span class="coin-efect" style="--i:3"></span>
+      <span class="coin-efect" style="--i:4"></span>
+      <span class="coin-efect" style="--i:5"></span>
+      <span class="coin-efect" style="--i:6"></span>
+    </div>
+
+
+    <!-- Abeja -->
+    <div class="js-bee-animation bee display-none">
+      <div class="js-bee-body bee-body"></div>
+    </div>
+
+
+    <!-- Rock -->
+    <div class="js-rock-move rock display-none">
+      <div class="js-rock-body rock-body"></div>
+    </div>
+
+
+    <!-- Scoreboard -->
+    <div class="scoreboard">
+      <div class="score"><span class="js-score">0</span> / <span class="js-max-score"></span></div>
+      <img src="img/coin/Gold_21.png" width="25" height="25">
+    </div>
+
+  </div>
+
+  <script src="js/Game.js"></script>
+  <script src="js/Coin.js"></script>
+  <script src="js/Obstacle.js"></script>
+  <script src="js/Character.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,370 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+html {
+  border: none;
+}
+
+body {
+  display: grid;
+  margin: 0;
+  height: 100vh;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 12px;
+  background-color: rgb(63, 63, 63);
+}
+
+.app {
+  display: flex;
+  justify-self: center;
+  align-self: center;
+  width: 1200px;
+  height: 600px;
+  border: 1px solid rgb(112, 107, 107);
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.keys {
+  display: grid;
+  height: fit-content;
+  margin-left: 15px;
+  margin-top: 10px;
+}
+
+.key-up {
+  background: url('img/arrowUp.png');
+  margin-bottom: 10px;
+}
+
+.key-down {
+  background: url('img/arrowDown.png');
+}
+
+.key-up, .key-down {
+  display: grid;
+  width: 35px;
+  height: 35px;
+  background-size: cover;
+}
+
+.key-up p, .key-down p {
+  align-self: center;
+  color: white;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-right: 0;
+  margin-left: 45px;
+}
+
+.foreground-trees, .mountain-far, .mountain-near, .parallax-background, .background-trees {
+  background-repeat: repeat-x;
+  background-size: contain;
+  align-self: flex-end;
+  width: 1200px;
+  position: absolute;
+}
+
+.foreground-trees {
+  background-image: url('img/background/parallax-mountain-foreground-trees.png');
+  height: 350px;
+  z-index: -1;
+}
+
+.js-animation-foreground-trees {
+  animation: scroll 150s infinite linear;
+}
+
+.background-trees {
+  background-image: url('img/background/parallax-mountain-trees.png');
+  height: 150px;
+  z-index: -2;
+}
+
+.js-animation-background-trees {
+  animation: scroll 200s infinite linear;
+}
+
+.mountain-near {
+  background-image: url('img/background/parallax-mountain-mountains.png');
+  height: 300px;
+  z-index: -3;
+}
+
+.js-animation-mountain-near {
+  animation: scroll 300s infinite linear;
+}
+
+.mountain-far {
+  background-image: url('img/background/parallax-mountain-montain-far.png');
+  height: 500px;
+  z-index: -4;
+}
+
+.js-animation-mountain-far {
+  animation: scroll 400s infinite linear;
+}
+
+.parallax-background {
+  background-image: url('img/background/parallax-mountain-bg.png');
+  height: 600px;
+  z-index: -5;
+}
+
+@keyframes scroll {
+  0% { background-position-x: 0; }
+  100% { background-position-x: -5440px;}
+}
+
+.scoreboard {
+  display: flex;
+  width: fit-content;
+  height: 40px;
+  justify-self: left;
+  margin-left: auto;
+  margin-right: 20px;
+  margin-top: 10px;
+}
+
+.score {
+  height: fit-content;
+  align-self: center;
+  margin-left: 5px;
+  margin-right: 20px;
+  color: whitesmoke;
+}
+
+.scoreboard img {
+  margin-left: auto;
+  justify-self: right;
+  align-self: center;
+  margin-right: 5px;
+}
+
+.character-body {
+  width: 30px;
+  height: 98px;
+  align-self: flex-start;
+  margin-left: 15px;
+}
+
+.character {
+  display: grid;
+  width: 80px; 
+  height: 105px;
+  background-position: 10px 120px;
+  top: 503px;
+  position: relative;
+  background: url('img/running.png');
+}
+
+.js-walking-animation {
+  animation: walk .6s steps(8) infinite;
+}
+
+@keyframes walk { 
+	0% { background-position: -50px; }
+  100% { background-position: -1152.4px; }
+} 
+
+.js-jump{
+  background: url('img/jumping.png');
+  animation: jump .6s steps(12);
+}
+
+@keyframes jump{
+  0%{top: 503px;background-position: -50px;}
+  30%{top: 440px;}
+  70%{top: 440px;}
+  95%{top: 503px;}
+  100%{background-position: -1704px;} /* jumping.png width + (cant sprites * dist sprites) = 1704*/
+}
+
+.js-slide {
+  background: url('img/sliding.png');
+  background-size: cover;
+  animation: slide .5s steps(5);
+}
+
+@keyframes slide {
+  0% { background-position: -35px; top: 497px; height: 115px; width: 80px;}
+  100% { background-position: -705px; top: 498px; height: 115px; width: 80px;}  
+}
+
+.js-die {
+  background: url('img/die.png');
+  background-size: cover;  
+  animation: die 1s steps(10) forwards;
+}
+
+@keyframes die {
+  0% { background-position: 120px; width: 100px;}
+  100% { background-position: -1100px; width: 100px;}
+}
+
+
+.coin {
+  display: grid;
+  position: relative;
+  /* border: 1px solid black; */
+  top: 550px;
+  height: 30px;
+  width: 30px;
+  background-image: url('img/coin/Gold_21.png');
+  background-size: cover;
+}
+
+.js-coin-movement {
+  animation: move-coin 4s infinite linear;
+}
+
+/* animacion al recolectar moneda */
+/* falta ejecutar al moemnto de recolectar moneda */
+.coin .coin-efect{
+  background-color: rgb(253, 255, 130);
+  width: 10%;
+  height: 10%;
+  position: absolute;
+  border-radius: 20%;
+  animation: sparksCoins 1s ease infinite;
+  top:13px;
+  left: 13px;
+  transform: rotate(calc(60deg * var(--i))) translate(0px, 25px);
+  opacity: 0;
+}
+
+@keyframes sparksCoins {
+  0% {
+    opacity: 0;
+    transform: rotate(calc(60deg * var(--i))) translate(0px, 10px);
+  }
+  50% {
+    opacity: .8;
+    transform: rotate(calc(60deg * var(--i))) translate(0px, 30px);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+/* ------------------------------------ */
+
+.js-height-50px {
+  height: 50px;
+  align-self: flex-end;
+}
+
+.coin-body {
+  justify-self: right;
+  width: 15px;
+  height: 30px;
+}
+
+@keyframes move-coin{
+  0%{left: 1200px}
+  100%{left: -300px}
+}
+
+.js-coin-collected {
+  animation-name: coin-collected;
+  animation-duration: .6s;
+  animation-iteration-count: 1;
+}
+
+@keyframes coin-collected {
+  0%{top: 550px; opacity: 1;}
+  25%{top: 450px; opacity: .75;}
+  50%{top: 400px; opacity: .5;}
+  100%{top: 350px; opacity: 0;}
+}
+
+.rock {
+  display: grid;
+  background-image: url('img/rock.png');
+  background-size: contain;
+  width: 60px;
+  height: 60px;
+  position: relative;
+  top: 555px;
+  left: 800px;
+}
+
+.js-rock-move {
+  animation: move-rock 7s infinite linear;
+}
+
+.rock-body {
+  justify-self: center;
+  align-self: flex-end;
+  margin-bottom: 12px;
+  /* margin-left: 5px; */
+  width: 30px;
+  height: 30px;
+}
+
+@keyframes move-rock {
+  0%{left: 1200px}
+  100%{left: -300px}
+}
+
+.bee {
+  width: 40px;
+  height: 30px;
+  top: 505px;
+  position: relative;
+  background: url('img/flying-bee.png');
+  background-size: cover;
+}
+
+.js-bee-flying {
+  animation: bee-flying 1s steps(6) infinite;
+}
+
+.js-bee-animation {
+  animation: bee-flying 1s steps(6) infinite, move-bee linear 4s infinite;
+}
+
+@keyframes move-bee {
+  0%{left: 1200px}
+  100%{left: -200px}
+}
+
+.bee-body {
+  width: 50px;
+  height: 40px;
+  margin-left: 10px;
+}
+
+@keyframes bee-flying {
+  0% { background-position: 0px; }
+  100% { background-position: 234px; }  
+}
+
+.begin-message{
+  width: 400px;
+  height: 200px;
+  background-color: #B7748D;
+  color: #C2B20C;
+  margin: auto;
+  margin-left: 350px;
+  border-radius: 10px;
+  border: 5px solid #8F5067;
+}
+
+.title-game{
+  margin-left: 80px;
+  margin-top: 60px;
+}
+
+.btn-start{
+  display: flex;
+  margin: auto;
+  font-family: unset;
+  height: 35px;
+  padding-top: 10px;
+  background-color: #8F5067;
+  border-radius: 7px;
+  color: #C2B20C;
+}
+
+.display-none{
+  display: none;
+}
