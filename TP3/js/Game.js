@@ -35,8 +35,33 @@ class Game {
           let audioHit = new Audio('sounds/hitWithAnObject.wav');
           //audioHit.play();
           //alert("Game Over");
+          this.stopObjects();
+          this.character.die();
         }
     }, 10);
+  }
+
+  // Detiene el movimiento del fondo, de la roca y de la abeja (la abeja sigue aleteando pero no avanza)
+  stopObjects = () => {
+    // Fondo
+    const foregroundTrees = document.querySelector('.js-animation-foreground-trees');
+    const backgroundTrees = document.querySelector('.js-animation-background-trees');
+    const mountainFar = document.querySelector('.js-animation-mountain-far');
+    const mountainNear = document.querySelector('.js-animation-mountain-near');
+
+    foregroundTrees.classList.remove('js-animation-foreground-trees');
+    backgroundTrees.classList.remove('js-animation-background-trees');
+    mountainFar.classList.remove('js-animation-mountain-far');
+    mountainNear.classList.remove('js-animation-mountain-near');
+
+    // Obstaculos
+    const bee = document.querySelector('.js-bee-animation');
+    bee.classList.remove('js-bee-animation');
+    bee.classList.add('js-bee-flying');
+
+    const rock = document.querySelector('.js-rock-move');
+    rock.classList.remove('js-rock-move');
+
   }
 
   checkCoin = () => {

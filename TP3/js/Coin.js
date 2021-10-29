@@ -17,7 +17,7 @@ class Coin {
   }
 
   isTouched = (character) => {
-    return this.overlaps(this.body, character.body)
+    return this.overlaps(this.body, character.body) && ! character.isDead
   }
 
   animate = () => {

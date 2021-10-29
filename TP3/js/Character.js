@@ -5,6 +5,7 @@ class Character {
     this.body = element.querySelector('.js-character-body');
     this.height  =  this.element.clientHeight;
     this.width   =  this.element.clientWidth;
+    this.isDead = false;
     this.isJumping = false;
     this.listenJump();
     this.listenSlide();
@@ -44,4 +45,11 @@ class Character {
     if (e.key == 'ArrowDown')
       this.slide()    
   });
+
+  die = () => {
+    this.isDead = true;
+    this.element.classList.add('js-die');
+    this.element.classList.remove('js-walking-animation');
+  }
+
 }

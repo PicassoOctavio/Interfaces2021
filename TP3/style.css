@@ -68,6 +68,9 @@ body {
   background-image: url('img/background/parallax-mountain-foreground-trees.png');
   height: 350px;
   z-index: -1;
+}
+
+.js-animation-foreground-trees {
   animation: scroll 150s infinite linear;
 }
 
@@ -75,6 +78,9 @@ body {
   background-image: url('img/background/parallax-mountain-trees.png');
   height: 150px;
   z-index: -2;
+}
+
+.js-animation-background-trees {
   animation: scroll 200s infinite linear;
 }
 
@@ -82,6 +88,9 @@ body {
   background-image: url('img/background/parallax-mountain-mountains.png');
   height: 300px;
   z-index: -3;
+}
+
+.js-animation-mountain-near {
   animation: scroll 300s infinite linear;
 }
 
@@ -89,6 +98,9 @@ body {
   background-image: url('img/background/parallax-mountain-montain-far.png');
   height: 500px;
   z-index: -4;
+}
+
+.js-animation-mountain-far {
   animation: scroll 400s infinite linear;
 }
 
@@ -140,10 +152,13 @@ body {
   width: 80px; 
   height: 105px;
   background-position: 10px 120px;
-  background: url('img/running.png');
-  animation: walk .6s steps(8) infinite;
   top: 503px;
   position: relative;
+  background: url('img/running.png');
+}
+
+.js-walking-animation {
+  animation: walk .6s steps(8) infinite;
 }
 
 @keyframes walk { 
@@ -175,6 +190,18 @@ body {
   100% { background-position: -705px; top: 498px; height: 115px; width: 80px;}  
 }
 
+.js-die {
+  background: url('img/die.png');
+  background-size: cover;  
+  animation: die 1s steps(10) forwards;
+}
+
+@keyframes die {
+  0% { background-position: 120px; width: 100px;}
+  100% { background-position: -1100px; width: 100px;}
+}
+
+
 .coin {
   display: grid;
   position: relative;
@@ -184,6 +211,9 @@ body {
   width: 30px;
   background-image: url('img/coin/Gold_21.png');
   background-size: cover;
+}
+
+.js-coin-movement {
   animation: move-coin 4s infinite linear;
 }
 
@@ -255,6 +285,9 @@ body {
   position: relative;
   top: 555px;
   left: 800px;
+}
+
+.js-rock-move {
   animation: move-rock 7s infinite linear;
 }
 
@@ -279,6 +312,13 @@ body {
   position: relative;
   background: url('img/flying-bee.png');
   background-size: cover;
+}
+
+.js-bee-flying {
+  animation: bee-flying 1s steps(6) infinite;
+}
+
+.js-bee-animation {
   animation: bee-flying 1s steps(6) infinite, move-bee linear 4s infinite;
 }
 
