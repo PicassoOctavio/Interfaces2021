@@ -10,8 +10,8 @@ class Game {
     this.bee;
     this.coin;
     this.drawMaxScore();
-    // this.checkDead();
-    //this.checkCoin();
+    this.checkDead();
+    this.checkCoin();
   }
 
   drawMaxScore = () => {
@@ -39,12 +39,11 @@ class Game {
 
   checkCoin = () => {
     setInterval(() => {
-      if (coin.isTouched(character)) {
-        console.log("entra")
+      if (this.coin.isTouched(this.character)) {
         this.updateScore();
-        coin.animate();
+        this.coin.animate();
         if (this.score == this.maxScore) {
-          coin.div.addEventListener('animationend', () => this.showWinMessage())
+          this.coin.div.addEventListener('animationend', () => this.showWinMessage())
         }
       }
     }, 10);

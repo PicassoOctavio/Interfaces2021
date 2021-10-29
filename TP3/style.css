@@ -153,7 +153,7 @@ body {
 
 .js-jump{
   background: url('img/jumping.png');
-  animation: jump .4s steps(12);
+  animation: jump .6s steps(12);
 }
 
 @keyframes jump{
