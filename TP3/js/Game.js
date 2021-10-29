@@ -32,8 +32,10 @@ class Game {
       if (
         this.rock.overlaps(this.rock.element, this.character.body) ||
         this.bee.overlaps(this.bee.element, this.character.body)) {
-          alert("Game Over");
-      }
+          let audioHit = new Audio('sounds/hitWithAnObject.wav');
+          //audioHit.play();
+          //alert("Game Over");
+        }
     }, 10);
   }
 
@@ -50,7 +52,14 @@ class Game {
   }
 
   showWinMessage = () => {
-    alert(`FELICITACIONES, HAS CONSEGUIDO LAS ${this.maxScore} MONEDAS!!`)
+    //alert(`FELICITACIONES, HAS CONSEGUIDO LAS ${this.maxScore} MONEDAS!!`)
+    
+    beginMessage.classList.remove('display-none');
+    const btnStart = document.querySelector('.js-btn-start');
+    const beginMessage = document.querySelector('.begin-message');
+    const titleGame = document.querySelector('.js-title-game');
+    titleGame.innerHTML = "GANASTE!";
+    btnStart.innerHTML = "Nuevo juego";
   }
 
   updateScore = () => {
