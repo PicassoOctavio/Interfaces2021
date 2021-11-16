@@ -1,7 +1,0 @@
-- Hacer que el salto se vea más 'fluido' - done
-- Mejorar mensaje de ganador (showWinMessage)
-- Animar moneda antes de agarrarla
-- Animar muerte del personaje
-- Mejorar mensaje 'Game Over'
-- Dar la posibilidad de reiniciar
-- Dar la posibilidad de elegir cuántas coins agarrar para ganar

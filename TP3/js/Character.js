@@ -49,7 +49,6 @@ class Character {
   die = () => {
     this.isDead = true;
     this.element.classList.add('js-die');
-    this.element.classList.remove('js-walking-animation');
   }
 
 }

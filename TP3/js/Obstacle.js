@@ -17,6 +17,8 @@ class Obstacle {
   return isOverlapping;
 }
 
-
+pauseMovement = () => {
+  this.element.parentNode.classList.add('pause-animation');
+}
 
 }
