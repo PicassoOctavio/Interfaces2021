@@ -1,0 +1,47 @@
+Lista de puntos para hacer:
+
+
+
+-------------------------------------------------------------
+                IMPORTANTE - MOBILE FIRST !
+-------------------------------------------------------------
+
+Generales
+    Usar anillo de "cargando" en las transicion de pag
+
+Home 
+    . atractivo | animaciones | descripcion del sitio
+    . Tiene que tener un parallax si o si cualquiera de las dos
+    . Tiene que tener algo para interactuar el usuario  
+
+Muro:
+    - Bloque de escribir publicar
+        . Con texto solo + emojis
+        . Con foto o video
+
+    - Bloque de publicacion
+        . Avatar + nombre
+        . Fecha publicacion (numero random + nombres mes random)
+        . Texto
+        . Foto/video
+
+        Reacciones  - Like / Dislike
+                    - Comentar
+                    - Compartir
+
+    - Comentario
+        . Texto + emoji
+        . Foto
+
+    - Seccion de Noticias/Busqueda
+        . Los resultados en la barra desplegable
+
+    - Bloque de publicidad
+        . Son dos en el muro derecho (Las de mayor costo)
+        . Las de menor costo aparecen cada 10 publicaciones en el muro
+
+Chat
+    . Mensaje
+    . Foto
+    . Visto
+    . Hora
