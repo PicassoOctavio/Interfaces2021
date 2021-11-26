@@ -92,7 +92,87 @@ main {
 }
 
 .muro {
+  display: grid;
   background-color: var(--main-color)
+}
+
+/* POST COMPONENT */
+.post-component {
+  display: grid;
+  margin-top: 3vw;
+  padding: 1.4vw;
+  padding-top: 2vw;
+  padding-right: 3vw;
+  outline: none;
+  grid-template-rows: max-content 1fr;
+  grid-template-columns: 1fr 6fr;
+  justify-self: center;
+  background-color: #dae5ec;
+  height: fit-content;
+  width: 50%;
+  border-radius: 10px;
+}
+
+.post-comp-message, .upload-file-icon {
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+
+.upload-file-icon {
+  cursor: pointer;
+  margin-right: 1vw;
+  width: 1.6vw;
+  justify-self: right;
+  align-self: center;
+}
+
+.upload-file-icon {
+  transition: transform .2s;
+}
+
+.upload-file-icon:hover {
+  transform: scale(1.2);
+}
+
+.post-comp-message {
+  outline: none;
+  margin: 0;
+  margin-left: 1vw;
+  border-radius: 10px;
+  border: 0;
+  padding: 0;
+  padding-left: 1vw;
+  padding-right: 4vw;
+  cursor: text;
+  background-color: white;
+  width: 22vw;
+  padding-top: .5vw;
+  padding-bottom: .5vw;
+}
+
+.post-comp-message:empty:not(:focus)::before {
+  content: attr(data-placeholder);
+}
+
+.post-comp-user-icon {
+  width: 3vw;
+}
+
+.post-button {
+  background-color: var(--main-color);
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  margin-top: 1.3vw;
+  height: 3vw;
+  width: 6vw;
+  justify-self: right;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-column-start: 2;
+  grid-column-end: 3;
 }
 
 /* NAVBAR */
