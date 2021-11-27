@@ -19,13 +19,13 @@ html, body {
   opacity: 0.3;
 }
 
-/* HEADER */
+/* .search-bar */
 
-header {
+.search-bar {
   background-color: var(--second-color);
   height: 6vh;
-  padding-top: .2%;
-  padding-bottom: .2%;
+  padding-top: .5%;
+  padding-bottom: .5%;
   /* width: 100vw; */
 }
 
@@ -35,7 +35,7 @@ header {
   width: 100%;
 }
 
-header, .buscador {
+.search-bar, .buscador {
   display: grid;
   grid-auto-flow: column;
   grid-template-columns: 1fr;
@@ -57,6 +57,8 @@ header, .buscador {
 
 .buscador {
   width: 22%;
+  /* padding-top: 2vw;
+  padding-bottom: 2vw; */
   justify-self: center;
 }
 
@@ -110,7 +112,7 @@ main {
   justify-self: center;
   background-color: #dae5ec;
   height: fit-content;
-  width: 50%;
+  width: 30vw;
   border-radius: 10px;
 }
 
@@ -258,7 +260,6 @@ main {
   display: grid;
   background-color: var(--main-color);
   margin-right: 4%;
-  
 }
 
 .navbar-content {
@@ -330,4 +331,93 @@ main {
   width: 50px;
   height: 50px;
   margin-top: 10000px;
+}
+
+/* PERFIL */
+
+.post-creator-profile-section {
+  grid-row-start: 2;
+}
+
+.profile-container {
+  display: grid;
+  grid-template-rows: max-content;
+  margin-top: 1.4vw;
+  margin-left: .5vw;
+  background-color: var(--main-color);
+  grid-column-start: 2;
+  grid-column-end: 4;
+  border-radius: 10px 0 0 0;
+  z-index: -2;
+}
+
+.username-and-pictures {
+  display: grid;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.profile-background {
+  grid-row-start: 1;
+  grid-column-start: 1;
+  width: 100%;
+  height: 17vw;
+  border-radius: 10px 0 0 0;
+  z-index: -1;
+}
+
+.profile-image {
+  grid-row-start: 1;
+  grid-column-start: 1;
+  width: 15vw;
+  margin-top: 10vw;
+  margin-left: 3vw;
+  align-self: flex-end;
+}
+
+.name-and-description {
+  grid-row-start: 1;
+  grid-column-start: 1;
+  align-self: flex-end;
+  justify-self: center;
+  margin-right: 19vw;
+  margin-bottom: 2vw;
+  width: fit-content;
+}
+
+.profile-username {
+  font-size: 2.4vw;
+  font-weight: 600;
+  margin: 0;
+}
+
+.short-profile-description {
+  font-size: 1.2vw;
+  font-weight: lighter;
+  margin: 0;
+  margin-top: .4vw;
+}
+
+.info-personal {
+  grid-row-start: 2;
+  grid-column-start: 1;
+  width: 20vw;
+  margin-top: 3vw;
+  margin-left: 3vw;
+  background-color: #e8dff0;
+  padding: 2vw;
+  border-radius: 10px;
+}
+
+.info-personal-title {
+  font-size: 1.4vw;
+  margin: 0;
+  margin-bottom: 1vw;
+  padding: 0;
+}
+
+.info-personal-message {
+  font-weight: 300;
+  margin: 0;
+  padding: 0;
 }

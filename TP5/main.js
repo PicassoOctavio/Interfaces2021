@@ -10,5 +10,5 @@ function myFunction() {
     header.classList.remove("sticky");
   }
 }
-
+// EXPLICAR BIEN QUÉ HACE LO DE ARRIBA (cambiar nombre a las funciones y variables)
 
