@@ -363,3 +363,94 @@ main {
 .publicity-image {
   width: 20vw;
 }
+
+.chat-body {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3vw;
+  margin-left: 1vw;
+  outline: none;
+  justify-self: center;
+  background-color: #AAAAA9;
+  height: 800px;
+  width: 900px;
+  border-radius: 10px;
+  margin-right: 2vw;
+}
+
+.message-recibed {
+  display: flex;
+  margin-top: 1vw;
+  margin-left: 1vw;
+  outline: none;
+  justify-self: center;
+  background-color: #D9CCC5;
+  height: fit-content;
+  width: 700px;
+  border-radius: 10px;
+  margin-right: 2vw;
+}
+
+.message-sended {
+  display: flex;
+  margin-top: 1vw;
+  margin-left: 11.5vw;
+  outline: none;
+  justify-self: center;
+  background-color: #F3E5DD;
+  height: fit-content;
+  width: 700px;
+  border-radius: 10px;
+  margin-right: 2vw;
+}
+
+.post-message-recibed-chat {
+  font-size: 18px;
+}
+
+.post-message-sended-chat {
+  font-size: 18px;
+  margin-left: 15px;
+}
+
+.post-chat-user-icon {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.send-message {
+  display: flex;
+  flex-direction: row;
+  margin-left: 30px;
+  margin-right: 10px;
+  margin-top: 20px;
+  height: 40px;
+  width: 850px;
+}
+
+.post-send-message {
+  display: flex;
+  place-content: center;
+}
+.write-message {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  width: 800px;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+}
+
+.send-file-icon {
+  margin-left: 20px;
+}
+
+.upload-file-icon2 {
+  margin-left: 750px;
+  width: 2vw;
+}
+
+.upload-file-icon2:hover {
+  transform: scale(1.2);
+}
