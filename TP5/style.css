@@ -376,6 +376,14 @@ main {
   width: 900px;
   border-radius: 10px;
   margin-right: 2vw;
+  position: relative;
+}
+
+.messages {
+  position: absolute;
+  bottom: 0px;
+  width: 900px;
+  margin-right: 20px;
 }
 
 .message-recibed {
@@ -394,7 +402,7 @@ main {
 .message-sended {
   display: flex;
   margin-top: 1vw;
-  margin-left: 11.5vw;
+  margin-left: 9.5vw;
   outline: none;
   justify-self: center;
   background-color: #F3E5DD;
@@ -426,6 +434,7 @@ main {
   margin-top: 20px;
   height: 40px;
   width: 850px;
+  margin-bottom: 20px;
 }
 
 .post-send-message {
