@@ -432,15 +432,27 @@ main {
   margin-left: 30px;
   margin-right: 10px;
   margin-top: 20px;
-  height: 40px;
+  height: fit-content;
   width: 850px;
   margin-bottom: 20px;
 }
 
 .post-send-message {
-  display: flex;
-  place-content: center;
+ outline: none;
+  margin: 0;
+  margin-left: 1vw;
+  border-radius: 10px;
+  border: 0;
+  padding: 0;
+  padding-left: 1vw;
+  padding-right: 4vw;
+  cursor: text;
+  background-color: white;
+  width: 34vw;
+  padding-top: .5vw;
+  padding-bottom: .5vw;
 }
+
 .write-message {
   background-color: #ffffff;
   display: flex;
@@ -462,4 +474,9 @@ main {
 
 .upload-file-icon2:hover {
   transform: scale(1.2);
+}
+
+.chat-user-title {
+  color: whitesmoke;
+  margin-left: 20px;
 }
