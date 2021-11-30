@@ -11,13 +11,45 @@
 <body>
 
   <header class="search-bar">
-    <img class="logoApp" src="img/appLogo.svg" alt="Logo de la aplicación">
-    <div class="buscador">
-      <img class="lupa" src="img/lupaBuscador.svg" alt="Icono de lupa del buscador">
-      <input type="text" placeholder="Buscar">
+    
+    <div class="logo-y-buscador">
+      <img class="logoApp" src="img/appLogo.svg" alt="Logo de la aplicación">
+      
+      <div class="buscador">
+        <img class="lupa" src="img/lupaBuscador.svg" alt="Icono de lupa del buscador">
+        <input class="js-input-buscador" type="text" placeholder="Buscar">
+      </div>
     </div>
-  </header>
+    
+    <div class="js-busquedas-recientes busquedas-recientes js-display-none">
 
+      <h1 class="titulo-busquedas-recientes">Búsquedas recientes</h1>
+
+      <img class="js-btn-cerrar-busquedas btn-cerrar-busquedas" src="img/close-busquedas-recientes.svg" alt="cerrar busquedas recientes">
+
+      <div class="js-busqueda-reciente busqueda-reciente">
+        <img class="foto-busqueda-reciente" src="img/Harry-Cooper.jfif" alt="foto busqueda reciente">
+        <div class="nombre-y-descripcion-busqueda-reciente">
+          <h1 class="nombre-busqueda-reciente">Harry Cooper</h1>
+          <p class="descripcion-busqueda-reciente">Veterinario</p>
+        </div>
+        <img src="img/add-recent-search.svg" class="btn-seguir-busqueda-reciente"></button>
+      </div>
+
+      
+      <div class="js-busqueda-reciente busqueda-reciente">
+        <img class="foto-busqueda-reciente" src="img/Debbye-Turner.jfif" alt="foto busqueda reciente">
+        <div class="nombre-y-descripcion-busqueda-reciente">
+          <h1 class="nombre-busqueda-reciente">Debbye Turner</h1>
+          <p class="descripcion-busqueda-reciente">Veterinario</p>
+        </div>
+        <img src="img/add-recent-search.svg" class="btn-seguir-busqueda-reciente"></button>
+      </div>
+    
+    </div>
+
+  </header>
+  
   <main>
     <aside class="navbar">
       <div class="navbar-content">

@@ -12,3 +12,32 @@ function myFunction() {
 }
 // EXPLICAR BIEN QUÉ HACE LO DE ARRIBA (cambiar nombre a las funciones y variables)
 
+const inputBuscador = document.querySelector('.js-input-buscador');
+const btnCloseBusquedasRecientes = document.querySelector('.js-btn-cerrar-busquedas');
+
+inputBuscador.addEventListener('focus', () => {
+  mostrarBusquedasRecientes();
+})
+
+inputBuscador.addEventListener('keyup', () => {
+  if (inputBuscador.value != '') {
+    ocultarBusquedasRecientes();
+  } else {
+    mostrarBusquedasRecientes();
+  }
+
+  console.log(inputBuscador.value)
+})
+
+btnCloseBusquedasRecientes.addEventListener('click', ocultarBusquedasRecientes)
+
+
+function mostrarBusquedasRecientes() {
+  const divBusquedasRecientes = document.querySelector('.js-busquedas-recientes');
+  divBusquedasRecientes.classList.remove('js-display-none');
+}
+
+function ocultarBusquedasRecientes() {
+  const divBusquedasRecientes = document.querySelector('.js-busquedas-recientes');
+  divBusquedasRecientes.classList.add('js-display-none');
+}
