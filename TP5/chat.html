@@ -43,13 +43,13 @@
           <div class="messages">
             
             <div class="message-recibed">
-                <img class="post-chat-user-icon" src="img/userIcon.svg" alt="user icon">
+                <img class="post-chat-user-icon-recibed" src="img/userIcon.svg" alt="user icon">
                 <p class="post-message-recibed-chat">
                     Hola! Te paso el inicio del post que estoy por hacer. Me Darías tu opnión?
                 </p>
             </div>
             <div class="message-recibed">
-                <img class="post-chat-user-icon" src="img/userIcon.svg" alt="user icon">
+                <img class="post-chat-user-icon-recibed" src="img/userIcon.svg" alt="user icon">
                 <p class="post-message-recibed-chat">
                     La edad de primer servicio en vaquillas es una de las grandes limitantes en el nordeste argentino. 
                     El objetivo de este trabajo fue determinar el efecto de diferentes ganancias de peso vivo en el primer
@@ -58,17 +58,33 @@
             </div>
             <div class="message-sended">
                 <p class="post-message-sended-chat">
-                    Me parece que va muy bien. Fijate de mencionar un poco más sobre las vaquillas y su desarrollo y el cómo se dió, quizás mejore.
+                    Me parece que va muy bien. Fijate de mencionar un poco más sobre las vaquillas y su desarrollo
+                    y el cómo se dió, quizás mejore.
                 </p>
-                <img class="post-chat-user-icon" src="img/userIcon.svg" alt="user icon">
+                <img class="post-chat-user-icon-sended" src="img/userIcon.svg" alt="user icon">
             </div>
-            <div class="send-message">
-                <div class="write-message">
-                    <p class="post-send-message"  type="text" data-placeholder="Escribe tu mensaje" contenteditable="true"></p>
-                    <img class="upload-file-icon" src="img/uploadFile.svg" alt="upload file icon">
-                </div>
+          </div>
+          <div class="send-message">
+              <div class="write-message">
+                  <!-- <p class="post-send-message" 
+                      type="text" data-placeholder="Escribe tu mensaje" 
+                      contenteditable="true"></p> -->
+                  <input type="text" 
+                    class="post-send-message" 
+                    placeholder="Escribe tu mensaje">
+                  <img class="upload-file-icon" src="img/uploadFile.svg" alt="upload file icon">
+              </div>
+              <button class="btnSendMessage-js">
+
                 <img class="send-file-icon" src="img/sendMessage.svg" alt="send icon">
-            </div>
+              </button>
+              <!-- 
+                <button class="js-button-upload upload tooltip">
+                  <span class="tooltiptext">Subir imagen</span>
+                  <img src="icons/upload.svg" alt="" />
+                </button>
+
+               -->
           </div>
 
         </div>

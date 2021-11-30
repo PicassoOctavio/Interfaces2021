@@ -258,7 +258,6 @@ main {
   display: grid;
   background-color: var(--main-color);
   margin-right: 4%;
-  
 }
 
 .navbar-content {
@@ -381,7 +380,7 @@ main {
 
 .messages {
   position: absolute;
-  bottom: 0px;
+  bottom: 100px;
   width: 900px;
   margin-right: 20px;
 }
@@ -421,7 +420,15 @@ main {
   margin-left: 15px;
 }
 
-.post-chat-user-icon {
+.post-chat-user-icon-sended {
+  position: absolute;
+  right: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 5px;
+}
+
+.post-chat-user-icon-recibed {
   margin-left: 10px;
   margin-right: 10px;
 }
@@ -435,6 +442,8 @@ main {
   height: fit-content;
   width: 850px;
   margin-bottom: 20px;
+  position: absolute;
+  bottom: 0px;
 }
 
 .post-send-message {
@@ -448,7 +457,7 @@ main {
   padding-right: 4vw;
   cursor: text;
   background-color: white;
-  width: 34vw;
+  width: 47vw;
   padding-top: .5vw;
   padding-bottom: .5vw;
 }
@@ -463,9 +472,14 @@ main {
   border-radius: 10px;
 }
 
-.send-file-icon {
+/* .send-file-icon {
   margin-left: 20px;
-}
+  background-image: url( 'img/sendMessage.svg' );
+  background-size: 40px 40px;
+  border-radius: 10px;
+  height: 40px;  
+  width: 40px;
+} */
 
 .upload-file-icon2 {
   margin-left: 750px;
