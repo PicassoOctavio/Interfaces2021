@@ -26,7 +26,7 @@ html, body {
   height: 6vh;
   padding-top: .5%;
   padding-bottom: .5%;
-  /* width: 100vw; */
+  z-index: 2;
 }
 
 .sticky {
@@ -90,6 +90,7 @@ html, body {
 
 main {
   display: grid;
+  z-index: -3;
   height: 100vh;
   grid-template-columns: 1fr 3fr 1fr;
 }
@@ -99,10 +100,78 @@ main {
   background-color: var(--main-color)
 }
 
+/* sugerencias-veterinarios-famosos */
+
+.sugerencias-veterinarios-famosos {
+  display: grid;
+  justify-self: center;
+  background-color: #e6daf0;
+  border-radius: 10px;
+  padding: 2vw;
+  margin-top: 6vw;
+}
+
+.veterinarios-famosos {
+  display: grid;
+  grid-auto-flow: column;
+  width: fit-content;
+  justify-self: center;
+  column-gap: 2vw;
+}
+
+.card-veterinario-famoso {
+  display: grid;
+  background-color: var(--main-color);
+  width: 9vw;
+  align-self: center;
+  border-radius: 10px;
+}
+
+.foto-vet-famoso {
+  justify-self: center;
+  border-radius: 50%;
+  width: 5vw;
+  height: 5vw;
+}
+
+.nombre-vet-famoso {
+  width: 6vw;
+  text-align: center;
+  justify-self: center;
+  font-size: 1vw;
+  margin-bottom: 1vw;
+  margin-top: 1vw;
+}
+
+.btn-seguir-vet-famoso {
+  justify-self: center;
+  background-color: #e0ceee;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  margin-top: 1vw;
+  margin-bottom: 1vw;
+  height: 2vw;
+  width: 6vw;
+  font-size: 1vw;
+  font-weight: 600;
+}
+
+.btn-seguir-vet-famoso:hover {
+  background-color: #ceb8df;
+}
+
+.a-quien-seguir {
+  margin-top: 0;
+  font-weight: 500;
+  font-size: 1.6vw;
+  margin-bottom: 2vw;
+}
+
 /* POST CREATOR */
 .post-creator {
   display: grid;
-  margin-top: 3vw;
+  margin-top: 6vw;
   padding: 1.4vw;
   padding-top: 2vw;
   padding-right: 3vw;
@@ -348,7 +417,7 @@ main {
   grid-column-start: 2;
   grid-column-end: 4;
   border-radius: 10px 0 0 0;
-  z-index: -2;
+  /* z-index: -2; */
 }
 
 .username-and-pictures {
@@ -363,7 +432,7 @@ main {
   width: 100%;
   height: 17vw;
   border-radius: 10px 0 0 0;
-  z-index: -1;
+  /* z-index: -1; */
 }
 
 .profile-image {
@@ -373,6 +442,7 @@ main {
   margin-top: 10vw;
   margin-left: 3vw;
   align-self: flex-end;
+  z-index: 1;
 }
 
 .name-and-description {
