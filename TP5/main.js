@@ -17,6 +17,7 @@ function myFunction() {
 const btnSendMessage = document.querySelector(".btnSendMessage-js");
 btnSendMessage.addEventListener("click", sendMessage)
 
+
 function sendMessage(){
   let mensaje = document.querySelector(".post-send-message").value;
   if ( mensaje ){

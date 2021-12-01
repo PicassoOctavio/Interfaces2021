@@ -11,7 +11,9 @@
 <body>
 
   <header>
-    <img class="logoApp" src="img/appLogo.svg" alt="Logo de la aplicación">
+    <a class="logoApp" href="muro.html"><img src="img/appLogo.svg" alt="Logo de la aplicación"></a>
+    <!-- <button style="background: url(myimage.png)" ... /> -->
+    <!-- <button class="logoApp" alt="Logo de la aplicación"/> -->
     <div class="buscador">
       <img class="lupa" src="img/lupaBuscador.svg" alt="Icono de lupa del buscador">
       <input type="text" placeholder="Buscar">
@@ -23,15 +25,15 @@
       <div class="navbar-content">
         <div class="inicio">
           <img class= "iconInicio" src="img/homeIcon.svg" alt="home icon">
-          <p>Inicio</p>
+          <a href="muro.html"><p>Inicio</p></a>
         </div>
         <div class="chat">
           <img class="iconChat" src="img/chatIcon.svg" alt="chat icon">
-          <p>Chat</p>
+          <a href="chat.html"><p>Chat</p></a>
         </div>
         <div class="perfil">
           <img class="iconProfile" src="img/profileIcon.svg" alt="profile icon">
-          <p>Perfil</p>
+          <a href="perfil.html"><p>Perfil</p></a>
         </div>  
       </div>
     </aside>
@@ -39,67 +41,155 @@
     <div class="muro">
 
         <div class="chat-body">
-          <h2 class="chat-user-title">Conversacion con Javier De Marco</h2>
+          <h2 class="chat-user-title">Conversacion con Hector Salamanca</h2>
           <div class="messages">
             
-            <div class="message-recibed">
-                <img class="post-chat-user-icon-recibed" src="img/userIcon.svg" alt="user icon">
+            <div>
+              <div class="message-recibed">
+                <img class="post-chat-user-icon-recibed" src="img/user2.svg" alt="user icon">
                 <p class="post-message-recibed-chat">
-                    Hola! Te paso el inicio del post que estoy por hacer. Me Darías tu opnión?
+                  Hola! Te paso el inicio del post que estoy por hacer. Me Darías tu opnión?
                 </p>
+              </div>
+                <span class="time-left">11:01</span>
             </div>
             <div class="message-recibed">
-                <img class="post-chat-user-icon-recibed" src="img/userIcon.svg" alt="user icon">
+                <img class="post-chat-user-icon-recibed" src="img/user2.svg" alt="user icon">
                 <p class="post-message-recibed-chat">
                     La edad de primer servicio en vaquillas es una de las grandes limitantes en el nordeste argentino. 
                     El objetivo de este trabajo fue determinar el efecto de diferentes ganancias de peso vivo en el primer
                     invierno en confinamiento.
                 </p>
             </div>
+            
             <div class="message-sended">
                 <p class="post-message-sended-chat">
                     Me parece que va muy bien. Fijate de mencionar un poco más sobre las vaquillas y su desarrollo
                     y el cómo se dió, quizás mejore.
                 </p>
                 <img class="post-chat-user-icon-sended" src="img/userIcon.svg" alt="user icon">
+              </div>
+            </div>
+            
+            <div class="send-message">
+              <div class="write-message">
+                <input type="text" 
+                class="post-send-message" 
+                placeholder="Escribe tu mensaje">
+                <img class="upload-file-icon" src="img/uploadFile.svg" alt="upload file icon">
+              </div>
+
+              <button class="btnSendMessage-js send-file-icon">
+                <img class="icon" src="img/sendMessage.svg" alt="send icon">
+              </button>
             </div>
           </div>
-          <div class="send-message">
-              <div class="write-message">
-                  <!-- <p class="post-send-message" 
-                      type="text" data-placeholder="Escribe tu mensaje" 
-                      contenteditable="true"></p> -->
-                  <input type="text" 
-                    class="post-send-message" 
-                    placeholder="Escribe tu mensaje">
-                  <img class="upload-file-icon" src="img/uploadFile.svg" alt="upload file icon">
-              </div>
-              <button class="btnSendMessage-js">
-
-                <img class="send-file-icon" src="img/sendMessage.svg" alt="send icon">
-              </button>
-              <!-- 
-                <button class="js-button-upload upload tooltip">
-                  <span class="tooltiptext">Subir imagen</span>
-                  <img src="icons/upload.svg" alt="" />
-                </button>
-
-               -->
-          </div>
-
         </div>
-      
-    </div>
-    
-    <aside class="ads">
-      <div class="publicity">
-        <img class="publicity-image" src="img/publicidadUno.svg" alt="user">
-      </div>
+        
+        <aside class="ads">
+          <!-- <div class="publicity">
+            <img class="publicity-image" src="img/publicidadUno.svg" alt="user">
+          </div>
+          
+          <div class="publicityDos">
+            <img class="publicity-image" src="img/publicidadDos.svg" alt="user">
+          </div>
+          <div class="ads-content"> -->
+            
+          <ul>
+            <h2 style="padding-left: 20px;">Chat panel</h2>
+            <li>
+              <img class="panel-chat-user-icon" src="img/user2.svg" alt="user icon">
+              <div>
+                <h3 class="panel-chat-user">Hector Salamanca</h3>
+                <p class="status-name">
+                  <span class="status green"></span>
+                  activo
+                </p>
+              </div>
+            </li>
+            <li>
+              <img class="panel-chat-user-icon" src="img/user3.svg" alt="user icon">
+              <div>
+                <h3 class="panel-chat-user">Federico Dl</h3>
+                <p class="status-name">
+                  <span class="status green"></span>
+                  activo
+                </p>
+              </div>
+            </li>
+            <li>
+              <img class="panel-chat-user-icon" src="img/user8.svg" alt="user icon">
+              <div>
+                <h3 class="panel-chat-user">Eugenia Montes</h3>
+                <p class="status-name">
+                  <span class="status green"></span>
+                  activo
+                </p>
+              </div>
+            </li>
+            <li>
+              <img class="panel-chat-user-icon" src="img/user7.svg" alt="user icon">
+              <div>
+                <h3 class="panel-chat-user">Jessica Saurez</h3>
+                <p class="status-name">
+                  <span class="status green"></span>
+                  activo
+                </p>
+              </div>
+            </li>
+            <li>
+              <img class="panel-chat-user-icon" src="img/user4.svg" alt="user icon">
+              <div>
+                <h3 class="panel-chat-user">Ricardo Garcia</h3>
+                <p class="status-name">
+                  <span class="status orange"></span>
+                  inactivo
+                </p>
+              </div>
+            </li>
+            <li>
+              <img class="panel-chat-user-icon" src="img/user6.svg" alt="user icon">
+              <div>
+                <h3 class="panel-chat-user">Jessica Sanchez</h3>
+                <p class="status-name">
+                  <span class="status green"></span>
+                  activo
+                </p>
+              </div>
+            </li>
+            <li>
+              <img class="panel-chat-user-icon" src="img/user5.svg" alt="user icon">
+              <div>
+                <h3 class="panel-chat-user">Gustavo Narvaez</h3>
+                <p class="status-name">
+                  <span class="status green"></span>
+                  activo
+                </p>
+              </div>
+            </li>
+            <li>
+              <img class="panel-chat-user-icon" src="img/user9.svg" alt="user icon">
+              <div>
+                <h3 class="panel-chat-user">Christina Perez</h3>
+                <p class="status-name">
+                  <span class="status orange"></span>
+                  inactivo
+                </p>
+              </div>
+            </li>
+            <li>
+              <img class="panel-chat-user-icon" src="img/user6.svg" alt="user icon">
+              <div>
+                <h3 class="panel-chat-user">Juan Lopez</h3>
+                <p class="status-name">
+                  <span class="status green"></span>
+                  activo
+                </p>
+              </div>
+            </li>
 
-      <div class="publicityDos">
-        <img class="publicity-image" src="img/publicidadDos.svg" alt="user">
-      </div>
-      <div class="ads-content">
+        </ul>
         
       </div>
     </aside>
