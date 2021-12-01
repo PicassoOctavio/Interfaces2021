@@ -18,7 +18,12 @@
       <div class="buscador">
         <img class="lupa" src="img/lupaBuscador.svg" alt="Icono de lupa del buscador">
         <input class="js-input-buscador" type="text" placeholder="Buscar">
+        <img class="btn-filtrar-busqueda" src="img/manage-search.svg" alt="filtro de busqueda">
       </div>
+    </div>
+
+    <div class="badge-cantidad-filtros-aplicados">
+      <span class="cant-filtros-aplicados">+2</span>
     </div>
     
     <div class="js-busquedas-recientes busquedas-recientes js-display-none">
@@ -48,23 +53,39 @@
     
     </div>
 
+    <div class="filtros-busqueda">
+      <label class="filtro-por-contactos"> <span class="filter-text">Buscar solo en mis contactos</span> 
+        <input type="checkbox">
+        <span class="checkmark"></span>
+      </label>
+      <label class="filtro-por-veterinarios"> <span class="filter-text">Buscar solo veterinarios</span> 
+        <input type="checkbox">
+        <span class="checkmark"></span>
+      </label>
+      <label class="filtro-por-lugares"> <span class="filter-text">Buscar solo lugares</span> 
+        <input type="checkbox">
+        <span class="checkmark"></span>
+      </label>
+      <button class="btn-limpiar-filtros">Limpiar filtros</button>
+    </div>
+
   </header>
   
   <main>
     <aside class="navbar">
       <div class="navbar-content">
-        <div class="inicio">
+        <a class="inicio" href="muro.html">
           <img class= "iconInicio" src="img/homeIcon.svg" alt="home icon">
           <p>Inicio</p>
-        </div>
+        </a>
         <div class="chat">
           <img class="iconChat" src="img/chatIcon.svg" alt="chat icon">
           <p>Chat</p>
         </div>
-        <div class="perfil">
+        <a class="perfil" href="perfil.html">
           <img class="iconProfile" src="img/profileIcon.svg" alt="profile icon">
           <p>Perfil</p>
-        </div>  
+        </a>  
       </div>
     </aside>
   

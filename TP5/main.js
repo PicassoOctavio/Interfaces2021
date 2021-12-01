@@ -15,21 +15,26 @@ function myFunction() {
 const inputBuscador = document.querySelector('.js-input-buscador');
 const btnCloseBusquedasRecientes = document.querySelector('.js-btn-cerrar-busquedas');
 
-inputBuscador.addEventListener('focus', () => {
-  mostrarBusquedasRecientes();
-})
-
-inputBuscador.addEventListener('keyup', () => {
-  if (inputBuscador.value != '') {
-    ocultarBusquedasRecientes();
-  } else {
+if (inputBuscador) {
+  inputBuscador.addEventListener('focus', () => {
     mostrarBusquedasRecientes();
-  }
+  })
+  
+  inputBuscador.addEventListener('keyup', () => {
+    if (inputBuscador.value != '') {
+      ocultarBusquedasRecientes();
+    } else {
+      mostrarBusquedasRecientes();
+    }
+  
+    console.log(inputBuscador.value)
+  })
+}
 
-  console.log(inputBuscador.value)
-})
+if (btnCloseBusquedasRecientes) {
+  btnCloseBusquedasRecientes.addEventListener('click', ocultarBusquedasRecientes)
+}
 
-btnCloseBusquedasRecientes.addEventListener('click', ocultarBusquedasRecientes)
 
 
 function mostrarBusquedasRecientes() {
