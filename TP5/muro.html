@@ -18,12 +18,12 @@
       <div class="buscador">
         <img class="lupa" src="img/lupaBuscador.svg" alt="Icono de lupa del buscador">
         <input class="js-input-buscador" type="text" placeholder="Buscar">
-        <img class="btn-filtrar-busqueda" src="img/manage-search.svg" alt="filtro de busqueda">
+        <img class="js-btn-filtros-busqueda btn-filtrar-busqueda" src="img/manage-search.svg" alt="filtro de busqueda">
       </div>
     </div>
 
     <div class="badge-cantidad-filtros-aplicados">
-      <span class="cant-filtros-aplicados">+2</span>
+      <span class="js-span-badge cant-filtros-aplicados">0</span>
     </div>
     
     <div class="js-busquedas-recientes busquedas-recientes js-display-none">
@@ -53,20 +53,20 @@
     
     </div>
 
-    <div class="filtros-busqueda">
+    <div class="js-filtros-busqueda filtros-busqueda js-display-none">
       <label class="filtro-por-contactos"> <span class="filter-text">Buscar solo en mis contactos</span> 
-        <input type="checkbox">
+        <input class="js-filtro" type="checkbox">
         <span class="checkmark"></span>
       </label>
       <label class="filtro-por-veterinarios"> <span class="filter-text">Buscar solo veterinarios</span> 
-        <input type="checkbox">
+        <input class="js-filtro" type="checkbox">
         <span class="checkmark"></span>
       </label>
       <label class="filtro-por-lugares"> <span class="filter-text">Buscar solo lugares</span> 
-        <input type="checkbox">
+        <input class="js-filtro" type="checkbox">
         <span class="checkmark"></span>
       </label>
-      <button class="btn-limpiar-filtros">Limpiar filtros</button>
+      <button class="js-btn-limpiar-filtros btn-limpiar-filtros">Limpiar filtros</button>
     </div>
 
   </header>

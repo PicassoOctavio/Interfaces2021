@@ -227,6 +227,7 @@ body {
   position: relative;
   margin-left: 21vw;
   margin-top: .3vw;
+  /* z-index: .; */
 }
 
 .cant-filtros-aplicados {
@@ -257,7 +258,7 @@ body {
 .btn-filtrar-busqueda {
   align-self: center;
   justify-self: right;
-  width: 1.6vw;
+  width: 2vw;
   margin-right: 1vw;
   transition: transform .2s;
   cursor: pointer;
