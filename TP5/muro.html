@@ -18,6 +18,7 @@
       <div class="buscador">
         <img class="lupa" src="img/lupaBuscador.svg" alt="Icono de lupa del buscador">
         <input class="js-input-buscador" type="text" placeholder="Buscar">
+        <img class="js-btn-limpiar-buscador btn-limpiar-buscador js-display-none" src="img/clear-input.svg" alt="limpiar buscador">
         <img class="js-btn-filtros-busqueda btn-filtrar-busqueda" src="img/manage-search.svg" alt="filtro de busqueda">
       </div>
     </div>
@@ -53,7 +54,22 @@
     
     </div>
 
-    <div class="js-filtros-busqueda filtros-busqueda ">
+    <div class="js-buscando buscando js-display-none">
+      <h1 class="js-titulo-buscando titulo-buscando">Buscando <span class="lds-dual-ring"></span></h1>
+    </div>
+
+    <div class="js-resultados-busqueda resultados-busqueda busquedas-recientes js-display-none">
+      <div class="js-busqueda-reciente busqueda-reciente">
+        <img class="foto-busqueda-reciente" src="img/Debbye-Turner.jfif" alt="foto busqueda reciente">
+        <div class="nombre-y-descripcion-busqueda-reciente">
+          <h1 class="js-titulo-resultados nombre-busqueda-reciente">Debbye Turner</h1>
+          <p class="descripcion-busqueda-reciente">Veterinario</p>
+        </div>
+        <img src="img/add-recent-search.svg" class="btn-seguir-busqueda-reciente"></button>
+      </div>
+    </div>
+
+    <div class="js-filtros-busqueda filtros-busqueda js-display-none">
       
       <h1 class="titulo-filtros">Filtros de búsqueda</h1>
       
