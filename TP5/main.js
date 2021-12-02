@@ -166,3 +166,20 @@ function ocultarBusquedasRecientes() {
   const divBusquedasRecientes = document.querySelector('.js-busquedas-recientes');
   divBusquedasRecientes.classList.add('js-display-none');
 }
+
+// CAMBIOS DE RUTA
+
+document.addEventListener('DOMContentLoaded', () => {
+  setInterval(() => {
+    mostrarApp()
+  }, 1000);
+})
+
+function mostrarApp() {
+  const content = document.querySelector('.js-content-app');
+  const loaderPage = document.querySelector('.js-loader-page');
+  content.classList.remove('js-display-none');
+  loaderPage.classList.add('js-display-none');
+  
+}
+ 

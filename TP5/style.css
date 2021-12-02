@@ -25,7 +25,6 @@ html, body {
 }
 
 body {
-  /* display: grid; */
   background-color: var(--main-color);
 }
 
@@ -726,7 +725,21 @@ main {
   padding: 0;
 }
 
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+}
+
 /* LOADING RING*/
+
+.loader-loading-page::after {
+  width: 4vw !important;
+  height: 4vw !important;
+}
+
 .lds-dual-ring {
   display: inline-block;
   width: 1vw;
