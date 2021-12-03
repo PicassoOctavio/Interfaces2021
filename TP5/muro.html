@@ -4,62 +4,171 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Social Vet</title>
+  <title>Social Vet - Muro</title>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="img/appLogo.svg" type="image/icon type">
 </head>
 <body>
 
-  <header>
-    <img class="logoApp" src="img/appLogo.svg" alt="Logo de la aplicación">
-    <div class="buscador">
-      <img class="lupa" src="img/lupaBuscador.svg" alt="Icono de lupa del buscador">
-      <input type="text" placeholder="Buscar">
-    </div>
-  </header>
+  <span class="js-loader-page loader-loading-page lds-dual-ring centered"></span>
 
+  <header class="search-bar">
+    
+    <div class="logo-y-buscador">
+      <img class="logoApp" src="img/appLogo.svg" alt="Logo de la aplicación">
+      
+      <div class="buscador">
+        <img class="lupa" src="img/lupaBuscador.svg" alt="Icono de lupa del buscador">
+        <input class="js-input-buscador" type="text" placeholder="Buscar">
+        <img class="js-btn-limpiar-buscador btn-limpiar-buscador js-display-none" src="img/clear-input.svg" alt="limpiar buscador">
+        <img class="js-btn-filtros-busqueda btn-filtrar-busqueda" src="img/manage-search.svg" alt="filtro de busqueda">
+      </div>
+    </div>
+
+    <div class="badge-cantidad-filtros-aplicados">
+      <span class="js-span-badge cant-filtros-aplicados">0</span>
+    </div>
+    
+    <div class="js-busquedas-recientes busquedas-recientes js-display-none">
+
+      <h1 class="titulo-busquedas-recientes">Búsquedas recientes</h1>
+
+      <img class="js-btn-cerrar-busquedas btn-cerrar-busquedas" src="img/close-busquedas-recientes.svg" alt="cerrar busquedas recientes">
+
+      <div class="js-busqueda-reciente busqueda-reciente">
+        <img class="foto-busqueda-reciente" src="img/Harry-Cooper.jfif" alt="foto busqueda reciente">
+        <div class="nombre-y-descripcion-busqueda-reciente">
+          <h1 class="nombre-busqueda-reciente">Harry Cooper</h1>
+          <p class="descripcion-busqueda-reciente">Veterinario</p>
+        </div>
+        <img src="img/add-recent-search.svg" class="btn-seguir-busqueda-reciente"></button>
+      </div>
+
+      
+      <div class="js-busqueda-reciente busqueda-reciente">
+        <img class="foto-busqueda-reciente" src="img/Debbye-Turner.jfif" alt="foto busqueda reciente">
+        <div class="nombre-y-descripcion-busqueda-reciente">
+          <h1 class="nombre-busqueda-reciente">Debbye Turner</h1>
+          <p class="descripcion-busqueda-reciente">Veterinario</p>
+        </div>
+        <img src="img/add-recent-search.svg" class="btn-seguir-busqueda-reciente"></button>
+      </div>
+    
+    </div>
+
+    <div class="js-buscando buscando js-display-none">
+      <h1 class="js-titulo-buscando titulo-buscando">Buscando <span class="lds-dual-ring"></span></h1>
+    </div>
+
+    <div class="js-resultados-busqueda resultados-busqueda busquedas-recientes js-display-none">
+      <div class="js-busqueda-reciente busqueda-reciente">
+        <img class="foto-busqueda-reciente" src="img/Debbye-Turner.jfif" alt="foto busqueda reciente">
+        <div class="nombre-y-descripcion-busqueda-reciente">
+          <h1 class="js-titulo-resultados nombre-busqueda-reciente">Debbye Turner</h1>
+          <p class="descripcion-busqueda-reciente">Veterinario</p>
+        </div>
+        <img src="img/add-recent-search.svg" class="btn-seguir-busqueda-reciente"></button>
+      </div>
+    </div>
+
+    <div class="js-filtros-busqueda filtros-busqueda js-display-none">
+      
+      <h1 class="titulo-filtros">Filtros de búsqueda</h1>
+      
+      <label class="filtro-por-contactos"> <span class="filter-text">Buscar solo en mis contactos</span> 
+        <input class="js-filtro" type="checkbox">
+        <span class="checkmark"></span>
+      </label>
+      <label class="filtro-por-veterinarios"> <span class="filter-text">Buscar solo veterinarios</span> 
+        <input class="js-filtro" type="checkbox">
+        <span class="checkmark"></span>
+      </label>
+      <label class="filtro-por-lugares"> <span class="filter-text">Buscar solo lugares</span> 
+        <input class="js-filtro" type="checkbox">
+        <span class="checkmark"></span>
+      </label>
+      <button class="js-btn-limpiar-filtros btn-limpiar-filtros">Limpiar filtros</button>
+    </div>
+
+  </header>
+  
   <main>
     <aside class="navbar">
       <div class="navbar-content">
-        <div class="inicio">
+        <a class="inicio" href="muro.html">
           <img class= "iconInicio" src="img/homeIcon.svg" alt="home icon">
-          <a href="muro.html"><p>Inicio</p></a>
-        </div>
+          <p>Inicio</p>
+        </a>
         <div class="chat">
           <img class="iconChat" src="img/chatIcon.svg" alt="chat icon">
           <a href="chat.html"><p>Chat</p></a>
         </div>
-        <div class="perfil">
+        <a class="perfil" href="perfil.html">
           <img class="iconProfile" src="img/profileIcon.svg" alt="profile icon">
-          <a href="perfil.html"><p>Perfil</p></a>
-        </div>  
+          <p>Perfil</p>
+        </a>  
       </div>
     </aside>
-  
-    <div class="muro">
 
-      <div class="post-creator">
-        <img class="post-creator-user-icon" src="img/userIcon.svg" alt="user icon">
-        <p class="post-creator-message" data-placeholder="¿Qué piensas?" contenteditable="true"></p>
-        <img class="upload-file-icon" src="img/uploadFile.svg" alt="upload file icon">
-        <button class="post-button">Publicar</button>
-      </div>
+    <div class="js-content-app js-display-none">
+      <div class="muro">
 
-      <div class="post">
-        <div class="post-user-and-date">
+        <div class="post-creator">
           <img class="post-creator-user-icon" src="img/userIcon.svg" alt="user icon">
-          <h1 class="username-post">Javier De Marco</h1>
-          <h2 class="post-date">16 de Noviembre 2021</h2>
+          <p class="post-creator-message" data-placeholder="¿Qué piensas?" contenteditable="true"></p>
+          <img class="upload-file-icon" src="img/uploadFile.svg" alt="upload file icon">
+          <button class="post-button">Publicar</button>
         </div>
-        <p class="post-message">La edad de primer servicio en vaquillas es una de las grandes limitantes en el nordeste argentino. El objetivo de este trabajo fue determinar el efecto de diferentes ganancias de peso vivo en el primer invierno en confinamiento, con recría estival en pastizal natural, sobre el crecimiento, desarrollo corporal y score genital en vaquillas a los 18 meses de edad. Para el ensayo se utilizaron 45 ter neras de tipo Brangus.</p>
-        <div class="post-interaction-buttons">
-          <img class="icon-like-post" src="img/like-post-icon.svg" alt="like icon">
-          <img class="icon-comment-post" src="img/comment-post-icon.svg" alt="comment post icon">
-          <img class="icon-share-post" src="img/share-post-icon.svg" alt="share post icon">
+  
+        <div class="post">
+          <div class="post-user-and-date">
+            <img class="post-creator-user-icon" src="img/userIcon.svg" alt="user icon">
+            <h1 class="username-post">Javier De Marco</h1>
+            <h2 class="post-date">16 de Noviembre 2021</h2>
+          </div>
+          <p class="post-message">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis obcaecati commodi eveniet error, iusto aspernatur quae sit qui laboriosam debitis pariatur facere molestiae perspiciatis? Officia corporis accusamus sed laudantium repudiandae.</p>
+          <div class="post-interaction-buttons">
+            <img class="icon-like-post" src="img/like-post-icon.svg" alt="like icon">
+            <img class="icon-comment-post" src="img/comment-post-icon.svg" alt="comment post icon">
+            <img class="icon-share-post" src="img/share-post-icon.svg" alt="share post icon">
+          </div>
         </div>
+  
+        <div class="sugerencias-veterinarios-famosos">
+          <h1 class="a-quien-seguir">A quién seguir</h1>
+  
+          <div class="veterinarios-famosos">
+            <div class="card-veterinario-famoso">
+              <h1 class="nombre-vet-famoso">Katrina Warren</h1>
+              <img class="foto-vet-famoso" src="img/Warren-Katrina-web.jpg" alt="foto perfil veterinario famoso">
+              <button class="btn-seguir-vet-famoso">Seguir</button>
+            </div> 
+    
+            <div class="card-veterinario-famoso">
+              <h1 class="nombre-vet-famoso">Debbye Turner</h1>
+              <img class="foto-vet-famoso" src="img/Debbye-Turner.jfif" alt="foto perfil veterinario famoso">
+              <button class="btn-seguir-vet-famoso">Seguir</button>
+            </div> 
+  
+            <div class="card-veterinario-famoso">
+              <h1 class="nombre-vet-famoso">Harry Cooper</h1>
+              <img class="foto-vet-famoso" src="img/Harry-Cooper.jfif" alt="foto perfil veterinario famoso">
+              <button class="btn-seguir-vet-famoso">Seguir</button>
+            </div>
+  
+          </div>
+        </div>
+  
+        <div class="wea"></div>
       </div>
-
-      <div class="wea"></div>
+  
+      <aside class="ads">
+        <div class="ads-content">
+          
+        </div>
+      </aside>
+    </main>
+  
     </div>
     
     <aside class="ads">
