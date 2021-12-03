@@ -5,10 +5,33 @@
   font-family: 'Open Sans', sans-serif;
   font-weight: 500;
   font-size: 1.2vw;
-  --main-color: #f5e9ff;
-  --second-color: #405E70;
-  --post-color: #dce6ec;
+  /* fondo y variantes */
+  --fondoUno-color: #b8d8d3;
+  --fondoDos-color: #b0cfca;
+  --divPost-color: #CDF0EA;
+  --botonColor: #b0cfca;
+  --botonHoverColor: #abe1d7;
+  --botonActiveColor: #00ffd0;
+  /* violeta y variantes */
+  --second-color: #050505;
+  --navbar-color:#7071b8;
+  --navbarDosClaro-color:#ecedff;
+  --navbarBtn-color:#a2a3ff;
+  --navbarBtnHover-color:#bebffd;
+  --navbarBoxShadow-color: #d3c3e0;
+  /* chat */
+  --fondoChat-color:#91a9a5;
+
 }
+
+/* 
+Colores:
+bloques de contenido: #CDF0EA
+fondo nivel 1: #b8d8d3
+fondo nivel 2: #b0cfca
+btn: #91c1b9
+btn hover: #a4fff0
+*/
 
 .js-display-none {
   display: none !important;
@@ -25,7 +48,7 @@ html, body {
 }
 
 body {
-  background-color: var(--main-color);
+  background-color: var(--fondoUno-color);
 }
 
 ::placeholder {
@@ -36,7 +59,7 @@ body {
 /* .search-bar */
 
 .search-bar {
-  background-color: var(--main-color);
+  background-color:var(--navbar-color);
   height: 7vh;
   padding-top: 1vw;
   z-index: 2;
@@ -73,6 +96,7 @@ body {
   grid-row-start: 1;
   grid-column-start: 1;
   height: inherit;
+  background-color:var(--navbar-color);
 }
 
 .nombre-busqueda-reciente {
@@ -89,24 +113,24 @@ body {
 
 .busquedas-recientes {
   display: grid;
-  background-color: var(--main-color);
+  background-color: var(--navbarDosClaro-color);
   width: 26vw;
   justify-self: center;
   align-self: flex-end;
   z-index: 1;
   grid-row-start: 2;
   grid-column-start: 1;
-  box-shadow: .3vw .3vw .3vw #d3c3e0;
+  box-shadow: .3vw .3vw .3vw var(--navbarBoxShadow-color);
   grid-template-rows: repeat(3, min-content)
 }
 
 .buscando {
   display: grid;
   width: 26vw;
-  box-shadow: .3vw .3vw .3vw #d3c3e0;
+  box-shadow: .3vw .3vw .3vw var(--navbarBoxShadow-color);
   justify-self: center;
   align-self: flex-end;
-  background-color: var(--main-color);
+  background-color: var(--navbarDosClaro-color);
   height: 8vw;
   z-index: 2;
   grid-row-start: 2;
@@ -207,7 +231,7 @@ body {
   align-self: center;
   margin-left: 2%;
   width: 3vw;
-  background-color: #9e73c2;
+  background-color: var(--navbar-color);
 }
 
 .buscador {
@@ -219,12 +243,12 @@ body {
 .filtros-busqueda {
   display: grid;
   grid-template-rows: repeat(3, min-content);
-  background-color: var(--main-color);
+  background-color: var(--navbarDosClaro-color);
   width: 26vw;
   height: fit-content;
   z-index: 1;
   justify-self: center;
-  box-shadow: .3vw .3vw .3vw #d3c3e0;
+  box-shadow: .3vw .3vw .3vw var(--navbarBoxShadow-color);
   
 }
 
@@ -240,7 +264,8 @@ body {
 
 .btn-limpiar-filtros {
   justify-self: center;
-  background-color: #e0ceee;
+  background-color: var(--navbarBtn-color);
+  color: whitesmoke;
   cursor: pointer;
   border: none;
   border-radius: 10px;
@@ -350,7 +375,7 @@ main {
 .sugerencias-veterinarios-famosos {
   display: grid;
   justify-self: center;
-  background-color: #e6daf0;
+  background-color: var(--divPost-color);
   border-radius: 10px;
   padding: 2vw;
   margin-top: 6vw;
@@ -390,7 +415,7 @@ main {
 
 .btn-seguir-vet-famoso {
   justify-self: center;
-  background-color: #e0ceee;
+  background-color:#91c1b9;
   cursor: pointer;
   border: none;
   border-radius: 10px;
@@ -402,8 +427,15 @@ main {
   font-weight: 600;
 }
 
-.btn-seguir-vet-famoso:hover, .btn-limpiar-filtros:hover {
-  background-color: #ceb8df;
+.btn-limpiar-filtros:hover {
+  background-color: var(--navbarBtnHover-color);
+}
+
+.btn-seguir-vet-famoso:hover{
+  background-color: var(--botonHoverColor);
+}
+.btn-seguir-vet-famoso:active{
+  background-color: var(--botonActiveColor);
 }
 
 .a-quien-seguir {
@@ -424,7 +456,7 @@ main {
   grid-template-rows: max-content 1fr;
   grid-template-columns: 1fr 6fr;
   justify-self: center;
-  background-color: #dae5ec;
+  background-color: #CDF0EA;
   height: fit-content;
   width: 30vw;
   border-radius: 10px;
@@ -478,7 +510,7 @@ main {
 }
 
 .post-button {
-  background-color: var(--main-color);
+  background-color: var(--botonColor);
   cursor: pointer;
   border: none;
   border-radius: 10px;
@@ -490,6 +522,12 @@ main {
   grid-row-end: 3;
   grid-column-start: 2;
   grid-column-end: 3;
+}
+.post-button:hover{
+  background-color: var(--botonHoverColor);
+}
+.post-button:active{
+  background-color: var(--botonActiveColor);
 }
 
 /* POST */
@@ -503,7 +541,7 @@ main {
   padding-bottom: 1.2vw;
   outline: none;
   justify-self: center;
-  background-color: var(--post-color);
+  background-color: var(--divPost-color);
   height: fit-content;
   width: 50%;
   border-radius: 10px;
@@ -572,7 +610,7 @@ main {
 
 .navbar {
   display: grid;
-  background-color: var(--main-color);
+  background-color: var(--fondoDos-color);
   /* margin-right: 4%; */
 }
 
@@ -598,8 +636,12 @@ main {
   cursor: pointer;
 }
 
+.inicio:active, .chat:active, .perfil:active {
+  background-color:  var(--botonActiveColor);
+}
+
 .inicio:hover, .chat:hover, .perfil:hover {
-  background-color: #e3c0ff;
+  background-color: var(--botonHoverColor);
 }
 
 .iconInicio, .iconProfile {
@@ -638,7 +680,7 @@ a {
 /* ADS */
 
 .ads {
-  background-color: var(--main-color);
+  background-color: #b0cfca;
   /* margin-left: 4%; */
 }
 
@@ -683,7 +725,7 @@ a {
 }
 
 .publicity-image {
-  width: 20vw;
+  width: 18vw;
 }
 
 .chat-body {
@@ -693,7 +735,7 @@ a {
   margin-left: 1vw;
   outline: none;
   justify-self: center;
-  background-color: #AAAAA9;
+  background-color: var(--fondoChat-color);
   height: 45vw;
   width: 50vw;
   border-radius: 10px;
@@ -718,7 +760,7 @@ a {
   margin-left: 2vw;
   outline: none;
   justify-self: center;
-  background-color: #D9CCC5;
+  background-color:var(--fondoUno-color);
   height: fit-content;
   width: 38vw;
   border-radius: 10px;
@@ -732,7 +774,7 @@ a {
   margin-left: 9.5vw;
   outline: none;
   justify-self: center;
-  background-color: #F3E5DD;
+  background-color: var(--divPost-color);
   height: fit-content;
   width: 38vw;
   border-radius: 10px;
@@ -859,7 +901,7 @@ a {
 ul {
   margin-right: 20px;
   margin-left: 20px;
-  border: solid 3px #e3c0ff;
+  border: solid 3px var(--fondoChat-color);
   border-radius: 10px;
   padding-left: 0px;
 }
@@ -868,14 +910,14 @@ li {
   list-style-type: none;
   padding-top: 5px;
   padding-bottom: 5px;
-  border: solid 0.5px #e3c0ff;
+  border: solid 0.5px var(--fondoChat-color);
 }
 li:hover{
-  background-color: #e3c0ff;
+  background-color: var(--botonHoverColor);
  /*  background-color: var(--main-color); */
 }
 li:active{
-  background-color: #cea6f0;
+  background-color: var(--botonActiveColor);
  /*  background-color: var(--main-color); */
 }
 
@@ -917,7 +959,7 @@ li:active{
   grid-template-rows: max-content;
   margin-top: 1.4vw;
   margin-left: .5vw;
-  background-color: var(--main-color);
+  background-color: var(--fondoUno-color);
   grid-column-start: 2;
   grid-column-end: 4;
   border-radius: 10px 0 0 0;
@@ -978,7 +1020,7 @@ li:active{
   width: 20vw;
   margin-top: 3vw;
   margin-left: 3vw;
-  background-color: #e8dff0;
+  background-color: var(--botonColor);
   padding: 2vw;
   border-radius: 10px;
 }
