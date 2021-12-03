@@ -71,6 +71,7 @@ function subirPost() {
     divPost.appendChild(divInteractionButtons);
     muro.prepend(divPost);
     /* console.log(divPost); */
+    document.querySelector(".post-creator-message-js").value = null;
   }
 }
 
