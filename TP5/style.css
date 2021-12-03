@@ -206,7 +206,8 @@ body {
 .logoApp {
   align-self: center;
   margin-left: 2%;
-  width: 2%;
+  width: 3vw;
+  background-color: #9e73c2;
 }
 
 .buscador {
@@ -693,29 +694,33 @@ a {
   outline: none;
   justify-self: center;
   background-color: #AAAAA9;
-  height: 800px;
-  width: 900px;
+  height: 45vw;
+  width: 50vw;
   border-radius: 10px;
   margin-right: 2vw;
   position: static;
+  /* overflow: scroll; */
 }
 
 .messages {
-  position: absolute;
-  bottom: 100px;
-  width: 900px;
-  margin-right: 20px;
+  /* position: absolute; */
+  /* bottom: 100px; */
+  /* width: 50vw; */
+  height: 39vw;
+  overflow-y: scroll;
+  /* width: 900px; */
+  /* margin-right: 20px; */
 }
 
 .message-recibed {
   display: flex;
   margin-top: 1vw;
-  margin-left: 1vw;
+  margin-left: 2vw;
   outline: none;
   justify-self: center;
   background-color: #D9CCC5;
   height: fit-content;
-  width: 700px;
+  width: 38vw;
   border-radius: 10px;
   margin-right: 2vw;
   position: sticky;
@@ -729,7 +734,7 @@ a {
   justify-self: center;
   background-color: #F3E5DD;
   height: fit-content;
-  width: 700px;
+  width: 38vw;
   border-radius: 10px;
   margin-right: 2vw;
   position: sticky;
@@ -737,12 +742,13 @@ a {
 
 .post-message-recibed-chat {
   font-size: 18px;
+  width: 31vw;
 }
 
 .post-message-sended-chat {
   font-size: 18px;
   margin-left: 15px;
-  width: 600px;
+  width: 31vw;
   height: fit-content;
 }
 
@@ -771,7 +777,7 @@ a {
   margin-right: 10px;
   margin-top: 20px;
   height: fit-content;
-  width: 850px;
+  /* width: 850px; */
   margin-bottom: 20px;
   position: sticky;
   /* bottom: 0px; */
@@ -798,7 +804,7 @@ a {
   background-color: #ffffff;
   display: flex;
   flex-direction: row;
-  width: 800px;
+  width: 42vw;
   border: none;
   outline: none;
   border-radius: 10px;

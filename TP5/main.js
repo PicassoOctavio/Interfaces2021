@@ -22,7 +22,11 @@ const btnLimpiarBuscador = document.querySelector('.js-btn-limpiar-buscador');
 /* ------------------------ CHAT ------------------------------ */
 
 const btnSendMessage = document.querySelector(".btnSendMessage-js");
-btnSendMessage.addEventListener("click", sendMessage)
+
+if (btnSendMessage) {
+  btnSendMessage.addEventListener("click", sendMessage)
+}
+
 
 
 function sendMessage(){
@@ -237,15 +241,31 @@ function ocultarBusquedasRecientes() {
 // CAMBIOS DE RUTA
 
 document.addEventListener('DOMContentLoaded', () => {
-  setInterval(() => {
-    mostrarApp()
-  }, 1000);
+  // setInterval(() => {
+  //   mostrarApp()
+  // }, 1000);
+
+  setTimeout( function() { 
+    mostrarApp();
+  },
+  1000);
+
 })
 
 function mostrarApp() {
   const content = document.querySelector('.js-content-app');
   const loaderPage = document.querySelector('.js-loader-page');
+  const ads = document.querySelector('.js-publicidades');
+  const contactos = document.querySelector('.js-contactos')
+
+  if (ads) {
+    ads.classList.remove('js-display-none')
+  }
   content.classList.remove('js-display-none');
+
+  if (contactos) {
+    contactos.classList.remove('js-display-none');
+  }
   loaderPage.classList.add('js-display-none');
   
 }

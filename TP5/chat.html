@@ -10,49 +10,123 @@
 </head>
 <body>
 
-  <header>
-    <a class="logoApp" href="muro.html"><img src="img/appLogo.svg" alt="Logo de la aplicación"></a>
-    <!-- <button style="background: url(myimage.png)" ... /> -->
-    <!-- <button class="logoApp" alt="Logo de la aplicación"/> -->
-    <div class="buscador">
-      <img class="lupa" src="img/lupaBuscador.svg" alt="Icono de lupa del buscador">
-      <input type="text" placeholder="Buscar">
+  <span class="js-loader-page loader-loading-page lds-dual-ring centered"></span>
+
+
+  <header class="search-bar">
+    
+    <div class="logo-y-buscador">
+      <img class="logoApp" src="img/appLogo.svg" alt="Logo de la aplicación">
+      
+      <div class="buscador">
+        <img class="lupa" src="img/lupaBuscador.svg" alt="Icono de lupa del buscador">
+        <input class="js-input-buscador" type="text" placeholder="Buscar">
+        <img class="js-btn-limpiar-buscador btn-limpiar-buscador js-display-none" src="img/clear-input.svg" alt="limpiar buscador">
+        <img class="js-btn-filtros-busqueda btn-filtrar-busqueda" src="img/manage-search.svg" alt="filtro de busqueda">
+      </div>
     </div>
+
+    <div class="badge-cantidad-filtros-aplicados">
+      <span class="js-span-badge cant-filtros-aplicados">0</span>
+    </div>
+    
+    <div class="js-busquedas-recientes busquedas-recientes js-display-none">
+
+      <h1 class="titulo-busquedas-recientes">Búsquedas recientes</h1>
+
+      <img class="js-btn-cerrar-busquedas btn-cerrar-busquedas" src="img/close-busquedas-recientes.svg" alt="cerrar busquedas recientes">
+
+      <div class="js-busqueda-reciente busqueda-reciente">
+        <img class="foto-busqueda-reciente" src="img/Harry-Cooper.jfif" alt="foto busqueda reciente">
+        <div class="nombre-y-descripcion-busqueda-reciente">
+          <h1 class="nombre-busqueda-reciente">Harry Cooper</h1>
+          <p class="descripcion-busqueda-reciente">Veterinario</p>
+        </div>
+        <img src="img/add-recent-search.svg" class="btn-seguir-busqueda-reciente"></button>
+      </div>
+
+      
+      <div class="js-busqueda-reciente busqueda-reciente">
+        <img class="foto-busqueda-reciente" src="img/Debbye-Turner.jfif" alt="foto busqueda reciente">
+        <div class="nombre-y-descripcion-busqueda-reciente">
+          <h1 class="nombre-busqueda-reciente">Debbye Turner</h1>
+          <p class="descripcion-busqueda-reciente">Veterinario</p>
+        </div>
+        <img src="img/add-recent-search.svg" class="btn-seguir-busqueda-reciente"></button>
+      </div>
+    
+    </div>
+
+    <div class="js-buscando buscando js-display-none">
+      <h1 class="js-titulo-buscando titulo-buscando">Buscando <span class="lds-dual-ring"></span></h1>
+    </div>
+
+    <div class="js-resultados-busqueda resultados-busqueda busquedas-recientes js-display-none">
+      <div class="js-busqueda-reciente busqueda-reciente">
+        <img class="foto-busqueda-reciente" src="img/Debbye-Turner.jfif" alt="foto busqueda reciente">
+        <div class="nombre-y-descripcion-busqueda-reciente">
+          <h1 class="js-titulo-resultados nombre-busqueda-reciente">Debbye Turner</h1>
+          <p class="descripcion-busqueda-reciente">Veterinario</p>
+        </div>
+        <img src="img/add-recent-search.svg" class="btn-seguir-busqueda-reciente"></button>
+      </div>
+    </div>
+
+    <div class="js-filtros-busqueda filtros-busqueda js-display-none">
+      
+      <h1 class="titulo-filtros">Filtros de búsqueda</h1>
+      
+      <label class="filtro-por-contactos"> <span class="filter-text">Buscar solo en mis contactos</span> 
+        <input class="js-filtro" type="checkbox">
+        <span class="checkmark"></span>
+      </label>
+      <label class="filtro-por-veterinarios"> <span class="filter-text">Buscar solo veterinarios</span> 
+        <input class="js-filtro" type="checkbox">
+        <span class="checkmark"></span>
+      </label>
+      <label class="filtro-por-lugares"> <span class="filter-text">Buscar solo lugares</span> 
+        <input class="js-filtro" type="checkbox">
+        <span class="checkmark"></span>
+      </label>
+      <button class="js-btn-limpiar-filtros btn-limpiar-filtros">Limpiar filtros</button>
+    </div>
+
   </header>
 
   <main>
     <aside class="navbar">
       <div class="navbar-content">
-        <div class="inicio">
+        <a class="inicio" href="muro.html">
           <img class= "iconInicio" src="img/homeIcon.svg" alt="home icon">
-          <a href="muro.html"><p>Inicio</p></a>
-        </div>
-        <div class="chat">
+          <p>Inicio</p>
+        </a>
+        <a class="chat" href="chat.html">
           <img class="iconChat" src="img/chatIcon.svg" alt="chat icon">
-          <a href="chat.html"><p>Chat</p></a>
-        </div>
-        <div class="perfil">
+          <p>Chat</p>
+        </a>
+        <a class="perfil" href="perfil.html">
           <img class="iconProfile" src="img/profileIcon.svg" alt="profile icon">
-          <a href="perfil.html"><p>Perfil</p></a>
-        </div>  
+          <p>Perfil</p>
+        </a>  
       </div>
     </aside>
   
-    <div class="muro">
+    <div class="muro js-content-app js-display-none">
 
         <div class="chat-body">
           <h2 class="chat-user-title">Conversacion con Hector Salamanca</h2>
           <div class="messages">
             
-            <div>
-              <div class="message-recibed">
-                <img class="post-chat-user-icon-recibed" src="img/user2.svg" alt="user icon">
-                <p class="post-message-recibed-chat">
-                  Hola! Te paso el inicio del post que estoy por hacer. Me Darías tu opnión?
-                </p>
-              </div>
-                <span class="time-left">11:01</span>
+            <div class="message-recibed">
+              <img class="post-chat-user-icon-recibed" src="img/user2.svg" alt="user icon">
+              <p class="post-message-recibed-chat">
+                Hola! Te paso el inicio del post que estoy por hacer. Me Darías tu opnión?
+              </p>
             </div>
+            <!-- <div>
+              
+                <span class="time-left">11:01</span>
+            </div> -->
             <div class="message-recibed">
                 <img class="post-chat-user-icon-recibed" src="img/user2.svg" alt="user icon">
                 <p class="post-message-recibed-chat">
@@ -86,7 +160,7 @@
           </div>
         </div>
         
-        <aside class="ads">
+        <aside class="ads js-content-app js-display-none js-contactos">
           <!-- <div class="publicity">
             <img class="publicity-image" src="img/publicidadUno.svg" alt="user">
           </div>
