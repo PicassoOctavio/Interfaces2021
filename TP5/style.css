@@ -369,6 +369,10 @@ main {
   display: grid;
   background-color: var(--main-color)
 }
+.muro1 {
+  display: grid;
+  background-color: var(--main-color)
+}
 
 /* sugerencias-veterinarios-famosos */
 

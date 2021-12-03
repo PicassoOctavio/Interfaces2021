@@ -19,15 +19,69 @@ const btnLimpiarFiltros = document.querySelector('.js-btn-limpiar-filtros');
 const filtros = document.querySelectorAll('.js-filtro');
 const btnLimpiarBuscador = document.querySelector('.js-btn-limpiar-buscador');
 
+/* ------------------------ POST EN MURO ------------------------------ */
+const btnSubirPosteo = document.querySelector(".post-button-js");
+if (btnSubirPosteo) {
+  btnSubirPosteo.addEventListener("click", subirPost)
+}
+function subirPost() {
+  let mensaje = document.querySelector(".post-creator-message-js").value;
+  if (mensaje){
+    let muro = document.querySelector(".muro");
+
+    let divPost = document.createElement('div');    
+    let divPostUserAndDate = document.createElement('div');    
+    let divInteractionButtons = document.createElement('div');    
+    let nombreUser = document.createElement('h1');    
+    let nombreDate = document.createElement('h2');    
+    let textoMensaje = document.createElement('p');
+    let imgAvatar = document.createElement('img');
+    let imgLike = document.createElement('img');
+    let imgComment = document.createElement('img');
+    let imgShare = document.createElement('img');
+
+    divPost.className = "post";
+    divPostUserAndDate.className = "post-user-and-date";
+    divInteractionButtons.className = "post-interaction-buttons";
+    nombreUser.className = "username-post";
+    nombreDate.className = "post-date";
+    textoMensaje.className = "post-message";
+    imgAvatar.className = "post-creator-user-icon";
+    imgLike.className = "icon-like-post";
+    imgComment.className = "icon-comment-post";
+    imgShare.className = "icon-share-post";
+
+    textoMensaje.innerHTML = mensaje;
+
+    imgAvatar.src="img/userIcon.svg";
+    nombreUser.innerHTML ="Javier De Marco";
+    nombreDate.innerHTML = "3 de Diciembre 2021";
+    imgLike.src="img/like-post-icon.svg";
+    imgComment.src="img/comment-post-icon.svg";
+    imgShare.src="img/share-post-icon.svg";
+
+    divPostUserAndDate.appendChild(imgAvatar);
+    divPostUserAndDate.appendChild(nombreUser);
+    divPostUserAndDate.appendChild(nombreDate);
+    divPost.appendChild(divPostUserAndDate);
+    divPost.appendChild(textoMensaje);
+    divInteractionButtons.appendChild(imgLike);
+    divInteractionButtons.appendChild(imgComment);
+    divInteractionButtons.appendChild(imgShare);
+    divPost.appendChild(divInteractionButtons);
+    muro.prepend(divPost);
+    /* console.log(divPost); */
+  }
+}
+
+
 /* ------------------------ CHAT ------------------------------ */
 
 const btnSendMessage = document.querySelector(".btnSendMessage-js");
 
 if (btnSendMessage) {
-  btnSendMessage.addEventListener("click", sendMessage)
+  btnSendMessage.addEventListener("click", sendMessage);
 }
-
-
 
 function sendMessage(){
   let mensaje = document.querySelector(".post-send-message").value;
