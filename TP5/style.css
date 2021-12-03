@@ -101,23 +101,35 @@ body {
 }
 
 .buscando {
+  display: grid;
   width: 26vw;
   box-shadow: .3vw .3vw .3vw #d3c3e0;
   justify-self: center;
   align-self: flex-end;
   background-color: var(--main-color);
-  height: 20vw;
+  height: 8vw;
   z-index: 2;
   grid-row-start: 2;
   grid-column-start: 1;
 }
 
-.titulo-busquedas-recientes, .titulo-filtros, .titulo-buscando {
+.titulo-buscando {
+  justify-self: center;
+  align-self: center;
+  width: fit-content;
+  margin: 0;
+}
+
+.titulo-busquedas-recientes, .titulo-filtros {
   margin-left: 3vw;
   font-weight: 600;
   font-size: 1.3vw;
   height: 2vw;
   align-self: center;
+}
+
+.resultados-busqueda {
+  height: 8vw;
 }
 
 .titulo-filtros {
